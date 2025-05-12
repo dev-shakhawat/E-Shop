@@ -26,9 +26,10 @@ function HeaderMiddle() {
     }
     return (
         <Container>
-            <div className="flex justify-between items-center py-6  ">
+            <div className="flex justify-between items-center py-8  ">
                 {/* logo */}
-                <img src="/logo.png" alt="logo" className={`w-[125px] h-[35px]  `} onClick={() => navigate("/")}/>
+                <img src="/images/logo.png" alt="logo" className={`w-[125px] h-[35px]  `}
+                     onClick={() => navigate("/")}/>
 
                 {/* search/cart/user */}
                 <div className="flex gap-20  ">
