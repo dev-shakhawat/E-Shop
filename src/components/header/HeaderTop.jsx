@@ -55,10 +55,12 @@ function HeaderTop() {
                             className="flex relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
                             <img src={countries.find((item) => item.code === language)?.flag} alt="flag"
                                  className={` w-[27px] `}/>
-                            <select name="language" id="language" className={`commonpera pr-2 outline-none  `}
+                            <select name="language" id="language"
+                                    className={`commonpera pr-2 outline-none  `}
                                     onChange={(e) => setLanguage(e.target.value)}>
                                 {countries.map((item) => <option key={item.code}
-                                                                 value={item.code}>{item.name}</option>)}
+                                                                 value={item.code}>{item.name}
+                                </option>)}
                             </select>
                         </div>
 

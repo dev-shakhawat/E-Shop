@@ -1,8 +1,56 @@
 import React from 'react';
 
+// components
+import Container from "../Container.jsx";
+
+
+// icons
+import {IoIosSearch} from "react-icons/io";
+import cart from "../../assets/icons/cart.svg";
+import {AiOutlineUser} from "react-icons/ai";
+
 function HeaderMiddle() {
     return (
-        <div>HeaderMiddle</div>
+        <Container>
+            <div className="flex justify-between items-center py-6  ">
+                {/* logo */}
+                <img src="/logo.png" alt="logo" className={`w-[125px] h-[35px]  `}/>
+
+                {/* search/cart/user */}
+                <div className="flex gap-12  ">
+
+                    {/* search */}
+                    <div className="w-[332px] relative ">
+                        <input type="srarch" placeholder={`Search Products ...`}
+                               className={`outline-none border-2 border-secondery pl-6 py-4.5 pr-11 text-primary  w-full rounded-[10px]  `}/>
+                        <IoIosSearch
+                            className={`absolute top-[50%] right-5 -translate-y-[50%] text-2xl text-primary  `}/>
+                    </div>
+
+                    {/*  cart  */}
+                    <div className="flex items-center gap-3 relative ">
+                        <span className="absolute w-[6px] h-[6px] bg-brand rounded-full top-3 left-[21%]  "></span>
+                        <img src={cart} alt="cart" className={`w-[28px]`}/>
+                        <div className="">
+                            <p className="commonpera">Cart</p>
+                            <h3 className="flex gap-1 font-bold text-base leading-[24px]  ">$ <span>150,00</span>
+                            </h3>
+                        </div>
+                    </div>
+
+                    {/* user */}
+                    <div
+                        className="flex items-center gap-3 ml-5 relative after:content-[] after:absolute after:w-[1px] after:h-[50%] after:bg-tertary after:top-1/2 after:-left-[30%] after:-translate-y-[50%]">
+                        <AiOutlineUser className={`text-3xl text-primary  `}/>
+                        <div className="">
+                            <p className="commonpera">User</p>
+                            <h3 className="flex gap-1 font-bold text-base leading-[24px]  ">Account</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </Container>
     );
 }
 
