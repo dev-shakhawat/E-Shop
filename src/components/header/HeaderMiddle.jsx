@@ -1,4 +1,6 @@
 import React from 'react';
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router";
 
 // components
 import Container from "../Container.jsx";
@@ -10,6 +12,18 @@ import cart from "../../assets/icons/cart.svg";
 import {AiOutlineUser} from "react-icons/ai";
 
 function HeaderMiddle() {
+
+    const userInfo = useSelector((state) => state.user.value)
+    const navigate = useNavigate()
+
+    console.log(location)
+    const handelAccount = () => {
+        if (userInfo) {
+            navigate("/account")
+        } else {
+            navigate("/register")
+        }
+    }
     return (
         <Container>
             <div className="flex justify-between items-center py-6  ">
@@ -28,7 +42,7 @@ function HeaderMiddle() {
                     </div>
 
                     {/*  cart  */}
-                    <div className="flex items-center gap-3 relative ">
+                    <div className="cursor-pointer flex items-center gap-3 relative ">
                         <span className="absolute w-[6px] h-[6px] bg-brand rounded-full top-3 left-[21%]  "></span>
                         <img src={cart} alt="cart" className={`w-[28px]`}/>
                         <div className="">
@@ -40,7 +54,8 @@ function HeaderMiddle() {
 
                     {/* user */}
                     <div
-                        className="flex items-center gap-3 ml-5 relative after:content-[] after:absolute after:w-[1px] after:h-[50%] after:bg-tertary after:top-1/2 after:-left-[30%] after:-translate-y-[50%]">
+                        onClick={() => handelAccount()}
+                        className=" cursor-pointer  flex items-center gap-3 ml-5 relative after:content-[] after:absolute after:w-[1px] after:h-[50%] after:bg-tertary after:top-1/2 after:-left-[30%] after:-translate-y-[50%]">
                         <AiOutlineUser className={`text-3xl text-primary  `}/>
                         <div className="">
                             <p className="commonpera">User</p>

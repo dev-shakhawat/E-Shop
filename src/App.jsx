@@ -1,4 +1,10 @@
 import {BrowserRouter, Route, Routes} from "react-router";
+
+
+import {Provider} from 'react-redux'
+import {store} from '../src/redux/store.js'
+
+// pages
 import Home from "./pages/Home.jsx";
 import Allproducts from "./pages/Allproducts.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
@@ -14,22 +20,24 @@ import Layout from "./components/Layout.jsx";
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<Layout/>}>
-                    <Route index element={<Home/>}/>
-                    <Route path="/allproduct" element={<Allproducts/>}/>
-                    <Route path="/product-detail" element={<ProductDetails/>}/>
-                    <Route path="/carts" element={<Cart/>}/>
-                    <Route path="/checkout" element={<Checkout/>}/>
-                    <Route path="/register" element={<Register/>}/>
-                    <Route path="/account" element={<MyAccount/>}/>
-                    <Route path="/blog" element={<Blog/>}/>
-                    <Route path="/blog-details" element={<BlogDetails/>}/>
-                    <Route path="/contact" element={<Contact/>}/>
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={"/"} element={<Layout/>}>
+                        <Route index element={<Home/>}/>
+                        <Route path="/allproduct" element={<Allproducts/>}/>
+                        <Route path="/product-detail" element={<ProductDetails/>}/>
+                        <Route path="/carts" element={<Cart/>}/>
+                        <Route path="/checkout" element={<Checkout/>}/>
+                        <Route path="/register" element={<Register/>}/>
+                        <Route path="/account" element={<MyAccount/>}/>
+                        <Route path="/blog" element={<Blog/>}/>
+                        <Route path="/blog-details" element={<BlogDetails/>}/>
+                        <Route path="/contact" element={<Contact/>}/>
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </Provider>
     )
 }
 
