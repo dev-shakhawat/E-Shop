@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 // components
@@ -11,6 +11,18 @@ import {IoCallOutline, IoLocationOutline} from "react-icons/io5";
 import {FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa";
 
 function HeaderTop() {
+    const countries = [
+        {name: 'United States', code: 'US', flag: 'https://flagcdn.com/16x12/us.png'},
+        {name: 'Canada', code: 'CA', flag: 'https://flagcdn.com/16x12/ca.png'},
+        {name: 'United Kingdom', code: 'GB', flag: 'https://flagcdn.com/16x12/gb.png'},
+        {name: 'Australia', code: 'AU', flag: 'https://flagcdn.com/16x12/au.png'},
+        {name: 'Germany', code: 'DE', flag: 'https://flagcdn.com/16x12/de.png'},
+        {name: 'France', code: 'FR', flag: 'https://flagcdn.com/16x12/fr.png'},
+    ]
+
+    const [language, setLanguage] = useState("US")
+    console.log(language)
+
     return (
         <div className={` border-b border-tertary py-[22px]  `}>
             <Container>
@@ -29,27 +41,32 @@ function HeaderTop() {
                     </div>
 
                     {/*  currency & social & language  */}
-                    <div className="flex">
+                    <div className="flex gap-12  ">
 
                         {/* currency */}
-                        <select name="currency" id="currency">
+                        <select name="currency" id="currency" className={`commonpera uppercase pr-2 outline-none  `}>
                             <option value="USD">USD</option>
                             <option value="BDT">BDT</option>
                             <option value="EUR">EUR</option>
                         </select>
 
                         {/*  language  */}
-                        <select name="language" id="language">
-                            <option value="English">English</option>
-                            <option value="Arabic">Arabic</option>
-                            <option value="Bangla">Bangla</option>
-                        </select>
+                        <div
+                            className="flex relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
+                            <img src={countries.find((item) => item.code === language)?.flag} alt="flag"
+                                 className={` w-[27px] `}/>
+                            <select name="language" id="language" className={`commonpera pr-2 outline-none  `}
+                                    onChange={(e) => setLanguage(e.target.value)}>
+                                {countries.map((item) => <option key={item.code}
+                                                                 value={item.code}>{item.name}</option>)}
+                            </select>
+                        </div>
 
                         {/*  socials  */}
-                        <ul>
-                            <li><Link to={`#`}><FaFacebookF/></Link></li>
-                            <li><Link to={`#`}><FaTwitter/></Link></li>
-                            <li><Link to={`#`}><FaInstagram/></Link></li>
+                        <ul className={`flex gap-6 text-primary relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]`}>
+                            <li><Link to={`https://www.facebook.com/`} target={`_blank`}><FaFacebookF/></Link></li>
+                            <li><Link to={`https://x.com/`} target={`_blank`}><FaTwitter/></Link></li>
+                            <li><Link to={`https://www.instagram.com/`} target={`_blank`}><FaInstagram/></Link></li>
                         </ul>
                     </div>
 
