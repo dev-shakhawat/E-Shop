@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from "../Container.jsx";
+import Container from "../common/Container.jsx";
 
 
 // icons
@@ -25,7 +25,7 @@ function HeaderBottom() {
                     {/* left */}
                     <div className="flex">
                         <button
-                            className="flex items-center gap-x-4 font-montserrat text-white text-base leading-[24px] font-bold  "
+                            className="flex items-center gap-x-4 font-montserrat text-white text-base leading-[24px] font-bold cursor-pointer  "
                             type={`button`}>
                             <HiOutlineMenu className={`text-2xl`}/><span>All Catgories</span>
                         </button>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 // components
-import Container from "../Container.jsx";
+import Container from "../common/Container.jsx";
 import {Link} from "react-router";
 
 

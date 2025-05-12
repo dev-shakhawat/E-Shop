@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router";
 
 // components
-import Container from "../Container.jsx";
+import Container from "../common/Container.jsx";
 
 
 // icons
