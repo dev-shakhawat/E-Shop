@@ -28,10 +28,10 @@ function HeaderMiddle() {
         <Container>
             <div className="flex justify-between items-center py-6  ">
                 {/* logo */}
-                <img src="/logo.png" alt="logo" className={`w-[125px] h-[35px]  `}/>
+                <img src="/logo.png" alt="logo" className={`w-[125px] h-[35px]  `} onClick={() => navigate("/")}/>
 
                 {/* search/cart/user */}
-                <div className="flex gap-12  ">
+                <div className="flex gap-20  ">
 
                     {/* search */}
                     <div className="w-[332px] relative ">
@@ -42,11 +42,12 @@ function HeaderMiddle() {
                     </div>
 
                     {/*  cart  */}
-                    <div className="cursor-pointer flex items-center gap-3 relative ">
+                    <div className="cursor-pointer flex items-center gap-3 relative "
+                         onClick={() => navigate("/carts")}>
                         <span className="absolute w-[6px] h-[6px] bg-brand rounded-full top-3 left-[21%]  "></span>
                         <img src={cart} alt="cart" className={`w-[28px]`}/>
                         <div className="">
-                            <p className="commonpera">Cart</p>
+                            <p className="font-montserrat text-primary text-base leading-[24px]">Cart</p>
                             <h3 className="flex gap-1 font-bold text-base leading-[24px]  ">$ <span>150,00</span>
                             </h3>
                         </div>
@@ -55,10 +56,10 @@ function HeaderMiddle() {
                     {/* user */}
                     <div
                         onClick={() => handelAccount()}
-                        className=" cursor-pointer  flex items-center gap-3 ml-5 relative after:content-[] after:absolute after:w-[1px] after:h-[50%] after:bg-tertary after:top-1/2 after:-left-[30%] after:-translate-y-[50%]">
+                        className=" cursor-pointer  flex items-center gap-3 ml-5 relative after:content-[] after:absolute after:w-[1px] after:h-[50%] after:bg-tertary after:top-1/2 after:-left-[50%] after:-translate-y-[50%]">
                         <AiOutlineUser className={`text-3xl text-primary  `}/>
                         <div className="">
-                            <p className="commonpera">User</p>
+                            <p className="font-montserrat text-primary text-base leading-[24px]">User</p>
                             <h3 className="flex gap-1 font-bold text-base leading-[24px]  ">Account</h3>
                         </div>
                     </div>
