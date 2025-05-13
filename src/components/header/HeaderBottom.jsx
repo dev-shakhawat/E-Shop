@@ -8,14 +8,14 @@ import {IoIosArrowDown} from "react-icons/io";
 import List from "../common/List.jsx";
 
 const leftNavList = [
-    {icon: <IoIosArrowDown/>, text: "Products"},
-    {icon: null, text: "Blog"},
-    {icon: null, text: "Contact"}]
+    {icon: <IoIosArrowDown/>, text: "Products", link: "/allproduct"},
+    {icon: null, text: "Blog", link: "/blog"},
+    {icon: null, text: "Contact", link: "/contact"}]
 
 const rightNavList = [
-    {icon: null, text: "LIMITED SALE 👋🏻"},
-    {icon: null, text: "Best Seller"},
-    {icon: null, text: "New Arrival"}]
+    {icon: null, text: "LIMITED SALE 👋🏻", link: "#"},
+    {icon: null, text: "Best Seller", link: "#"},
+    {icon: null, text: "New Arrival", link: "#"}]
 
 function HeaderBottom() {
     return (
