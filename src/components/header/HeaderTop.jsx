@@ -43,7 +43,8 @@ function HeaderTop() {
                     <div className="flex gap-12  ">
 
                         {/* currency */}
-                        <select name="currency" id="currency" className={`commonpera uppercase pr-2 outline-none  `}>
+                        <select name="currency" id="currency"
+                                className={`commonpera uppercase pr-2 outline-none cursor-pointer `}>
                             <option value="USD">USD</option>
                             <option value="BDT">BDT</option>
                             <option value="EUR">EUR</option>
@@ -51,11 +52,11 @@ function HeaderTop() {
 
                         {/*  language  */}
                         <div
-                            className=" w-[112px]  flex relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
+                            className=" w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
                             <img src={countries.find((item) => item.code === language)?.flag} alt="flag"
                                  className={` w-[27px] h-[15px] `}/>
                             <select name="language" id="language"
-                                    className={`commonpera pr-2 outline-none truncate whitespace-nowrap overflow-hidden w-[90px] `}
+                                    className={`commonpera pr-2 outline-none cursor-pointer truncate whitespace-nowrap overflow-hidden w-[90px] `}
                                     onChange={(e) => setLanguage(e.target.value)}>
                                 {countries.map((item) => <option key={item.code}
                                                                  value={item.code}>{item.name} </option>)}
