@@ -8,6 +8,7 @@ import Visa from "../../icons/Visa.jsx";
 import ApplePay from "../../icons/ApplePay.jsx";
 import MasterCard from "../../icons/MasterCard.jsx";
 import Paypal from "../../icons/Paypal.jsx";
+import {Link} from "react-router";
 
 function FooterBottom() {
 
@@ -105,6 +106,25 @@ function FooterBottom() {
                         <List arr={footFollow} liststyle={`text-primary font-montserrat text-base leading-[24px]`}
                               boxstyle={`flex flex-col gap-3`}/>
                     </div>
+                </div>
+
+
+                {/*  copyright part  */}
+                <div className="flex justify-between mt-20 border-t border-secondery/50 pt-2 pb-20  ">
+                    <p className="font-montserrat text-sm text-primary leading-5  ">Copyright © 2023 <Link
+                        to={`/`}>E-Shop</Link>.
+                        All Rights
+                        Reserved.</p>
+
+                    <p className="flex gap-5 font-montserrat text-sm text-primary leading-5 ">
+                        <Link to={`/#`}>Privacy Policy</Link>
+                        <Link to={`/#`}
+                              className={`relative after:content-[''] after:w-[1px] after:h-5/6 after:bg-secondery after:absolute after:top-0.5 after:left-0 after:-translate-x-2 `}>Terms
+                            &
+                            Conditions</Link>
+                        <Link to={`/#`}
+                              className={`relative after:content-[''] after:w-[1px] after:h-5/6 after:bg-secondery after:absolute after:top-0.5 after:left-0 after:-translate-x-2 `}>Sitemap</Link>
+                    </p>
                 </div>
             </Container>
         </div>
