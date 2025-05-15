@@ -1,25 +1,20 @@
 import React from 'react';
-import Container from "../components/common/Container.jsx";
-import Button from "../components/common/Button.jsx";
+import Banner from "../components/banner/Banner.jsx";
+import Facility from "../components/facility/Facility.jsx";
+import FeaturedProduct from "../components/featured/FeaturedProduct.jsx";
 
 function Home() {
     return (
         <div>
             {/*  banner part  */}
-            <div className="mt-8">
-                <Container>
-                    <div className="py-[139px] rounded-[15px] px-[108px]  "
-                         style={{backgroundImage: "url('/images/banner.png')"}}>
-                        <h1 className={`font-poppins font-bold text-[56px] leading-17 max-w-[503px]  `}>Your One-Stop
-                            Electronic Market</h1>
-                        <p className="text-primary font-montserrat text-xl leading-[30px] mt-4 max-w-[514px]  ">Welcome
-                            to e-shop, a place where you can buy everything about electronics. Sale every day!</p>
+            <Banner/>
 
-                        <Button style={`mt-8 py-4 px-10 `} text="Shop Now"/>
+            {/*  facility  */}
+            <Facility/>
 
-                    </div>
-                </Container>
-            </div>
+            {/*  featured product  */}
+            <FeaturedProduct/>
+
         </div>
     );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import Container from "../common/Container.jsx";
 import List from "../common/List.jsx";
-import Call from "../../icons/Call.jsx";
-import Mail from "../../icons/Mail.jsx";
-import Location from "../../icons/Location.jsx";
-import Visa from "../../icons/Visa.jsx";
-import ApplePay from "../../icons/ApplePay.jsx";
-import MasterCard from "../../icons/MasterCard.jsx";
-import Paypal from "../../icons/Paypal.jsx";
+import Call from "../../icons/footer/Call.jsx";
+import Mail from "../../icons/footer/Mail.jsx";
+import Location from "../../icons/footer/Location.jsx";
+import Visa from "../../icons/footer/Visa.jsx";
+import ApplePay from "../../icons/footer/ApplePay.jsx";
+import MasterCard from "../../icons/footer/MasterCard.jsx";
+import Paypal from "../../icons/footer/Paypal.jsx";
 import {Link} from "react-router";
 
 function FooterBottom() {

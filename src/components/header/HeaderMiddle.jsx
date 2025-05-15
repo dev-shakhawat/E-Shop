@@ -8,16 +8,16 @@ import Container from "../common/Container.jsx";
 
 // icons
 import {IoIosSearch} from "react-icons/io";
-import CartIcon from "../../icons/CartIcon.jsx";
-import UserIcon from "../../icons/UserIcon.jsx";
-import SearchIcon from "../../icons/SearchIcon.jsx";
+import CartIcon from "../../icons/header/CartIcon.jsx";
+import UserIcon from "../../icons/header/UserIcon.jsx";
+import SearchIcon from "../../icons/header/SearchIcon.jsx";
 
 function HeaderMiddle() {
 
     const userInfo = useSelector((state) => state.user.value)
     const navigate = useNavigate()
 
-    console.log(location)
+
     const handelAccount = () => {
         if (userInfo) {
             navigate("/account")
@@ -29,7 +29,7 @@ function HeaderMiddle() {
         <Container>
             <div className="flex justify-between items-center py-8  ">
                 {/* logo */}
-                <img src="/images/logo.png" alt="logo" className={`w-[125px] h-[35px]  `}
+                <img src="/images/logo.png" alt="logo" className={`w-[125px] h-[35px] cursor-pointer  `}
                      onClick={() => navigate("/")}/>
 
                 {/* search/cart/user */}
