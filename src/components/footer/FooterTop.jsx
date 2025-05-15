@@ -24,7 +24,7 @@ function FooterTop() {
                            className={`outline-none border-2 border-secondery pl-6 py-4.5 pr-11 mt-8 max-w-[494px] text-primary  w-full rounded-[10px] bg-white  `}/>
 
                     {/*  button  */}
-                    <Button text={`Subscribe`} type={`button`}/>
+                    <Button text={`Subscribe`} type={`button`} style={`py-4 px-10 mt-4`}/>
                 </div>
             </div>
         </Container>
