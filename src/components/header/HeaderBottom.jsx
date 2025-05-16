@@ -8,7 +8,16 @@ import {IoIosArrowDown} from "react-icons/io";
 import List from "../common/List.jsx";
 
 const leftNavList = [
-    {icon: <IoIosArrowDown/>, text: "Products", link: "/allproduct"},
+    {
+        icon: <IoIosArrowDown/>,
+        text: "Products",
+        link: "#",
+        dropdown: [
+            {text: "Product 1", link: "/#"},
+            {text: "Product 2", link: "/#"},
+            {text: "Product 3", link: "/#"},
+            {text: "Product 4", link: "/#"},],
+    },
     {icon: null, text: "Blog", link: "/blog"},
     {icon: null, text: "Contact", link: "/contact"}]
 
