@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import axios from 'axios';
+
 
 // components
 import Container from "../common/Container.jsx";
@@ -9,19 +11,69 @@ import {Link} from "react-router";
 // icons
 import {IoCallOutline, IoLocationOutline} from "react-icons/io5";
 import {FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa";
+import ArrowDown from "../../icons/header/ArrowDown.jsx";
 
 function HeaderTop() {
-    const countries = [
-        {name: 'United States', code: 'US', flag: 'https://flagcdn.com/16x12/us.png'},
-        {name: 'Canada', code: 'CA', flag: 'https://flagcdn.com/16x12/ca.png'},
-        {name: 'United Kingdom', code: 'GB', flag: 'https://flagcdn.com/16x12/gb.png'},
-        {name: 'Australia', code: 'AU', flag: 'https://flagcdn.com/16x12/au.png'},
-        {name: 'Germany', code: 'DE', flag: 'https://flagcdn.com/16x12/de.png'},
-        {name: 'France', code: 'FR', flag: 'https://flagcdn.com/16x12/fr.png'},
-    ]
 
-    const [language, setLanguage] = useState("US")
+    const [isDropdown, setIsDropdown] = React.useState(false);
+    const [countries, setCountries] = React.useState([]);
+    const [selectedCountry, setSelectedCountry] = useState(null)
+    const countryRef = React.useRef(null);
+    const [searchVal, setSearchVal] = React.useState("");
+    const [searchCountries, setSearchCountries] = React.useState(countries);
 
+    React.useEffect(() => {
+
+        // for country data fetch
+        const fetchCountries = async () => {
+            try {
+                const response = await axios.get('https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json');
+                setCountries(response.data)
+                setSearchCountries(response.data)
+                setSelectedCountry(response.data[0])
+            } catch (error) {
+                console.error('Error fetching countries:', error);
+            }
+        };
+
+        fetchCountries()
+
+
+        //  for dropdown
+        const handleOutsideClick = (event) => {
+            if (countryRef.current && !countryRef.current.contains(event.target)) {
+                setIsDropdown(false);
+                setSearchVal("")
+            }
+        };
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+
+
+    }, [])
+
+
+    // search country
+    const handleSearchCountry = (e) => {
+        const searchtext = e.target.value.toLowerCase();
+        setSearchVal(searchtext);
+
+        const filteredcountries = countries.filter(country => country.name.toLowerCase().includes(searchtext));
+
+        if (filteredcountries) {
+            setSearchCountries(filteredcountries);
+        } else {
+            setSearchCountries([{name: "No Country Found", code: null, image: null}])
+        }
+
+    };
+
+    const handelCountryset = (item) => {
+        setSelectedCountry(item);
+        setSearchVal("");
+    }
     return (
         <div className={` border-b border-tertary py-[22px]  `}>
             <Container>
@@ -44,7 +96,7 @@ function HeaderTop() {
 
                         {/* currency */}
                         <select name="currency" id="currency"
-                                className={`commonpera uppercase pr-2 outline-none cursor-pointer `}>
+                                className={`font-montserrat text-primary text-[14px] leading-[20px] uppercase pr-2 outline-none cursor-pointer `}>
                             <option value="USD">USD</option>
                             <option value="BDT">BDT</option>
                             <option value="EUR">EUR</option>
@@ -53,14 +105,49 @@ function HeaderTop() {
                         {/*  language  */}
                         <div
                             className=" w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
-                            <img src={countries.find((item) => item.code === language)?.flag} alt="flag"
-                                 className={` w-[27px] h-[15px] `}/>
-                            <select name="language" id="language"
-                                    className={`commonpera pr-2 outline-none cursor-pointer truncate whitespace-nowrap overflow-hidden w-[90px] `}
-                                    onChange={(e) => setLanguage(e.target.value)}>
-                                {countries.map((item) => <option key={item.code}
-                                                                 value={item.code}>{item.name} </option>)}
-                            </select>
+
+                            <div className="flex relative  " onClick={() => setIsDropdown(!isDropdown)}>
+                                <div className=" flex items-center ">
+                                    <img src={selectedCountry?.image} alt={selectedCountry?.name}
+                                         className={`min-w-[25px] h-[18px] object-cover  `}/>
+                                    <span
+                                        className="mx-2 w-[70px] truncate whitespace-nowrap overflow-hidden ">{selectedCountry?.name}</span>
+                                    <ArrowDown/>
+                                </div>
+
+                                {/*  all language dropdown  */}
+                                {isDropdown &&
+                                    <div
+                                        ref={countryRef}
+                                        className="flex flex-col gap-1 pt-7 absolute top-8 -left-7 z-[1] bg-white p-2 rounded-md w-[180px] h-[400px]   border border-tertary ">
+                                        <input type="text" placeholder={`search`}
+                                               className={`absolute top-0 left-0 w-full border-b border-tertary/50 outline-none px-2 `}
+                                               onClick={(e) => e.stopPropagation()}
+                                               onChange={(e) => handleSearchCountry(e)}
+                                               value={searchVal}
+                                        />
+                                        <div className={`overflow-y-scroll overflow-x-hidden`}>
+                                            {searchCountries.length === 0 ?
+                                                <p className={`font-montserrat text-primary text-[14px] leading-[20px]`}>No
+                                                    Country Found</p> :
+                                                searchCountries.map((item) => <div
+
+                                                    onClick={() => handelCountryset(item)}
+                                                    key={item.unicode}
+                                                    className={`flex items-center px-1 gap-2 hover:bg-tertary/50   `}>
+                                                    <img
+                                                        className={`w-[25px] h-[15px] object-cover  `}
+                                                        src={item.image}
+                                                        alt={item.name}/>
+                                                    <span
+                                                        className={`w-[150px] truncate whitespace-nowrap overflow-hidden`}>{item.name}</span>
+
+                                                </div>)}
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
                         </div>
 
                         {/*  socials  */}

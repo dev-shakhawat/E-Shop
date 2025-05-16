@@ -5,8 +5,7 @@ function List({arr, boxstyle, liststyle}) {
 
     const [isDropdown, setIsDropdown] = React.useState(false);
     const dropdownRef = React.useRef(null);
-
-    console.log(dropdownRef)
+    
 
     React.useEffect(() => {
         const handleOutsideClick = (event) => {

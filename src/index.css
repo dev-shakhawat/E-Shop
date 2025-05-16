@@ -20,6 +20,14 @@
 
 
 /* common css */
-.commonpera {
-    @apply font-montserrat text-primary text-[14px] leading-[20px] ;
+::-webkit-scrollbar {
+    @apply w-[3px]
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-tertary
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-brand rounded-[10px]
 }
