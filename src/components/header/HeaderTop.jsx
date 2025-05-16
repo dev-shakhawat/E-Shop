@@ -11,7 +11,7 @@ import {Link} from "react-router";
 // icons
 import {IoCallOutline, IoLocationOutline} from "react-icons/io5";
 import {FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa";
-import ArrowDown from "../../icons/header/ArrowDown.jsx";
+import ArrowDown from "../../icons/ArrowDown.jsx";
 
 function HeaderTop() {
 
@@ -119,7 +119,7 @@ function HeaderTop() {
                                 {isDropdown &&
                                     <div
                                         ref={countryRef}
-                                        className="flex flex-col gap-1 pt-7 absolute top-8 -left-7 z-[1] bg-white p-2 rounded-md w-[180px] h-[400px]   border border-tertary ">
+                                        className="flex flex-col gap-1 pt-7 absolute top-8 -left-7 z-[1] bg-white pl-2 py-2 rounded-md w-[180px] h-[400px]   border border-tertary ">
                                         <input type="text" placeholder={`search`}
                                                className={`absolute top-0 left-0 w-full border-b border-tertary/50 outline-none px-2 `}
                                                onClick={(e) => e.stopPropagation()}

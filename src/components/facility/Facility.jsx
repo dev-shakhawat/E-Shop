@@ -2,10 +2,10 @@ import React from 'react';
 import Container from "../common/Container.jsx";
 
 // icons
-import CustomerCare from "../../icons/facility/CustomerCare.jsx";
-import Security from "../../icons/facility/Security.jsx";
-import Delevery from "../../icons/facility/Delevery.jsx";
-import Transparent from "../../icons/facility/Transparent.jsx";
+import CustomerCare from "../../icons/CustomerCare.jsx";
+import Security from "../../icons/Security.jsx";
+import Delevery from "../../icons/Delevery.jsx";
+import Transparent from "../../icons/Transparent.jsx";
 import FacilityCart from "./FacilityCart.jsx";
 
 function Facility() {

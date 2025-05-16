@@ -8,9 +8,9 @@ import Container from "../common/Container.jsx";
 
 // icons
 import {IoIosSearch} from "react-icons/io";
-import CartIcon from "../../icons/header/CartIcon.jsx";
-import UserIcon from "../../icons/header/UserIcon.jsx";
-import SearchIcon from "../../icons/header/SearchIcon.jsx";
+import CartIcon from "../../icons/CartIcon.jsx";
+import UserIcon from "../../icons/UserIcon.jsx";
+import SearchIcon from "../../icons/SearchIcon.jsx";
 
 function HeaderMiddle() {
 
