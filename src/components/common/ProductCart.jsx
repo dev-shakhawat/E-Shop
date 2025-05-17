@@ -11,12 +11,37 @@ import Love from "../../icons/Love.jsx";
 import Share from "../../icons/Share.jsx";
 
 
-function Product({catagory, title, currentprice, delprice}) {
+function ProductCart({
+                         catagory,
+                         title,
+                         currentprice,
+                         delprice,
+                         persentRound = false,
+                         persent = null,
+                         rating,
+                         totalrating,
+                         bg = "transparent",
+                         strok = true,
+                         available
+                     }) {
+
+    const [ratingval, setRatingval] = React.useState(new Array(rating).fill(rating))
+
+
     return (
-        <div className={`p-6 border rounded-lg cursor-pointer border-transparent hover:border-tertary group   `}>
+        <div style={{background: bg}}
+             className={`p-6 border rounded-lg cursor-pointer border-transparent hover:border-tertary group   `}>
 
             {/*  top part  */}
             <div className="relative overflow-hidden ">
+
+                {/*   persent tag    */}
+                {persent &&
+                    <div
+                        className={`absolute top-0 right-0 bg-brand text-white text-base font-bold leading-[24px] font-montserrat px-5 py-1.5 flex justify-center items-center ${persentRound ? "w-[60px] h-[60px]   rounded-full" : "rounded-[5px]"} `}>{persent}%
+                    </div>}
+
+                {/*  product image  */}
                 <img src={productimg} alt="productimg"/>
 
                 {/*  cart/love/share   */}
@@ -45,13 +70,10 @@ function Product({catagory, title, currentprice, delprice}) {
 
                 <div className="flex items-center mt-2 ">
                     <ul className="flex">
-                        <li><Star/></li>
-                        <li><Star/></li>
-                        <li><Star/></li>
-                        <li><Star/></li>
-                        <li><Star/></li>
+                        {/*   rating   */}
+                        {ratingval.map((item, index) => <li key={index}><Star/></li>)}
                     </ul>
-                    <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>(50)</p>
+                    <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>{(totalrating)}</p>
                 </div>
 
                 {/*  price  */}
@@ -66,6 +88,17 @@ function Product({catagory, title, currentprice, delprice}) {
                             className={`font-montserrat font-normal text-base leading-[24px] text-secondery  `}>{delprice}</del>}
 
                 </div>
+
+
+                {/*  stroke/available part  */}
+                {strok &&
+                    <div className={`h-[30px] bg-tertary mt-8 rounded-[25px] overflow-hidden relative `}>
+                        {/*  progress bar  */}
+                        <div style={{width: `${available}%`}} className="bg-primary h-full rounded-[25px]    "></div>
+                        <p className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] uppercase font-montserrat font-bold text-base leading-[24px] text-white   ">50
+                            available</p>
+                    </div>}
+
             </div>
 
 
@@ -73,4 +106,4 @@ function Product({catagory, title, currentprice, delprice}) {
     );
 }
 
-export default Product;
+export default ProductCart;

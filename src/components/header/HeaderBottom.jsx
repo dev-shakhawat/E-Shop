@@ -13,10 +13,10 @@ const leftNavList = [
         text: "Products",
         link: "#",
         dropdown: [
-            {text: "Product 1", link: "/#"},
-            {text: "Product 2", link: "/#"},
-            {text: "Product 3", link: "/#"},
-            {text: "Product 4", link: "/#"},],
+            {text: "ProductCart 1", link: "/#"},
+            {text: "ProductCart 2", link: "/#"},
+            {text: "ProductCart 3", link: "/#"},
+            {text: "ProductCart 4", link: "/#"},],
     },
     {icon: null, text: "Blog", link: "/blog"},
     {icon: null, text: "Contact", link: "/contact"}]
