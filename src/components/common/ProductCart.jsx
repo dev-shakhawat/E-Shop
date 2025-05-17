@@ -30,7 +30,7 @@ function ProductCart({
 
     return (
         <div style={{background: bg}}
-             className={`p-6 border rounded-lg cursor-pointer border-transparent hover:border-tertary group   `}>
+             className={`mx-0.5 p-6 border rounded-lg cursor-pointer border-transparent hover:border-tertary group   `}>
 
             {/*  top part  */}
             <div className="relative overflow-hidden ">
