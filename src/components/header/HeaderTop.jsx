@@ -119,7 +119,7 @@ function HeaderTop() {
                                 {isDropdown &&
                                     <div
                                         ref={countryRef}
-                                        className="flex flex-col gap-1 pt-7 absolute top-8 -left-7 z-[1] bg-white pl-2 py-2 rounded-md w-[180px] h-[400px]   border border-tertary ">
+                                        className="flex flex-col gap-1 pt-7 absolute top-8 -left-7 z-[1] bg-white pl-2 py-2 rounded-md w-[180px] max-h-[400px] h-fit   border border-tertary ">
                                         <input type="text" placeholder={`search`}
                                                className={`absolute top-0 left-0 w-full border-b border-tertary/50 outline-none px-2 `}
                                                onClick={(e) => e.stopPropagation()}
