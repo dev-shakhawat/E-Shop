@@ -20,8 +20,7 @@ function FeaturedProduct() {
                                  currentprice={999.00} delprice={345} rating={4} totalrating={110}/>
                     <ProductCart catagory={`audio`}
                                  title={`JPhone 13 High Quality Value Buy Best Cam...`}
-                                 currentprice={999.00} delprice={345} rating={1} totalrating={90} strok={true}
-                                 available={70}/>
+                                 currentprice={999.00} delprice={345} rating={1} totalrating={90}/>
                 </div>
             </Container>
 

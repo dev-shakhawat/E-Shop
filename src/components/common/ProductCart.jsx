@@ -21,7 +21,7 @@ function ProductCart({
                          rating,
                          totalrating,
                          bg = "transparent",
-                         strok = true,
+                         strok = false,
                          available
                      }) {
 
