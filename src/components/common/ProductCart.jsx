@@ -2,13 +2,13 @@ import React from 'react';
 
 
 // img
-import productimg from "../../assets/images/FeaturedProduct/product.png";
+import productimg from "../../assets/images/product.png";
 
 // icons
-import Star from "../../icons/Star.jsx";
-import CartIcon from "../../icons/CartIcon.jsx";
-import Love from "../../icons/Love.jsx";
-import Share from "../../icons/Share.jsx";
+import Star from "../../assets/icons/Star.jsx";
+import CartIcon from "../../assets/icons/CartIcon.jsx";
+import Love from "../../assets/icons/Love.jsx";
+import Share from "../../assets/icons/Share.jsx";
 
 
 function ProductCart({

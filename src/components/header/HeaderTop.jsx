@@ -10,9 +10,9 @@ import {Link} from "react-router";
 
 // icons
 import {FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa";
-import ArrowDown from "../../icons/ArrowDown.jsx";
-import CallOutline from "../../icons/CallOutline.jsx";
-import LocationOutline from "../../icons/LocationOutline.jsx";
+import ArrowDown from "../../assets/icons/ArrowDown.jsx";
+import CallOutline from "../../assets/icons/CallOutline.jsx";
+import LocationOutline from "../../assets/icons/LocationOutline.jsx";
 
 function HeaderTop() {
 

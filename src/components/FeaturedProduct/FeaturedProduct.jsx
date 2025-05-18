@@ -6,8 +6,8 @@ import ProductCart from "../common/ProductCart.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SlickNextArrow from "../../icons/SlickNextArrow.jsx";
-import SlickPrevArrow from "../../icons/SlickPrevArrow.jsx";
+import SlickNextArrow from "../../assets/icons/SlickNextArrow.jsx";
+import SlickPrevArrow from "../../assets/icons/SlickPrevArrow.jsx";
 
 
 // next arrow
