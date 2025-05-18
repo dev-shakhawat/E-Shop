@@ -18,7 +18,7 @@ function ProductCart({
                          delprice,
                          persentRound = false,
                          persent = null,
-                         rating,
+                         rating = 0,
                          totalrating,
                          bg = "transparent",
                          strok = false,
@@ -73,7 +73,7 @@ function ProductCart({
                         {/*   rating   */}
                         {ratingval.map((item, index) => <li key={index}><Star/></li>)}
                     </ul>
-                    <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>{(totalrating)}</p>
+                    <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>({totalrating})</p>
                 </div>
 
                 {/*  price  */}

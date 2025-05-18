@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SlickNextArrow from "../../assets/icons/SlickNextArrow.jsx";
 import SlickPrevArrow from "../../assets/icons/SlickPrevArrow.jsx";
+import {Link} from "react-router";
+import ArrowRightLong from "../../assets/icons/ArrowRightLong.jsx";
 
 
 // next arrow
@@ -36,7 +38,14 @@ function FeaturedProduct() {
             <Container>
 
                 {/*   heading   */}
-                <h2 className="font-poppins font-semibold text-4xl text-primary leading-[46px]  ">Featured Products</h2>
+                <h2 className=" flex justify-between  ">
+                    <span className={`font-poppins font-semibold text-4xl text-primary leading-[46px]`}>Featured Products</span>
+                    <Link to={`#`}
+                          className={`font-montserrat font-bold text-base leading-[24px] text-brand flex items-center gap-4`}>
+                        <span>View All</span>
+                        <ArrowRightLong/>
+                    </Link>
+                </h2>
 
                 {/*   slider   */}
                 <div className="mx-14 mt-12 ">
