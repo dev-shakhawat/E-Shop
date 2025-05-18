@@ -9,9 +9,10 @@ import {Link} from "react-router";
 
 
 // icons
-import {IoCallOutline, IoLocationOutline} from "react-icons/io5";
 import {FaFacebookF, FaInstagram, FaTwitter} from "react-icons/fa";
 import ArrowDown from "../../icons/ArrowDown.jsx";
+import CallOutline from "../../icons/CallOutline.jsx";
+import LocationOutline from "../../icons/LocationOutline.jsx";
 
 function HeaderTop() {
 
@@ -81,14 +82,14 @@ function HeaderTop() {
 
                     {/*  header top contact  */}
                     <div
-                        className="flex gap-12 relative after:content-[] after:absolute after:w-[1px] after:h-[90%] after:bg-tertary after:top-1/2 after:left-[61.5%] after:-translate-y-[50%]">
+                        className="flex gap-12 relative after:content-[] after:absolute after:w-[1px] after:h-[32px] after:bg-tertary after:top-1/2 after:left-[61.5%] after:-translate-y-[50%]">
                         {/* location */}
                         <Link to="https://maps.app.goo.gl/s3CtZ3oZhrHXWLBy9" target={`_blank`}
-                              className="flex items-center gap-2 font-montserrat text-[14px] leading-[20px] text-20  "><IoLocationOutline/><span>123 Main Street, Anytown USA</span></Link>
+                              className="flex items-center gap-2 font-montserrat text-[14px] leading-[20px] text-20  "><LocationOutline/><span>123 Main Street, Anytown USA</span></Link>
 
                         {/* phone */}
                         <Link to="tel:+1 (555) 123-4567"
-                              className="flex items-center gap-2 font-montserrat text-[14px] leading-[20px] text-20  "><IoCallOutline/><span>+1 (555) 123-4567 </span></Link>
+                              className="flex items-center gap-2 font-montserrat text-[14px] leading-[20px] text-20  "><CallOutline/><span>+1 (555) 123-4567 </span></Link>
                     </div>
 
                     {/*  currency & social & language  */}
@@ -104,7 +105,7 @@ function HeaderTop() {
 
                         {/*  language  */}
                         <div
-                            className=" w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
+                            className="mr-4 w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[32px] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
 
                             <div className="flex relative  " onClick={() => setIsDropdown(!isDropdown)}>
                                 <div className=" flex items-center ">
@@ -119,7 +120,7 @@ function HeaderTop() {
                                 {isDropdown &&
                                     <div
                                         ref={countryRef}
-                                        className="flex flex-col gap-1 pt-7 absolute top-8 -left-7 z-[1] bg-white pl-2 py-2 rounded-md w-[180px] max-h-[400px] h-fit   border border-tertary ">
+                                        className="flex flex-col gap-1 pt-7  absolute top-8 -left-7 z-[1] bg-white  pt-2 rounded-md w-[180px] max-h-[400px] h-fit   border border-tertary ">
                                         <input type="text" placeholder={`search`}
                                                className={`absolute top-0 left-0 w-full border-b border-tertary/50 outline-none px-2 `}
                                                onClick={(e) => e.stopPropagation()}
@@ -134,7 +135,7 @@ function HeaderTop() {
 
                                                     onClick={() => handelCountryset(item)}
                                                     key={item.unicode}
-                                                    className={`flex items-center px-1 gap-2 hover:bg-tertary/50   `}>
+                                                    className={`flex items-center px-2 py-1 gap-3 hover:bg-tertary/50   `}>
                                                     <img
                                                         className={`w-[25px] h-[15px] object-cover  `}
                                                         src={item.image}

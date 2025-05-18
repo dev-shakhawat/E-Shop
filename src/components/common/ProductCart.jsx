@@ -66,7 +66,7 @@ function ProductCart({
             {/*  bottom part  */}
             <div className="mt-10">
                 <h5 className="font-montserrat text-sm leading-xl text-primary uppercase tracking-[5px]  ">{catagory}</h5>
-                <p className="mt-4 font-poppins font-semibold text-xl leading-[30px] text-primary group-hover:text-brand group-hover:underline duration-300  ">{title}</p>
+                <h3 className="line-clamp-2 text-ellipsis overflow-hidden mt-4 font-poppins font-semibold text-lg leading-[30px] text-primary group-hover:text-brand group-hover:underline duration-300  ">{title}</h3>
 
                 <div className="flex items-center mt-2 ">
                     <ul className="flex">

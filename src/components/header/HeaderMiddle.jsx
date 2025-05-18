@@ -38,7 +38,7 @@ function HeaderMiddle() {
                     {/* search */}
                     <div className="w-[332px] relative ">
                         <input type="srarch" placeholder={`Search Products ...`}
-                               className={`outline-none border-2 border-secondery pl-6 py-4.5 pr-11 text-primary  w-full rounded-[10px]  `}/>
+                               className={`outline-none border-1 border-[#979797] pl-6 py-[18px] pr-11 text-primary  w-full rounded-[10px]  `}/>
                         <SearchIcon
                             className={`absolute top-[50%] right-5 -translate-y-[50%] text-2xl text-primary  `}/>
                     </div>
