@@ -81,6 +81,14 @@ function NewProduct() {
                                                                          rating={product.rating}
                         />)}
                 </div>
+
+                {/*  load more button  */}
+                <div className="flex justify-center items-center mt-16">
+                    <Link to={`#`}
+                          className={`py-4 px-10 rounded-[10px] border border-brand font-montserrat font-bold text-xl leading-[30px] text-brand`}>Load
+                        More
+                    </Link>
+                </div>
             </Container>
         </div>
     );
