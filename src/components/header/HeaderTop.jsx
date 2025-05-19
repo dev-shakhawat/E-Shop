@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-
-import axios from 'axios';
+import React, {useEffect, useState} from 'react';
+import {useDispatch} from "react-redux";
+import {lang} from "../../redux/slices/languageSlice.js";
 
 
 // components
@@ -16,35 +16,34 @@ import LocationOutline from "../../assets/icons/LocationOutline.jsx";
 
 function HeaderTop() {
 
+    const countries = [
+        {
+            name: "English (US)",
+            code: "US",
+            unicode: "U+1F1FA U+1F1F8",
+            image: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg",
+            language: "en"
+        },
+        {
+            name: "Bangla (bd)",
+            code: "BD",
+            unicode: "U+1F1E7 U+1F1E9",
+            image: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BD.svg",
+            language: "bn"
+        },
+    ]
     const [isDropdown, setIsDropdown] = React.useState(false);
-    const [countries, setCountries] = React.useState([]);
-    const [selectedCountry, setSelectedCountry] = useState(null)
+    const [selectedCountry, setSelectedCountry] = useState(countries[0])
     const countryRef = React.useRef(null);
-    const [searchVal, setSearchVal] = React.useState("");
-    const [searchCountries, setSearchCountries] = React.useState(countries);
+    const dispatch = useDispatch();
+
 
     React.useEffect(() => {
 
-        // for country data fetch
-        const fetchCountries = async () => {
-            try {
-                const response = await axios.get('https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/index.json');
-                setCountries(response.data)
-                setSearchCountries(response.data)
-                setSelectedCountry(response.data[0])
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchCountries()
-
-
-        //  for dropdown
+        //  for dropdown show/hide
         const handleOutsideClick = (event) => {
             if (countryRef.current && !countryRef.current.contains(event.target)) {
                 setIsDropdown(false);
-                setSearchVal("")
             }
         };
         document.addEventListener("mousedown", handleOutsideClick);
@@ -52,29 +51,15 @@ function HeaderTop() {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
 
-
     }, [])
 
 
-    // search country
-    const handleSearchCountry = (e) => {
-        const searchtext = e.target.value.toLowerCase();
-        setSearchVal(searchtext);
+    // i18next language change
+    useEffect(() => {
+        dispatch(lang(selectedCountry))
+    }, [selectedCountry]);
 
-        const filteredcountries = countries.filter(country => country.name.toLowerCase().includes(searchtext));
 
-        if (filteredcountries) {
-            setSearchCountries(filteredcountries);
-        } else {
-            setSearchCountries([{name: "No Country Found", code: null, image: null}])
-        }
-
-    };
-
-    const handelCountryset = (item) => {
-        setSelectedCountry(item);
-        setSearchVal("");
-    }
     return (
         <div className={` border-b border-tertary py-[22px]  `}>
             <Container>
@@ -120,20 +105,14 @@ function HeaderTop() {
                                 {isDropdown &&
                                     <div
                                         ref={countryRef}
-                                        className="flex flex-col gap-1 pt-7  absolute top-8 -left-7 z-[1] bg-white  pt-2 rounded-md w-[180px] max-h-[400px] h-fit   border border-tertary ">
-                                        <input type="text" placeholder={`search`}
-                                               className={`absolute top-0 left-0 w-full border-b border-tertary/50 outline-none px-2 `}
-                                               onClick={(e) => e.stopPropagation()}
-                                               onChange={(e) => handleSearchCountry(e)}
-                                               value={searchVal}
-                                        />
-                                        <div className={`overflow-y-scroll overflow-x-hidden`}>
-                                            {searchCountries.length === 0 ?
+                                        className="flex flex-col gap-1   absolute top-8 -left-7 z-[1] bg-white  rounded-md w-[180px] max-h-[400px] h-fit   border border-tertary ">
+                                        <div className={``}>
+                                            {countries.length === 0 ?
                                                 <p className={`font-montserrat text-primary text-[14px] leading-[20px]`}>No
                                                     Country Found</p> :
-                                                searchCountries.map((item) => <div
+                                                countries.map((item) => <div
 
-                                                    onClick={() => handelCountryset(item)}
+                                                    onClick={() => setSelectedCountry(item)}
                                                     key={item.unicode}
                                                     className={`flex items-center px-2 py-1 gap-3 hover:bg-tertary/50   `}>
                                                     <img

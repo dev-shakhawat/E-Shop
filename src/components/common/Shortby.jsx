@@ -17,7 +17,6 @@ function Shortby({shortsArr, shortWidth = 137,}) {
     useEffect(() => {
 
         const handeloutside = (event) => {
-            console.log(event.target)
             if (modalref.current && !modalref.current.contains(event.target)) {
                 setIsModal(false)
             }

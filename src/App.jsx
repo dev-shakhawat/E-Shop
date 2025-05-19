@@ -4,6 +4,9 @@ import {BrowserRouter, Route, Routes} from "react-router";
 import {Provider} from 'react-redux'
 import {store} from '../src/redux/store.js'
 
+// language
+import '../i18n.js';
+
 // pages
 import Home from "./pages/Home.jsx";
 import Allproducts from "./pages/Allproducts.jsx";
