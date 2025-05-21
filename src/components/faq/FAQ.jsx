@@ -37,7 +37,7 @@ function Faq() {
             <Container>
                 <div className="flex relative">
                     {/*  accordian part  */}
-                    <div className="flex flex-col gap-6 w-[926px] mr-[112px] ">
+                    <div className="flex flex-col gap-6 min-w-[926px] mr-[112px] ">
                         {accordians.map((acc, index) => <Accordian key={index} title={acc.title}
                                                                    description={acc.description}
                                                                    open={acc.open}
