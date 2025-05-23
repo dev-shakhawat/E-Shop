@@ -57,7 +57,7 @@ function NewProduct() {
 
                 {/*   heading   */}
                 <div className="flex items-center justify-between ">
-                    <h2 className=" font-poppins font-semibold text-4xl text-primary leading-[46px] ">
+                    <h2 className=" commonHead ">
                         New Products
                     </h2>
 

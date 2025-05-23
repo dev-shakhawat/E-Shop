@@ -5,6 +5,7 @@ import FeaturedProduct from "../components/featuredProduct/FeaturedProduct.jsx";
 import SpecialDeal from "../components/specialDeal/SpecialDeal.jsx";
 import NewProduct from "../components/newProduct/NewProduct.jsx";
 import FAQ from "../components/faq/FAQ.jsx";
+import BestSeller from "../components/bestSeller/BestSeller.jsx";
 
 
 function Home() {
@@ -25,9 +26,15 @@ function Home() {
 
             {/*  new products  */}
             <NewProduct/>
+            
+
+            {/*  best seller  */}
+            <BestSeller/>
+
 
             {/*  FAQ section  */}
             <FAQ/>
+
 
         </div>
     );

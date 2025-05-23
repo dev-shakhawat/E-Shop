@@ -31,3 +31,7 @@
 ::-webkit-scrollbar-thumb {
     @apply bg-brand rounded-[10px]
 }
+
+.commonHead {
+    @apply font-poppins font-semibold text-4xl text-primary leading-[46px]
+}

@@ -10,6 +10,7 @@ import SlickNextArrow from "../../assets/icons/SlickNextArrow.jsx";
 import SlickPrevArrow from "../../assets/icons/SlickPrevArrow.jsx";
 import {Link} from "react-router";
 import ArrowRightLong from "../../assets/icons/ArrowRightLong.jsx";
+import ViewAll from "../common/ViewAll.jsx";
 
 
 // next arrow
@@ -39,12 +40,8 @@ function FeaturedProduct() {
 
                 {/*   heading   */}
                 <h2 className=" flex justify-between  ">
-                    <span className={`font-poppins font-semibold text-4xl text-primary leading-[46px]`}>Featured Products</span>
-                    <Link to={`#`}
-                          className={`font-montserrat font-bold text-base leading-[24px] text-brand flex items-center gap-4`}>
-                        <span>View All</span>
-                        <ArrowRightLong/>
-                    </Link>
+                    <span className={`commonHead`}>Featured Products</span>
+                    <ViewAll/>
                 </h2>
 
                 {/*   slider   */}

@@ -1,0 +1,28 @@
+import React from 'react';
+import Container from "../common/Container.jsx";
+import BestSellerLeft from "./BestSellerLeft.jsx";
+import BestSellerRight from "./BestSellerRight.jsx";
+
+function BestSeller() {
+    return (
+        <div className={`py-20`}>
+            <Container>
+                <div className="flex">
+
+                    {/*  left  */}
+                    <div className="flex-2">
+                        <BestSellerLeft/>
+                    </div>
+
+                    {/*  right  */}
+                    <div className="flex-1 bg-[#F4F4F4]">
+                        <BestSellerRight/>
+                    </div>
+
+                </div>
+            </Container>
+        </div>
+    );
+}
+
+export default BestSeller;
