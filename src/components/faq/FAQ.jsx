@@ -54,7 +54,7 @@ function Faq() {
                             asked the
                             most by
                             our clients. Get any burning questions?</p>
-                        <Button style={`mt-16 px-10 py-4  `} type={`button`} text={`Ask A Question`}/>
+                        <Button style={`mt-16 px-10 py-4  `} text={`Ask A Question`}/>
 
                     </div>
                 </div>

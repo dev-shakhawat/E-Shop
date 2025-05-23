@@ -7,7 +7,7 @@ function BestSeller() {
     return (
         <div className={`py-20`}>
             <Container>
-                <div className="flex">
+                <div className="flex gap-x-18.5">
 
                     {/*  left  */}
                     <div className="flex-2">

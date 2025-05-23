@@ -28,7 +28,7 @@ function SpecialDeal() {
                         $500.00
                         worldwide.
                         Available throughout May & June 2023.</p>
-                    <Button type={`button`} text={`Shop Now`} style={`mt-16 py-4 px-10  `}/>
+                    <Button text={`Shop Now`} style={`mt-16 py-4 px-10  `}/>
                 </div>
 
 
