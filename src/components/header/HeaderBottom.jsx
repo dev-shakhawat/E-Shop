@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useTranslation} from "react-i18next";
 import Container from "../common/Container.jsx";
 import {Link} from "react-router";
@@ -7,8 +7,8 @@ import {Link} from "react-router";
 // icons
 import {HiOutlineMenu} from "react-icons/hi";
 import {IoIosArrowDown} from "react-icons/io";
-import List from "../common/List.jsx";
 import {useSelector} from "react-redux";
+import ArrowDown from "../../assets/icons/ArrowDown.jsx";
 
 
 const leftNavList = [
@@ -33,9 +33,28 @@ const rightNavList = [
 function HeaderBottom() {
 
     const currentCountry = useSelector((state) => state.language.value);
-    console.log(currentCountry)
 
     const {t} = useTranslation();
+
+    const [isdropdown, setIsdropdown] = useState(false)
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+
+        //  for dropdown show/hide
+        const handleOutsideClick = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsdropdown(false);
+            } else {
+                // setIsdropdown(true)
+            }
+        };
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+
+    }, [])
 
     return (
         <div className={`bg-brand py-6  `}>
@@ -43,17 +62,40 @@ function HeaderBottom() {
                 <div className="flex justify-between  ">
                     {/* left */}
                     <ul className={`flex gap-x-20`}>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
                             <Link to={`#`} className={`flex items-center gap-x-4`}><HiOutlineMenu
                                 className={`text-2xl`}/><span>{t("All_Catagories")}</span></Link>
                         </li>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
-                            <Link to={`#`}><span>{t("Products")}</span></Link>
+                        <li onClick={() => setIsdropdown(!isdropdown)}
+                            className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold relative `}>
+                            <Link to={`#`}><span>{t("Products")}</span></Link> <ArrowDown color={`white`}/>
+
+                            {/*  dropdown   */}
+                            {isdropdown &&
+                                <ul ref={dropdownRef} onClick={(e) => e.stopPropagation()}
+                                    className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1  `}>
+                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                        <Link
+                                            to={`/allproduct`}>All Products</Link></li>
+                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                        <Link
+                                            to={`#`}>Featured Products</Link></li>
+                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                        <Link
+                                            to={`#`}>Best Seles</Link></li>
+                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                        <Link
+                                            to={`#`}>New Products</Link></li>
+                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                        <Link
+                                            to={`#`}>Spring Sales</Link></li>
+                                </ul>
+                            }
                         </li>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
                             <Link to={`#`}>{t("Blog")}</Link>
                         </li>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
                             <Link to={`#`}>{t("Contact")}</Link>
                         </li>
 
