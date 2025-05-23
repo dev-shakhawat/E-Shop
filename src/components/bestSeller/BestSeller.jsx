@@ -15,7 +15,7 @@ function BestSeller() {
                     </div>
 
                     {/*  right  */}
-                    <div className="flex-1 bg-[#F4F4F4]">
+                    <div className="flex-1 bg-[#F4F4F4] rounded-[10px]">
                         <BestSellerRight/>
                     </div>
 

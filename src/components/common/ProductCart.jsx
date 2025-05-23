@@ -30,7 +30,7 @@ function ProductCart({
 
     return (
         <div style={{background: bg}}
-             className={`mx-1 p-6 border rounded-lg cursor-pointer border-transparent hover:border-tertary group   `}>
+             className={`mx-1 p-6 border rounded-lg cursor-pointer border-transparent hover:bg-white hover:border-tertary group   `}>
 
             {/*  top part  */}
             <div className="relative overflow-hidden ">
@@ -42,7 +42,7 @@ function ProductCart({
                     </div>}
 
                 {/*  product image  */}
-                <img src={productimg} alt="productimg"/>
+                <img src={productimg} alt="productimg" className={`w-full object-cover  `}/>
 
                 {/*  cart/love/share   */}
                 <div
@@ -94,9 +94,11 @@ function ProductCart({
                 {strok &&
                     <div className={`h-[30px] bg-tertary mt-8 rounded-[25px] overflow-hidden relative `}>
                         {/*  progress bar  */}
-                        <div style={{width: `${available}%`}} className="bg-primary h-full rounded-[25px]    "></div>
-                        <p className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] uppercase font-montserrat font-bold text-base leading-[24px] text-white   ">50
-                            available</p>
+                        <div style={{width: `${available}%`}}
+                             className={` ${available >= 80 ? "bg-brand" : "bg-primary"} h-full rounded-[25px]`}></div>
+                        <p className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] uppercase font-montserrat font-bold text-base leading-[24px] text-white   ">
+                            {available >= 80 ? "limited stoke!" : `${available} available`}
+                        </p>
                     </div>}
 
             </div>
