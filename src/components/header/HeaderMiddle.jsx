@@ -75,6 +75,7 @@ function HeaderMiddle() {
 
     const handleMobilesearch = (e) => {
         e.stopPropagation()
+        e.preventDefault()
         if (ismobile) {
             inputRef.current.classList.remove("hidden")
             logoRef.current.classList.add("hidden");
