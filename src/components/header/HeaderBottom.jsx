@@ -93,19 +93,19 @@ function HeaderBottom() {
                             {isdropdown &&
                                 <ul ref={dropdownRef} onClick={(e) => e.stopPropagation()}
                                     className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1  `}>
-                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                    <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link
                                             to={`/allproduct`}>All Products</Link></li>
-                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                    <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link
                                             to={`#`}>Featured Products</Link></li>
-                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                    <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link
                                             to={`#`}>Best Seles</Link></li>
-                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                    <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link
                                             to={`#`}>New Products</Link></li>
-                                    <li className={`px-2 py-1.5 text-primary font-normal font-montserrat text-base hover:bg-tertary/50`}>
+                                    <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link
                                             to={`#`}>Spring Sales</Link></li>
                                 </ul>
@@ -148,7 +148,7 @@ function HeaderBottom() {
                                     className={`absolute top-3 right-3 text-2xl text-brand cursor-pointer `}/>
 
                                 <ul ref={modalRef}
-                                    className={` absolute top-5 right-0 pt-10 w-full h-screen p-2 flex flex-col gap-2 `}>
+                                    className={` absolute top-5 right-0 pt-10 w-full h-screen p-2 flex flex-col gap-1 lg:gap-2 `}>
                                     <li className={`font-montserrat font-semibold text-[12px] text-primary `}>
                                         <Link to={`#`}><span>{t("LIMITED_SALE")}</span>👋</Link>
                                     </li>
