@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {lang} from "../../redux/slices/languageSlice.js";
 
@@ -16,16 +16,25 @@ import LocationOutline from "../../assets/icons/LocationOutline.jsx";
 
 function HeaderTop() {
 
+
+    // for currency
+    const correncies = ["USD", "BDT", "EUR", "GBP", "CAD", "AUD", "JPY", "CNY", "INR", "RUB", "BRL", "MXN", "NZD", "ZAR", "TRY", "HKD", "SGD", "THB", "IDR", "TWD", "MYR", "PHP", "VND",]
+    const currencyRef = useRef(null)
+    const [isCurrencyDropdown, setIsCurrencyDropdown] = useState(false);
+    const [selectedCurrency, setSelectedCurrency] = useState("USD");
+
+
+    // for languages
     const countries = [
         {
-            name: "English (US)",
+            name: "English",
             code: "US",
             unicode: "U+1F1FA U+1F1F8",
             image: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg",
             language: "en"
         },
         {
-            name: "Bangla (bd)",
+            name: "Bangla",
             code: "BD",
             unicode: "U+1F1E7 U+1F1E9",
             image: "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BD.svg",
@@ -34,23 +43,28 @@ function HeaderTop() {
     ]
     const [isDropdown, setIsDropdown] = React.useState(false);
     const [selectedCountry, setSelectedCountry] = useState(countries[0])
-    const countryRef = React.useRef(null);
+    const countryRef = useRef(null);
     const dispatch = useDispatch();
 
 
-    React.useEffect(() => {
-
+    useEffect(() => {
         //  for dropdown show/hide
         const handleOutsideClick = (event) => {
+
+            // for language
             if (countryRef.current && !countryRef.current.contains(event.target)) {
                 setIsDropdown(false);
+            }
+
+            //     for currency
+            if (currencyRef.current && !currencyRef.current.contains(event.target)) {
+                setIsCurrencyDropdown(false);
             }
         };
         document.addEventListener("mousedown", handleOutsideClick);
         return () => {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
-
     }, [])
 
 
@@ -80,27 +94,59 @@ function HeaderTop() {
                     </div>
 
                     {/*  currency & social & language  */}
-                    <div className="flex gap-4 lg:gap-12  ">
+                    <div className="flex items-center  ">
 
                         {/* currency */}
-                        <select name="currency" id="currency"
-                                className={`font-montserrat text-primary text-[10px] sm:text-[12px] md:text-[13px] grey:text-[14px] leading-[20px] uppercase pr-2 outline-none cursor-pointer `}>
-                            <option value="USD">USD</option>
-                            <option value="BDT">BDT</option>
-                            <option value="EUR">EUR</option>
-                        </select>
+                        <div
+                            className="lg:mr-12  cursor-pointer flex   ">
+
+                            <div className="flex relative  " onClick={() => setIsCurrencyDropdown(!isCurrencyDropdown)}>
+                                <div className=" flex items-center ">
+                                    <span
+                                        className="mr-3 text-[12px] sm:text-[14px]  truncate whitespace-nowrap overflow-hidden font-montserrat leading-5 ">{selectedCurrency}</span>
+                                    {isCurrencyDropdown ? <ArrowDown style={`w-[12px] h-[6px] rotate-[180deg] `}/> :
+                                        <ArrowDown style={`w-[12px] h-[6px]`}/>}
+
+                                </div>
+
+                                {/*  all currency dropdown  */}
+                                {isCurrencyDropdown &&
+                                    <div
+                                        ref={currencyRef}
+                                        className="flex flex-col gap-1   absolute top-8 left-0 lg:-left-7 z-[1] bg-white  rounded-md w-[140px] lg:w-[180px] max-h-[400px] h-fit   border border-tertary ">
+                                        <div className={`max-h-[200px] overflow-y-scroll`}>
+                                            {correncies.length === 0 ?
+                                                <p className={`font-montserrat text-primary text-[12px] leading-[20px]`}>No
+                                                    Country Found</p> :
+                                                correncies.map((item) => <div
+
+                                                    onClick={() => setSelectedCurrency(item)}
+                                                    key={item}
+                                                    className={`flex items-center px-2 py-1 gap-3 hover:bg-tertary/50   `}>
+                                                    <span
+                                                        className={`w-[150px] text-[14px] truncate whitespace-nowrap overflow-hidden`}>{item}</span>
+
+                                                </div>)}
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
 
                         {/*  language  */}
                         <div
-                            className="lg:mr-4  lg:w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:left-[-27px] after:top-[0px] lg:after:top-[-5px]     ">
+                            className="lg:mr-14  lg:w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:left-[-27px] after:top-[0px] lg:after:top-[-5px]     ">
 
                             <div className="flex relative  " onClick={() => setIsDropdown(!isDropdown)}>
                                 <div className=" flex items-center ">
                                     <img src={selectedCountry?.image} alt={selectedCountry?.name}
                                          className={` w-[18px] lg:min-w-[25px] h-[18px] object-cover  `}/>
                                     <span
-                                        className="mx-2 w-[70px] text-[12px] sm:text-[14px]  truncate whitespace-nowrap overflow-hidden ">{selectedCountry?.name}</span>
-                                    <ArrowDown/>
+                                        className="mx-2 w-[70px] text-[12px] sm:text-[14px]  truncate whitespace-nowrap overflow-hidden font-montserrat leading-5 ">{selectedCountry?.name}</span>
+                                    {isDropdown ? <ArrowDown style={`w-[12px] h-[6px] rotate-[180deg] `}/> :
+                                        <ArrowDown style={`w-[12px] h-[6px]`}/>}
+
                                 </div>
 
                                 {/*  all language dropdown  */}
@@ -133,7 +179,7 @@ function HeaderTop() {
                         </div>
 
                         {/*  socials  */}
-                        <ul className={`flex gap-2.5 md:gap-4.5 lg:gap-6 text-primary relative after:content-[''] after:w-[1px] after:h-[100%] lg:after:h-[150%] after:bg-tertary after:absolute l after:-left-[8px] lg:after:left-[-27px] after:top-0  lg:after:top-[-5px]`}>
+                        <ul className={`flex gap-2.5 md:gap-4.5 lg:gap-6 text-primary relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:-left-[24px] after:top-[0px] lg:after:top-[-5px] `}>
                             <li><Link to={`https://www.facebook.com/`} target={`_blank`}><FaFacebookF/></Link></li>
                             <li><Link to={`https://x.com/`} target={`_blank`}><FaTwitter/></Link></li>
                             <li><Link to={`https://www.instagram.com/`} target={`_blank`}><FaInstagram/></Link></li>
