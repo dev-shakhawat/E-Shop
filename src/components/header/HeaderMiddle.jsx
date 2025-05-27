@@ -73,9 +73,7 @@ function HeaderMiddle() {
     }, [ismobile])
 
 
-    const handleMobilesearch = (e) => {
-        e.stopPropagation()
-        e.preventDefault()
+    const handleMobilesearch = () => {
         if (ismobile) {
             inputRef.current.classList.remove("hidden")
             logoRef.current.classList.add("hidden");
@@ -95,7 +93,7 @@ function HeaderMiddle() {
                     className="flex items-center justify-end gap-3 sm:gap-5 md:gap-10 lg:gap-20 w-full  h-[30px] md:h-fit   ">
 
                     {/* search */}
-                    <div onClick={(e) => handleMobilesearch(e)}
+                    <div onClick={() => handleMobilesearch()}
                          ref={searchRef}
                          className="w-[35px] lg:w-[332px] relative   h-full  ">
                         <input
