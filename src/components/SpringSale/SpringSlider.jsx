@@ -27,7 +27,6 @@ function SpringSlider() {
         slidesToShow: 2,
         slidesToScroll: 1,
         nextArrow: <NextArrow/>,
-        prevArrow: <PrevArrow/>,
         responsive: [
             {
                 breakpoint: 1024,
@@ -43,6 +42,7 @@ function SpringSlider() {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    nextArrow: false
                 }
             }
         ]
