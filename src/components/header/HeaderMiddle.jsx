@@ -65,21 +65,21 @@ function HeaderMiddle() {
             }
         }
 
-        window.addEventListener("mousedown", handelChechSearchBox)
+        window.addEventListener("click", handelChechSearchBox)
 
         return () => {
-            window.removeEventListener("mousedown", handelChechSearchBox)
+            window.removeEventListener("click", handelChechSearchBox)
         }
     }, [ismobile])
 
 
-    const handleMobilesearch = () => {
+    const handleMobilesearch = (e) => {
+        e.stopPropagation()
         if (ismobile) {
             inputRef.current.classList.remove("hidden")
             logoRef.current.classList.add("hidden");
             searchRef.current.className = "w-full lg:w-[332px] relative  h-full "
         }
-
     }
     return (
         <Container>
@@ -94,10 +94,11 @@ function HeaderMiddle() {
                     className="flex items-center justify-end gap-3 sm:gap-5 md:gap-10 lg:gap-20 w-full  h-[30px] md:h-fit   ">
 
                     {/* search */}
-                    <div onClick={() => handleMobilesearch()}
+                    <div onClick={(e) => handleMobilesearch(e)}
                          ref={searchRef}
                          className="w-[35px] lg:w-[332px] relative   h-full  ">
                         <input
+                            // onClick={}
                             ref={inputRef}
                             type="search"
                             placeholder={t("Search_Products_._._.")}
