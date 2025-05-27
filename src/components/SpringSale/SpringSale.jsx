@@ -8,10 +8,10 @@ import springsaleshape from "../../assets/images/springsaleshape.png"
 
 function SpringSale() {
     return (
-        <div className={`bg-[#F4F4F4] py-16`}>
+        <div className={`bg-[#F4F4F4] py-5 sm:py-7 md:py-10 lg:py-16`}>
             <Container>
 
-                <div className="flex justify-between ">
+                <div className="xl:flex justify-between ">
 
 
                     {/*  spring counter  */}
@@ -19,12 +19,13 @@ function SpringSale() {
                         <SpringCounter/>
 
                         {/*  shap  */}
-                        <img src={springsaleshape} alt="springsaleshape" className={`absolute bottom-0 left-0`}/>
+                        <img src={springsaleshape} alt="springsaleshape"
+                             className={`absolute bottom-0 left-0 w-[70px] lg:w-auto`}/>
                     </div>
 
 
                     {/*  spring salider   */}
-                    <div className="">
+                    <div className="mt-5 lg:mt-0">
                         <SpringSlider/>
                     </div>
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
-function AccordianArrow({width = 32, height = 32, bg = "white", outline = "#FF624C", style}) {
+function AccordianArrow({bg = "white", outline = "#FF624C", style}) {
     return (
 
-        <svg className={style} width="32" height="32" viewBox="0 0 32 32" fill="none"
+        <svg className={style} viewBox="0 0 32 32" fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="16" r="15.5" transform="matrix(0 -1 -1 0 32 32)" fill={bg} stroke={outline}
                     className={`transition-all duration-300`}/>

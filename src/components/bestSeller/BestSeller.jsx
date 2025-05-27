@@ -5,9 +5,9 @@ import BestSellerRight from "./BestSellerRight.jsx";
 
 function BestSeller() {
     return (
-        <div className={`py-20`}>
+        <div className={`py-5 sm:py-10 md:py-15 lg:py-20`}>
             <Container>
-                <div className="flex gap-x-18.5">
+                <div className="flex lg:flex-row flex-col  gap-x-18.5">
 
                     {/*  left  */}
                     <div className="flex-2">

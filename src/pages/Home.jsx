@@ -14,7 +14,7 @@ import Brands from "../components/brands/Brands.jsx";
 function Home() {
     return (
         <div>
-            
+
             {/*  banner part  */}
             <Banner/>
 

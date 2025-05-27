@@ -61,28 +61,30 @@ function HeaderTop() {
 
 
     return (
-        <div className={` border-b border-tertary py-[22px]  `}>
+        <div className={` border-b border-tertary py-3 lg:py-[22px]  `}>
             <Container>
                 <div className={`flex justify-between items-center `}>
 
                     {/*  header top contact  */}
                     <div
-                        className="flex gap-12 relative after:content-[] after:absolute after:w-[1px] after:h-[32px] after:bg-tertary after:top-1/2 after:left-[61.5%] after:-translate-y-[50%]">
+                        className="flex lg:gap-12 sm:gap-8 gap-4 relative after:content-[] after:absolute after:w-[1px] sm:after:h-[20px] lg:after:h-[32px]  sm:after:bg-tertary after:top-1/2 after:left-[61.5%] after:-translate-y-[50%]">
                         {/* location */}
                         <Link to="https://maps.app.goo.gl/s3CtZ3oZhrHXWLBy9" target={`_blank`}
-                              className="flex items-center gap-2 font-montserrat text-[14px] leading-[20px] text-20  "><LocationOutline/><span>123 Main Street, Anytown USA</span></Link>
+                              className="flex items-center gap-2 font-montserrat sm:text-[11px] md:text-[14px] leading-[20px] text-20  "><LocationOutline/><span
+                            className={`hidden  sm:inline-block`}>123 Main Street, Anytown USA</span></Link>
 
                         {/* phone */}
                         <Link to="tel:+1 (555) 123-4567"
-                              className="flex items-center gap-2 font-montserrat text-[14px] leading-[20px] text-20  "><CallOutline/><span>+1 (555) 123-4567 </span></Link>
+                              className="flex items-center gap-2 font-montserrat sm:text-[11px] md:text-[14px] leading-[20px] text-20  "><CallOutline/><span
+                            className={`hidden sm:inline-block`}>+1 (555) 123-4567 </span></Link>
                     </div>
 
                     {/*  currency & social & language  */}
-                    <div className="flex gap-12  ">
+                    <div className="flex gap-4 lg:gap-12  ">
 
                         {/* currency */}
                         <select name="currency" id="currency"
-                                className={`font-montserrat text-primary text-[14px] leading-[20px] uppercase pr-2 outline-none cursor-pointer `}>
+                                className={`font-montserrat text-primary text-[10px] sm:text-[12px] md:text-[13px] grey:text-[14px] leading-[20px] uppercase pr-2 outline-none cursor-pointer `}>
                             <option value="USD">USD</option>
                             <option value="BDT">BDT</option>
                             <option value="EUR">EUR</option>
@@ -90,14 +92,14 @@ function HeaderTop() {
 
                         {/*  language  */}
                         <div
-                            className="mr-4 w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[32px] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]     ">
+                            className="lg:mr-4  lg:w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:left-[-27px] after:top-[0px] lg:after:top-[-5px]     ">
 
                             <div className="flex relative  " onClick={() => setIsDropdown(!isDropdown)}>
                                 <div className=" flex items-center ">
                                     <img src={selectedCountry?.image} alt={selectedCountry?.name}
-                                         className={`min-w-[25px] h-[18px] object-cover  `}/>
+                                         className={` w-[18px] lg:min-w-[25px] h-[18px] object-cover  `}/>
                                     <span
-                                        className="mx-2 w-[70px] truncate whitespace-nowrap overflow-hidden ">{selectedCountry?.name}</span>
+                                        className="mx-2 w-[70px] text-[12px] sm:text-[14px]  truncate whitespace-nowrap overflow-hidden ">{selectedCountry?.name}</span>
                                     <ArrowDown/>
                                 </div>
 
@@ -105,10 +107,10 @@ function HeaderTop() {
                                 {isDropdown &&
                                     <div
                                         ref={countryRef}
-                                        className="flex flex-col gap-1   absolute top-8 -left-7 z-[1] bg-white  rounded-md w-[180px] max-h-[400px] h-fit   border border-tertary ">
+                                        className="flex flex-col gap-1   absolute top-8 left-0 lg:-left-7 z-[1] bg-white  rounded-md w-[140px] lg:w-[180px] max-h-[400px] h-fit   border border-tertary ">
                                         <div className={``}>
                                             {countries.length === 0 ?
-                                                <p className={`font-montserrat text-primary text-[14px] leading-[20px]`}>No
+                                                <p className={`font-montserrat text-primary text-[12px] leading-[20px]`}>No
                                                     Country Found</p> :
                                                 countries.map((item) => <div
 
@@ -120,7 +122,7 @@ function HeaderTop() {
                                                         src={item.image}
                                                         alt={item.name}/>
                                                     <span
-                                                        className={`w-[150px] truncate whitespace-nowrap overflow-hidden`}>{item.name}</span>
+                                                        className={`w-[150px] text-[14px] truncate whitespace-nowrap overflow-hidden`}>{item.name}</span>
 
                                                 </div>)}
                                         </div>
@@ -131,7 +133,7 @@ function HeaderTop() {
                         </div>
 
                         {/*  socials  */}
-                        <ul className={`flex gap-6 text-primary relative after:content-[''] after:w-[1px] after:h-[150%] after:bg-tertary after:absolute after:left-[-27px] after:top-[-5px]`}>
+                        <ul className={`flex gap-2.5 md:gap-4.5 lg:gap-6 text-primary relative after:content-[''] after:w-[1px] after:h-[100%] lg:after:h-[150%] after:bg-tertary after:absolute l after:-left-[8px] lg:after:left-[-27px] after:top-0  lg:after:top-[-5px]`}>
                             <li><Link to={`https://www.facebook.com/`} target={`_blank`}><FaFacebookF/></Link></li>
                             <li><Link to={`https://x.com/`} target={`_blank`}><FaTwitter/></Link></li>
                             <li><Link to={`https://www.instagram.com/`} target={`_blank`}><FaInstagram/></Link></li>

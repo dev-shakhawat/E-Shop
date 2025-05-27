@@ -19,7 +19,7 @@ function Facility() {
     return (
         <div>
             <Container>
-                <div className="flex justify-between ">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-between w-full">
                     {facilities.map((facility, index) => <FacilityCart key={index} icon={facility.icon}
                                                                        title={facility.title} text={facility.text}/>)}
                 </div>

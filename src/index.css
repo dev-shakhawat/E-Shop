@@ -21,7 +21,7 @@
 
 /* common css */
 ::-webkit-scrollbar {
-    @apply w-[3px]
+    @apply hidden
 }
 
 ::-webkit-scrollbar-track {
@@ -33,5 +33,11 @@
 }
 
 .commonHead {
-    @apply font-poppins font-semibold text-4xl text-primary leading-[46px]
+    @apply font-poppins font-semibold text-xl md:text-2xl  lg:text-4xl text-primary leading-[46px]
+}
+
+
+/*   header css   */
+.navLink {
+    @apply cursor-pointer flex gap-1 md:gap-2 items-center font-montserrat text-white text-[12px] lg:text-base lg:leading-[24px] font-medium md:font-bold
 }

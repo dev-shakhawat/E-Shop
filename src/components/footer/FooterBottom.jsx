@@ -61,56 +61,61 @@ function FooterBottom() {
     return (
         <div className={`mt-[100px]`}>
             <Container>
-                <div className="flex">
+                <div className="grid lg:grid-cols-5 grid-cols-2 md:grid-cols-3 gap-5 lg:gap-0  ">
                     {/*  logo/contact  */}
-                    <div className="flex flex-col justify-between mr-[150px] ">
+                    <div className="flex flex-col justify-between  ">
                         <img src="/images/logo.png" alt="logo" className={`max-w-[129px]`}/>
                         <List arr={footContact}
-                              liststyle={`relative pl-8 cursor-pointer text-primary font-montserrat text-base leading-[24px]  `}
-                              boxstyle={`flex flex-col gap-3   `}/>
+                              liststyle={`relative pl-8 cursor-pointer text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
+                              boxstyle={`flex flex-col gap-1.5 lg:gap-3   `}/>
                     </div>
 
                     {/*  links  */}
-                    <div className="mr-[96px]">
+                    <div className="lg:justify-self-end">
                         <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 `}>Links</h3>
-                        <List arr={footLinks} liststyle={`text-primary font-montserrat text-base leading-[24px]`}
-                              boxstyle={`flex flex-col gap-3`}/>
+                        <List arr={footLinks}
+                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
 
                     {/*  supports  */}
-                    <div className="mr-[96px]">
-                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 `}>Supports</h3>
-                        <List arr={footSupports} liststyle={`text-primary font-montserrat text-base leading-[24px]`}
-                              boxstyle={`flex flex-col gap-3`}/>
+                    <div className="lg:justify-self-end lg:gap-0 ">
+                        <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Supports</h3>
+                        <List arr={footSupports}
+                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
 
                     </div>
 
                     {/*  catagories  */}
-                    <div className="mr-20">
-                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 `}>Catagories</h3>
-                        <List arr={footCatagories} liststyle={`text-primary font-montserrat text-base leading-[24px]`}
-                              boxstyle={`flex flex-col gap-3`}/>
+                    <div className="lg:justify-self-end lggap-0 gap-5 ">
+                        <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Catagories</h3>
+                        <List arr={footCatagories}
+                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
 
                     {/*  payments  */}
-                    <div className="">
-                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 `}>Payments</h3>
+                    <div className="lg:justify-self-end lggap-0 gap-5 ">
+                        <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Payments</h3>
                         <div className="flex gap-7 ">
                             <Visa/>
                             <MasterCard/>
                             <ApplePay/>
                             <Paypal/>
                         </div>
-                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 mt-[73px] `}>Follow
+                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-3  lg:pb-6 mt-10 lg:mt-[73px] `}>Follow
                             Us</h3>
-                        <List arr={footFollow} liststyle={`text-primary font-montserrat text-base leading-[24px]`}
-                              boxstyle={`flex flex-col gap-3`}/>
+                        <List arr={footFollow}
+                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
                 </div>
 
 
                 {/*  copyright part  */}
-                <div className="flex justify-between mt-20 border-t border-secondery/50 pt-2 pb-20  ">
+                <div
+                    className="flex flex-col gap-2 md:gap-0 md:flex-row md:justify-between mt-5 sm:mt-0 md:mt-15 lg:mt-20 border-t border-secondery/50 pt-2 pb-5 sm:pb-10 md:pb-15 lg:pb-20  ">
                     <p className="font-montserrat text-sm text-primary leading-5  ">Copyright © 2023 <Link
                         to={`/`}>E-Shop</Link>.
                         All Rights

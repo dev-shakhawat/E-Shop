@@ -33,9 +33,35 @@ function FeaturedProduct() {
         autoplay: true,
         nextArrow: <NextArrow/>,
         prevArrow: <PrevArrow/>,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     };
     return (
-        <div className={`py-20 `}>
+        <div className={`py-10 md:py-15  lg:py-20 `}>
             <Container>
 
                 {/*   heading   */}
@@ -45,7 +71,7 @@ function FeaturedProduct() {
                 </h2>
 
                 {/*   slider   */}
-                <div className="mx-14 mt-12 ">
+                <div className="mx-14 mt-2 sm:mt-6 md:mt-8 lg:mt-12 ">
                     <Slider {...sliderSettings}>
                         <ProductCart catagory={`audio`} title={`JPhone 13 High Quality Value Buy Best Cam...`}
                                      currentprice={999.00} delprice={345} rating={5} totalrating={10}/>

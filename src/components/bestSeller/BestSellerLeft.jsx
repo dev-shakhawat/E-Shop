@@ -60,7 +60,7 @@ function BestSellerLeft() {
             </h2>
 
             {/*  seles components  */}
-            <div className="grid grid-cols-3 grid-rows-2 mt-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 mt-3 sm:mt-6 md:mt-9 gap-y-2 lg:mt-12">
                 {BestSellerArr.map((item, index) => <ProductCart key={index} catagory={item.catagory} title={item.title}
                                                                  currentprice={item.currentprice} rating={item.rating}
                                                                  totalrating={item.totalrating} delprice={item.delprice}

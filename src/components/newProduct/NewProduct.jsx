@@ -52,7 +52,7 @@ function NewProduct() {
     ]
 
     return (
-        <div className={`py-20 `}>
+        <div className={`py-5 sm:py-10 md:py-15 lg:py-20 `}>
             <Container>
 
                 {/*   heading   */}
@@ -62,15 +62,17 @@ function NewProduct() {
                     </h2>
 
                     {/*  short by  */}
-                    <div className="flex gap-4">
-                        <p className="font-montserrat font-normal text-base leading-[24px] text-primary">Sort by</p>
-                        <Shortby shortsArr={shortArray} shortWidth={217}/>
+                    <div className="flex gap-2 md:gap-4">
+                        <p className="font-montserrat font-normal text-[14px] md:text-base leading-[24px] text-primary">Sort
+                            by</p>
+                        <Shortby shortsArr={shortArray} shortWidth={window.innerWidth < 640 ? 120 : 217}/>
                     </div>
 
                 </div>
 
                 {/*  new products  */}
-                <div className="flex mt-12">
+                <div
+                    className="grid grid-cols-2 gap-x-1 gap-y-2 sm:grid-cols-3  lg:grid-cols-5 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
                     {
                         newProducts.map((product, index) => <ProductCart key={index} persent={product.persent}
                                                                          title={product.title} rating={product.rating}
@@ -83,9 +85,9 @@ function NewProduct() {
                 </div>
 
                 {/*  load more button  */}
-                <div className="flex justify-center items-center mt-16">
+                <div className="flex justify-center items-center mt-4 sm:mt-8 md:12 lg:mt-16">
                     <Link to={`#`}
-                          className={`py-4 px-10 rounded-[10px] border border-brand font-montserrat font-bold text-xl leading-[30px] text-brand`}>Load
+                          className={`py-2 md:py-3 lg:py-4 px-5 sm:px-6 md:px-8 lg:px-10 rounded-[5px] lg:rounded-[10px] border border-brand font-montserrat font-bold text-[14px] md:text-base lg:text-xl leading-[30px] text-brand`}>Load
                         More
                     </Link>
                 </div>

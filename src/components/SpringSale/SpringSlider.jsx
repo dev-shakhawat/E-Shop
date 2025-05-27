@@ -28,9 +28,27 @@ function SpringSlider() {
         slidesToScroll: 1,
         nextArrow: <NextArrow/>,
         prevArrow: <PrevArrow/>,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     };
     return (
-        <div className={`w-[950px]`}>
+        <div className={`   lg:w-[950px]`}>
             <Slider {...sliderSeting}>
                 <ProductCart catagory={`television`}
                              title={`LP78245 Smart TV OLED 43 Inch 4K HD Dynamic Color Enhancer USB Movie ...`}

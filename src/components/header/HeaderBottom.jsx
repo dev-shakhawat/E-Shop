@@ -9,6 +9,7 @@ import {HiOutlineMenu} from "react-icons/hi";
 import {IoIosArrowDown} from "react-icons/io";
 import {useSelector} from "react-redux";
 import ArrowDown from "../../assets/icons/ArrowDown.jsx";
+import {IoCloseCircleOutline} from "react-icons/io5";
 
 
 const leftNavList = [
@@ -56,18 +57,36 @@ function HeaderBottom() {
 
     }, [])
 
+    //  for mobile modal
+    const [isModal, setIsModal] = useState(false)
+    const modalRef = useRef(null);
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                setIsModal(false);
+            } else {
+                // setIsdropdown(true)
+            }
+        };
+        document.addEventListener("mousedown", handleOutsideClick);
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+
+    }, [])
+
     return (
         <div className={`bg-brand py-6  `}>
             <Container>
                 <div className="flex justify-between  ">
                     {/* left */}
-                    <ul className={`flex gap-x-20`}>
-                        <li className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
-                            <Link to={`#`} className={`flex items-center gap-x-4`}><HiOutlineMenu
-                                className={`text-2xl`}/><span>{t("All_Catagories")}</span></Link>
+                    <ul className={`flex gap-5 md:gap-x-10 lg:gap-x-15 xl:gap-x-20`}>
+                        <li className={`navLink `}>
+                            <Link to={`#`} className={`flex items-center gap-2 md:gap-x-4`}><HiOutlineMenu
+                                className={`md:text-2xl text-lg`}/><span>{t("All_Catagories")}</span></Link>
                         </li>
                         <li onClick={() => setIsdropdown(!isdropdown)}
-                            className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold relative `}>
+                            className={`navLink relative `}>
                             <Link to={`#`}><span>{t("Products")}</span></Link> <ArrowDown color={`white`}/>
 
                             {/*  dropdown   */}
@@ -92,10 +111,10 @@ function HeaderBottom() {
                                 </ul>
                             }
                         </li>
-                        <li className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`navLink `}>
                             <Link to={`#`}>{t("Blog")}</Link>
                         </li>
-                        <li className={`cursor-pointer flex gap-2 items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`navLink `}>
                             <Link to={`#`}>{t("Contact")}</Link>
                         </li>
 
@@ -103,19 +122,47 @@ function HeaderBottom() {
 
 
                     {/*  right  */}
-                    <ul className={`flex gap-x-20`}>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                    <ul className={`md:flex gap-5 md:gap-x-10 lg:gap-x-15 xl:gap-x-20  hidden`}>
+                        <li className={`navLink `}>
                             <Link to={`#`}><span>{t("LIMITED_SALE")}</span>👋</Link>
                         </li>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`navLink `}>
                             <Link to={`#`}>{t("Best_Seller")}</Link>
                         </li>
-                        <li className={`cursor-pointer items-center gap-2 font-montserrat text-white text-base leading-[24px] font-bold `}>
+                        <li className={`navLink `}>
                             <Link to={`#`}>{t("New_Arrival")}</Link>
                         </li>
 
                     </ul>
 
+                    {/*  for mobile modal  */}
+
+                    <HiOutlineMenu className={` text-lg text-white cursor-pointer md:hidden `}
+                                   onClick={() => setIsModal(!isModal)}/>
+                    {isModal &&
+                        <div className="fixed top-0 right-0 bg-tertary/60 shadow-2xl w-full h-screen  md:hidden ">
+
+                            <div className="bg-white ml-auto w-1/2 h-screen relative">
+                                <IoCloseCircleOutline
+                                    onClick={() => setIsModal(!isModal)}
+                                    className={`absolute top-3 right-3 text-2xl text-brand cursor-pointer `}/>
+
+                                <ul ref={modalRef}
+                                    className={` absolute top-5 right-0 pt-10 w-full h-screen p-2 flex flex-col gap-2 `}>
+                                    <li className={`font-montserrat font-semibold text-[12px] text-primary `}>
+                                        <Link to={`#`}><span>{t("LIMITED_SALE")}</span>👋</Link>
+                                    </li>
+                                    <li className={`font-montserrat font-semibold text-[12px] text-primary `}>
+                                        <Link to={`#`}>{t("Best_Seller")}</Link>
+                                    </li>
+                                    <li className={`font-montserrat font-semibold text-[12px] text-primary `}>
+                                        <Link to={`#`}>{t("New_Arrival")}</Link>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    }
 
                 </div>
             </Container>
