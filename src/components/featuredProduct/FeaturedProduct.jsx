@@ -8,8 +8,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SlickNextArrow from "../../assets/icons/SlickNextArrow.jsx";
 import SlickPrevArrow from "../../assets/icons/SlickPrevArrow.jsx";
-import {Link} from "react-router";
-import ArrowRightLong from "../../assets/icons/ArrowRightLong.jsx";
 import ViewAll from "../common/ViewAll.jsx";
 
 
@@ -56,6 +54,7 @@ function FeaturedProduct() {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
+                    
                 }
             }
         ]

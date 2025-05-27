@@ -4,7 +4,7 @@ function SlickNextArrow({width = 40, height = 40, color = "#303030", onClick, po
     return (
 
         <svg width="40" height="40" viewBox="0 0 40 40" fill={`none`} xmlns="http://www.w3.org/2000/svg"
-             className={`${positionX} cursor-pointer absolute top-[50%] -translate-y-[50%] -right-[50px] hidden lg:inline-block `}
+             className={`${positionX} cursor-pointer absolute top-[50%] -translate-y-[50%] -right-[50px] `}
              onClick={onClick}>
             <circle cx="20" cy="20" r="19.5" transform="matrix(-1 0 0 1 40 0)" stroke="#303030"/>
             <path
