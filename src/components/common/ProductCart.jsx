@@ -20,7 +20,7 @@ function ProductCart({
                          persent = null,
                          rating = 0,
                          totalrating,
-                         bg = "transparent",
+                         bg,
                          strok = false,
                          available
                      }) {
@@ -29,8 +29,8 @@ function ProductCart({
 
 
     return (
-        <div style={{background: bg}}
-             className={`mx-1 p-2 sm:p-3.5 md:p-5 lg:p-6 border rounded-lg cursor-pointer border-transparent hover:bg-white hover:border-tertary group   `}>
+        <div
+            className={`${bg} duration-300 mx-1 p-2 sm:p-3.5 md:p-5 lg:p-6 border rounded-lg cursor-pointer border-transparent hover:bg-white hover:border-tertary group   `}>
 
             {/*  top part  */}
             <div className="relative overflow-hidden ">
