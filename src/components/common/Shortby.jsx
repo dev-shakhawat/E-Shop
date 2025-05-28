@@ -30,7 +30,8 @@ function Shortby({shortsArr, shortWidth = 137,}) {
         <div className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>
             <p className="font-montserrat font-semibold lg:font-bold text-[13px] lg:text-base leading-[24px] text-brand"
                style={{width: `${shortWidth}px`}}>{shortVal}</p>
-            {isModal ? <ArrowDown style={`rotate-[180deg]`}/> : <ArrowDown/>}
+            {isModal ? <ArrowDown style={` w-[11px] h-[6px]  rotate-[180deg]`}/> :
+                <ArrowDown style={`w-[11px] h-[6px] `}/>}
 
             {/*  shortBy modal  */}
             {isModal &&

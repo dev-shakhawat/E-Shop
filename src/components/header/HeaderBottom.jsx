@@ -87,7 +87,12 @@ function HeaderBottom() {
                         </li>
                         <li onClick={() => setIsdropdown(!isdropdown)}
                             className={`navLink relative `}>
-                            <Link to={`#`}><span>{t("Products")}</span></Link> <ArrowDown color={`white`}/>
+                            <Link to={`#`}><span>{t("Products")}</span></Link>
+
+                            {isdropdown ? <ArrowDown color={`#ffffff`} style={`w-[12px] h-[6x] rotate-[180deg]`}/> :
+                                <ArrowDown color={`#ffffff`}
+                                           style={`w-[12px] h-[6x]`}/>}
+
 
                             {/*  dropdown   */}
                             {isdropdown &&

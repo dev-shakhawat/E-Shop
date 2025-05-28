@@ -8,7 +8,7 @@ import ProductCart from "../common/ProductCart.jsx";
 
 // next arrow
 function NextArrow({onClick}) {
-    return <SlickNextArrow onClick={onClick} positionX={`right-[-15px]`}/>
+    return <SlickNextArrow onClick={onClick} positionX={`right-[-15px] bg-[#f4f4f4] rounded-full `}/>
 }
 
 
@@ -27,6 +27,7 @@ function SpringSlider() {
         slidesToShow: 2,
         slidesToScroll: 1,
         nextArrow: <NextArrow/>,
+        prevArrow: <PrevArrow/>,
         responsive: [
             {
                 breakpoint: 1024,
@@ -52,17 +53,19 @@ function SpringSlider() {
             <Slider {...sliderSeting}>
                 <ProductCart catagory={`television`}
                              title={`LP78245 Smart TV OLED 43 Inch 4K HD Dynamic Color Enhancer USB Movie ...`}
-                             currentprice={4599.00} rating={5} totalrating={100} strok={true} available={50}
-                             delprice={5058.00} persent={10} persentRound={true}
-                             bg={`bg-[#eaeaea] hover:bg-white`}/>
+                             currentprice={"4599.00"} rating={5} totalrating={100} strok={true} available={50}
+                             delprice={"5058.00"} persent={10} persentRound={true}
+                             customstyle={`bg-[#eaeaea] hover:bg-white mx-3`}/>
                 <ProductCart catagory={`camera`}
                              title={`VBI Mini 2 Fly More Combo Drone Sjrc F22S 4K Pro Ptz 5 Km Version Alpha ...`}
-                             currentprice={819.00} rating={5} totalrating={100} strok={true} available={92}
-                             delprice={1638.00} persent={50} persentRound={true} bg={`bg-[#eaeaea] hover:bg-white`}/>
+                             currentprice={"819.00"} rating={5} totalrating={100} strok={true} available={92}
+                             delprice={"1638.00"} persent={50} persentRound={true}
+                             customstyle={`bg-[#eaeaea] hover:bg-white mx-3`}/>
                 <ProductCart catagory={`television`}
                              title={`LP78245 Smart TV OLED 43 Inch 4K HD Dynamic Color Enhancer USB Movie ...`}
-                             currentprice={4599.00} rating={5} totalrating={100} strok={true} available={50}
-                             delprice={5058.00} persent={10} persentRound={true} bg={`bg-[#eaeaea] hover:bg-white`}/>
+                             currentprice={"4599.00"} rating={5} totalrating={100} strok={true} available={50}
+                             delprice={"5058.00"} persent={10} persentRound={true}
+                             customstyle={`bg-[#eaeaea] hover:bg-white mx-3`}/>
             </Slider>
         </div>
     );

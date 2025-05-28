@@ -54,7 +54,7 @@ function FeaturedProduct() {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
-                    
+
                 }
             }
         ]
@@ -70,22 +70,26 @@ function FeaturedProduct() {
                 </h2>
 
                 {/*   slider   */}
-                <div className="mx-14 mt-2 sm:mt-6 md:mt-8 lg:mt-12 ">
+                <div className="mx-13 mt-2 sm:mt-6 md:mt-8 lg:mt-12 ">
                     <Slider {...sliderSettings}>
-                        <ProductCart catagory={`audio`} title={`JPhone 13 High Quality Value Buy Best Cam...`}
-                                     currentprice={999.00} delprice={345} rating={5} totalrating={10}/>
+                        <ProductCart catagory={`phone`} title={`JPhone 13 High Quality Value Buy Best Cam...`}
+                                     currentprice={999.00} delprice={345} rating={5} totalrating={50}
+                                     customstyle={`hover:border-tertary mx-1`}/>
                         <ProductCart catagory={`audio`}
-                                     title={`JPhone 13 High Quality Value Buy Best Cam...`}
-                                     currentprice={999.00} delprice={345} persent={50} rating={3}
-                                     totalrating={50}/>
-                        <ProductCart catagory={`audio`} title={`JPhone 13 High Quality Value Buy Best Cam...`}
-                                     currentprice={999.00} rating={2} totalrating={200}/>
-                        <ProductCart catagory={`audio`}
-                                     title={`JPhone 13 High Quality Value Buy Best Cam...`}
-                                     currentprice={999.00} delprice={345} rating={4} totalrating={110}/>
-                        <ProductCart catagory={`audio`}
-                                     title={`JPhone 13 High Quality Value Buy Best Cam...`}
-                                     currentprice={999.00} delprice={345} rating={1} totalrating={90}/>
+                                     title={`WH-1000XM4 Wireless Headphones High Qu...`}
+                                     currentprice={59.00} delprice={118} persent={50} rating={5}
+                                     totalrating={120} customstyle={`hover:border-tertary mx-1`}/>
+                        <ProductCart catagory={`laptop`} title={`S21 Laptop Ultra HD LED Screen Feature 2023 ...`}
+                                     currentprice={"1,199.00"} rating={5} totalrating={100}
+                                     customstyle={`hover:border-tertary mx-1`}/>
+                        <ProductCart catagory={`camera`}
+                                     title={`Mini Polaroid Camera for Girls with Flash Li...`}
+                                     currentprice={79.00} delprice={345} rating={5} totalrating={70}
+                                     customstyle={`hover:border-tertary mx-1`}/>
+                        <ProductCart catagory={`television`}
+                                     title={`AG OLED65CXPUA 4K Smart OLED TV New ...`}
+                                     currentprice={"2,799.00"} rating={5} totalrating={20}
+                                     customstyle={`hover:border-tertary mx-1`}/>
                     </Slider>
                 </div>
             </Container>

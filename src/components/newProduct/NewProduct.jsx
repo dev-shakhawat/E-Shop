@@ -22,7 +22,7 @@ function NewProduct() {
         {
             catagory: "tablet",
             title: "Ultra Tablet Qwerty HD 10765 Series Low Pri...",
-            currentprice: 799.00,
+            currentprice: "799.00",
             totalrating: 100,
             rating: 5
         },
@@ -37,7 +37,7 @@ function NewProduct() {
             catagory: "laptop",
             title: "Surface Laptop 4 XPS 13 Plus 64GB i7 Touch ...",
             currentprice: 2399.99,
-            delprice: 2878.00,
+            delprice: "2878.00",
             persent: 20,
             totalrating: 120,
             rating: 5
@@ -75,12 +75,13 @@ function NewProduct() {
                     className="grid grid-cols-2 gap-x-1 gap-y-2 sm:grid-cols-3  lg:grid-cols-5 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
                     {
                         newProducts.map((product, index) => <ProductCart key={index} persent={product.persent}
-                                                                         title={product.title} rating={product.rating}
+                                                                         title={product.title}
                                                                          totalrating={product.totalrating}
                                                                          currentprice={product.currentprice}
                                                                          delprice={product.delprice}
                                                                          catagory={product.catagory}
                                                                          rating={product.rating}
+                                                                         customstyle={`hover:border-tertary`}
                         />)}
                 </div>
 

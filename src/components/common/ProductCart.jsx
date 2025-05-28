@@ -20,7 +20,7 @@ function ProductCart({
                          persent = null,
                          rating = 0,
                          totalrating,
-                         bg,
+                         customstyle,
                          strok = false,
                          available
                      }) {
@@ -30,7 +30,7 @@ function ProductCart({
 
     return (
         <div
-            className={`${bg} duration-300 mx-1 p-2 sm:p-3.5 md:p-5 lg:p-6 border rounded-lg cursor-pointer border-transparent hover:bg-white hover:border-tertary group   `}>
+            className={`${customstyle} duration-300  p-2 sm:p-3.5 md:p-5 lg:p-6 border rounded-lg cursor-pointer border-transparent  group   `}>
 
             {/*  top part  */}
             <div className="relative overflow-hidden ">
@@ -38,7 +38,7 @@ function ProductCart({
                 {/*   persent tag    */}
                 {persent &&
                     <div
-                        className={`absolute top-0 right-0 bg-brand text-white text-base font-semibold md:font-bold leading-[24px] font-montserrat px-3 md:px-5 py-1.5 flex justify-center items-center ${persentRound ? " w-[60px] h-[60px]   rounded-full" : "rounded-[5px]"} `}>{persent}%
+                        className={`absolute top-0 right-0 bg-brand   md:font-bold  px-3 md:px-5 py-1.5 flex justify-center items-center text-white ${persentRound ? " w-[100px] h-[100px]  text-[24px] leading-[30px]  font-poppins  rounded-full font-bold " : "rounded-[5px] font-montserrat text-base leading-[24px]  font-semibold "}  `}>{persent}%
                     </div>}
 
                 {/*  product image  */}
@@ -85,7 +85,7 @@ function ProductCart({
                     {/*  deleted price  */}
                     {delprice &&
                         <del
-                            className={`font-montserrat font-normal text-[12px] md:text-base leading-[24px] text-secondery  `}>{delprice}</del>}
+                            className={`font-montserrat font-normal text-[12px] md:text-base leading-[24px] text-secondery  `}>${delprice}</del>}
 
                 </div>
 

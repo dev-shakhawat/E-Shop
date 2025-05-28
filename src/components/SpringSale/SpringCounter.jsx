@@ -41,7 +41,8 @@ function SpringCounter() {
 
                 {/*  day  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">{timeleft.day}</h3>
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                        {timeleft.day < 9 ? `0${timeleft.day}` : timeleft.day}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>days</span>
                 </div>
                 <span
@@ -49,7 +50,8 @@ function SpringCounter() {
 
                 {/*  hour  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">{timeleft.hour}</h3>
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                        {timeleft.hour < 9 ? `0${timeleft.hour}` : timeleft.hour}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>hours</span>
                 </div>
                 <span
@@ -57,7 +59,8 @@ function SpringCounter() {
 
                 {/*  munite  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">{timeleft.munite}</h3>
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                        {timeleft.munite < 9 ? `0${timeleft.munite}` : timeleft.munite}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>munites</span>
                 </div>
                 <span
@@ -65,7 +68,8 @@ function SpringCounter() {
 
                 {/*  second  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">{timeleft.second}</h3>
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                        {timeleft.second < 9 ? `0${timeleft.second}` : timeleft.second}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>seconds</span>
                 </div>
 
