@@ -24,7 +24,7 @@ function FooterTop() {
                 <div className="flex flex-col ">
                     {/* input box */}
                     <input type="srarch" placeholder={`Enter your email address ...`}
-                           className={`outline-none border lg:border-2 border-[#929292] pl-2 md:l-4 lg:pl-6 py-2 md:py-4 lg:py-4.5 pr-11 mt-8 max-w-[494px] text-primary  w-full lg:rounded-[10px] rounded-[5px] bg-white  `}/>
+                           className={`outline-none border lg:border border-[#929292] pl-2 md:l-4 lg:pl-6 py-2 md:py-4 lg:py-4.5 pr-11 mt-8 max-w-[494px] text-primary  w-full lg:rounded-[10px] rounded-[5px] bg-white  `}/>
 
                     {/*  button  */}
                     <Button text={`Subscribe`}

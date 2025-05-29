@@ -100,7 +100,7 @@ function HeaderTop() {
                         <div
                             className="lg:mr-12  cursor-pointer flex   ">
 
-                            <div className="flex relative  " onClick={() => setIsCurrencyDropdown(!isCurrencyDropdown)}>
+                            <div ref={currencyRef} className="flex relative  " onClick={() => setIsCurrencyDropdown(!isCurrencyDropdown)}>
                                 <div className=" flex items-center ">
                                     <span
                                         className="mr-3 text-[12px] sm:text-[14px]  truncate whitespace-nowrap overflow-hidden font-montserrat leading-5 ">{selectedCurrency}</span>
@@ -112,7 +112,7 @@ function HeaderTop() {
                                 {/*  all currency dropdown  */}
                                 {isCurrencyDropdown &&
                                     <div
-                                        ref={currencyRef}
+                                        
                                         className="flex flex-col gap-1   absolute top-8 left-0 lg:-left-7 z-[1] bg-white  rounded-md w-[140px] lg:w-[180px] max-h-[400px] h-fit   border border-tertary ">
                                         <div className={`max-h-[200px] overflow-y-scroll`}>
                                             {correncies.length === 0 ?
@@ -138,7 +138,7 @@ function HeaderTop() {
                         <div
                             className="lg:mr-14  lg:w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:left-[-27px] after:top-[0px] lg:after:top-[-5px]     ">
 
-                            <div className="flex relative  " onClick={() => setIsDropdown(!isDropdown)}>
+                            <div ref={countryRef} className="flex relative  " onClick={() => setIsDropdown(!isDropdown)}>
                                 <div className=" flex items-center ">
                                     <img src={selectedCountry?.image} alt={selectedCountry?.name}
                                          className={` w-[18px] lg:min-w-[25px] h-[18px] object-cover  `}/>
@@ -152,7 +152,7 @@ function HeaderTop() {
                                 {/*  all language dropdown  */}
                                 {isDropdown &&
                                     <div
-                                        ref={countryRef}
+                                        
                                         className="flex flex-col gap-1   absolute top-8 left-0 lg:-left-7 z-[1] bg-white  rounded-md w-[140px] lg:w-[180px] max-h-[400px] h-fit   border border-tertary ">
                                         <div className={``}>
                                             {countries.length === 0 ?

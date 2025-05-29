@@ -76,14 +76,12 @@ function HeaderBottom() {
 
 
     // all catagory handeler
-    const handelallcata = (e) => {
-        e.stopPropagation()
+    const handelallcata = () => {
         setIsAllcata(prev => !prev);
     }
 
     // product handler
-    const handleProduct = (e) => {
-        e.stopPropagation()
+    const handleProduct = () => {
         setIsdropdown(!isdropdown)
     }
 
@@ -94,7 +92,7 @@ function HeaderBottom() {
                 <div className="flex justify-between  ">
                     {/* left */}
                     <ul className={`flex gap-5 md:gap-x-10 lg:gap-x-15 xl:gap-x-20`}>
-                        <li className={`navLink cursor-pointer relative `} onMouseDown={(e) => handelallcata(e)}>
+                        <li ref={allcataRef} className={`navLink cursor-pointer relative `} onClick={() => handelallcata()}>
                             <Link to={`#`}
                                   className={`flex items-center gap-2 md:gap-x-4`}>
                                 <div className="w-[20px]">
@@ -108,7 +106,7 @@ function HeaderBottom() {
                             </Link>
 
                             {isallcata &&
-                                <ul ref={allcataRef}
+                                <ul 
                                     className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}>
                                     <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link to={`#`}>Laptop</Link></li>
@@ -121,7 +119,7 @@ function HeaderBottom() {
                                 </ul>
                             }
                         </li>
-                        <li onMouseDown={(e) => handleProduct(e)}
+                        <li ref={dropdownRef} onClick={() => handleProduct()}
                             className={`navLink relative `}>
                             <Link to={`#`}><span>{t("Products")}</span></Link>
 
@@ -132,7 +130,7 @@ function HeaderBottom() {
 
                             {/*  dropdown   */}
                             {isdropdown &&
-                                <ul ref={dropdownRef}
+                                <ul 
                                     className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1  `}>
                                     <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link
