@@ -74,22 +74,23 @@ function FeaturedProduct() {
                     <Slider {...sliderSettings}>
                         <ProductCart catagory={`phone`} title={`JPhone 13 High Quality Value Buy Best Cam...`}
                                      currentprice={999.00} delprice={345} rating={5} totalrating={50}
-                                     customstyle={`hover:border-tertary mx-1`}/>
+                                     customstyle={`hover:border-tertary mx-1`} customStar={`text-[#fbd550]`}/>
                         <ProductCart catagory={`audio`}
                                      title={`WH-1000XM4 Wireless Headphones High Qu...`}
                                      currentprice={59.00} delprice={118} persent={50} rating={5}
-                                     totalrating={120} customstyle={`hover:border-tertary mx-1`}/>
+                                     totalrating={120} customstyle={`hover:border-tertary mx-1`}
+                                     customStar={`text-[#fbd550]`}/>
                         <ProductCart catagory={`laptop`} title={`S21 Laptop Ultra HD LED Screen Feature 2023 ...`}
                                      currentprice={"1,199.00"} rating={5} totalrating={100}
-                                     customstyle={`hover:border-tertary mx-1`}/>
+                                     customstyle={`hover:border-tertary mx-1`} customStar={`text-[#fbd550]`}/>
                         <ProductCart catagory={`camera`}
                                      title={`Mini Polaroid Camera for Girls with Flash Li...`}
                                      currentprice={79.00} delprice={345} rating={5} totalrating={70}
-                                     customstyle={`hover:border-tertary mx-1`}/>
+                                     customstyle={`hover:border-tertary mx-1`} customStar={`text-[#fbd550]`}/>
                         <ProductCart catagory={`television`}
                                      title={`AG OLED65CXPUA 4K Smart OLED TV New ...`}
                                      currentprice={"2,799.00"} rating={5} totalrating={20}
-                                     customstyle={`hover:border-tertary mx-1`}/>
+                                     customstyle={`hover:border-tertary mx-1`} customStar={`text-[#fbd550]`}/>
                     </Slider>
                 </div>
             </Container>

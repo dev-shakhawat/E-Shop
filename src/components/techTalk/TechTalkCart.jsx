@@ -9,7 +9,7 @@ import Timer from "../../assets/icons/Timer.jsx";
 function TechTalkCart({title, buttontxt, date, buttonlink, image = product}) {
     return (
         <div
-            className={` p-4 sm:p-7 md:p-10  lg:p-[52px] border border-transparent hover:border-tertary/50 rounded-[10px] md:rounded-[15px] lg:rounded-[25px]`}>
+            className={`duration-300 hover:p-4 sm:hover:p-7 md:hover:p-10  lg:hover:p-[52px] border border-transparent hover:border-tertary/50 rounded-[10px] md:rounded-[15px] lg:rounded-[25px]`}>
 
             {/*  images  */}
             <div className=" rounded-[10px] md:rounded-[15px] lg:rounded-[25px] ">
@@ -18,7 +18,7 @@ function TechTalkCart({title, buttontxt, date, buttonlink, image = product}) {
 
             {/*  body/text  */}
             <div className="">
-                <h3 className="font-poppins font-semibold text-[13px] sm:text-base md:text-xl lg:text-[24px] lg:leading-[30px] text-primary mt-8  ">{title}</h3>
+                <h3 className="line-clamp-2 font-poppins font-semibold text-[13px] sm:text-base md:text-xl lg:text-[24px] lg:leading-[30px] text-primary mt-8  ">{title}</h3>
 
                 {/*  button/link/date  */}
                 <div className="flex items-center justify-between mt-2 sm:mt-4 md:mt-6 lg:mt-8">

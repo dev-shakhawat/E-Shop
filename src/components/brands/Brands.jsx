@@ -5,7 +5,7 @@ import Container from "../common/Container.jsx";
 
 function Brands() {
     return (
-        <div className={` pb-10 sm:pb-15 md:b-20 lg:pb-[100px] pt-10 lg:pt-0`}>
+        <div className={` py-25`}>
             <Container>
 
                 {/*  brands marque  */}

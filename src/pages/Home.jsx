@@ -45,7 +45,7 @@ function Home() {
 
 
             {/*  tech talk  */}
-            {/*<TechTalk/>*/}
+            <TechTalk/>
 
             {/*  brands  */}
             <Brands/>

@@ -64,15 +64,15 @@ function HeaderBottom() {
             if (allcataRef.current && !allcataRef.current.contains(event.target)) {
                 setIsAllcata(false);
             }
-            
+
 
         };
-        document.addEventListener("click", handleOutsideClick);
+        document.addEventListener("mousedown", handleOutsideClick);
         return () => {
-            document.removeEventListener("click", handleOutsideClick);
+            document.removeEventListener("mousedown", handleOutsideClick);
         };
 
-    }, [])
+    }, []);
 
 
     // all catagory handeler
@@ -94,9 +94,9 @@ function HeaderBottom() {
                 <div className="flex justify-between  ">
                     {/* left */}
                     <ul className={`flex gap-5 md:gap-x-10 lg:gap-x-15 xl:gap-x-20`}>
-                        <li className={`navLink relative `} onClick={(e) => handelallcata(e)}>
-                            <button type={`button`}
-                                    className={`flex items-center gap-2 md:gap-x-4`}>
+                        <li className={`navLink cursor-pointer relative `} onMouseDown={(e) => handelallcata(e)}>
+                            <Link to={`#`}
+                                  className={`flex items-center gap-2 md:gap-x-4`}>
                                 <div className="w-[20px]">
 
                                     {isallcata ? <SlClose className={`text-xl`}/> :
@@ -105,11 +105,11 @@ function HeaderBottom() {
 
 
                                 <span>{t("All_Catagories")}</span>
-                            </button>
+                            </Link>
 
                             {isallcata &&
                                 <ul ref={allcataRef}
-                                    className={`absolute top-12 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}>
+                                    className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}>
                                     <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
                                         <Link to={`#`}>Laptop</Link></li>
                                     <li className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}>
@@ -121,7 +121,7 @@ function HeaderBottom() {
                                 </ul>
                             }
                         </li>
-                        <li onClick={(e) => handleProduct(e)}
+                        <li onMouseDown={(e) => handleProduct(e)}
                             className={`navLink relative `}>
                             <Link to={`#`}><span>{t("Products")}</span></Link>
 

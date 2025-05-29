@@ -82,6 +82,7 @@ function NewProduct() {
                                                                          catagory={product.catagory}
                                                                          rating={product.rating}
                                                                          customstyle={`hover:border-tertary`}
+                                                                         customStar={`text-[#fbd550]`}
                         />)}
                 </div>
 

@@ -6,7 +6,7 @@ function SpringCounter() {
     const [timeleft, setTimeleft] = useState(calculateTimeLeft());
 
     function calculateTimeLeft() {
-        const saleEndtime = new Date("May 29 , 2025 12:00 AM GMT+6").getTime();
+        const saleEndtime = new Date("Jun 7 , 2025 12:00 AM GMT+6").getTime();
         const currentDate = new Date().getTime();
         const diffrent = saleEndtime - currentDate;
 

@@ -65,6 +65,8 @@ function BestSellerLeft() {
                                                                  currentprice={item.currentprice} rating={item.rating}
                                                                  totalrating={item.totalrating} delprice={item.delprice}
                                                                  persent={item.persent}
+                                                                 customstyle={`hover:border-tertary`}
+                                                                 customStar={`text-[#fbd550]`}
                 />)}
             </div>
         </div>

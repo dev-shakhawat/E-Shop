@@ -21,6 +21,7 @@ function ProductCart({
                          rating = 0,
                          totalrating,
                          customstyle,
+                         customStar,
                          strok = false,
                          available
                      }) {
@@ -71,7 +72,7 @@ function ProductCart({
                 <div className="flex items-center mt-2 ">
                     <ul className="flex">
                         {/*   rating   */}
-                        {ratingval.map((item, index) => <li key={index}><Star/></li>)}
+                        {ratingval.map((item, index) => <li key={index}><Star customStar={customStar}/></li>)}
                     </ul>
                     <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>({totalrating})</p>
                 </div>

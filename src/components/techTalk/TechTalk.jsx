@@ -27,7 +27,7 @@ function TechTalk() {
         },
     ]
     return (
-        <div className={` pt-5 sm:pt-10 md:pt-15 lg:pt-20 pb-5 sm:pb-10 md:pb-15 lg:pb-25`}>
+        <div className={` pt-5 sm:pt-10 md:pt-15 lg:pt-20 `}>
             <Container>
                 {/*   head   */}
                 <div className="flex justify-between items-end">
@@ -49,7 +49,7 @@ function TechTalk() {
 
 
                 {/*  techtalk carts  */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-3 sm:mt-6 md:mt-9 lg:mt-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mt-3 sm:mt-6 md:mt-9 lg:mt-12">
                     {techtalkdata.map((data, index) => <TechTalkCart key={index} title={data.title}
                                                                      buttontxt={data.buttontxt}
                                                                      buttonlink={data.buttonlink} date={data.date}/>)}

@@ -61,9 +61,9 @@ function FooterBottom() {
     return (
         <div className={`mt-[100px]`}>
             <Container>
-                <div className="grid lg:grid-cols-5 grid-cols-2 md:grid-cols-3 gap-5 lg:gap-0  ">
+                <div className="flex  ">
                     {/*  logo/contact  */}
-                    <div className="flex flex-col justify-between  ">
+                    <div className="flex flex-col justify-between  mr-[160px] ">
                         <img src="/images/logo.png" alt="logo" className={`max-w-[129px]`}/>
                         <List arr={footContact}
                               liststyle={`relative pl-8 cursor-pointer text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
@@ -71,7 +71,7 @@ function FooterBottom() {
                     </div>
 
                     {/*  links  */}
-                    <div className="lg:justify-self-end">
+                    <div className="">
                         <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 `}>Links</h3>
                         <List arr={footLinks}
                               liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
@@ -79,7 +79,7 @@ function FooterBottom() {
                     </div>
 
                     {/*  supports  */}
-                    <div className="lg:justify-self-end lg:gap-0 ">
+                    <div className="mx-[96px] ">
                         <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Supports</h3>
                         <List arr={footSupports}
                               liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
@@ -96,14 +96,14 @@ function FooterBottom() {
                     </div>
 
                     {/*  payments  */}
-                    <div className="lg:justify-self-end lggap-0 gap-5 ">
+                    <div className="ml-20 ">
                         <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Payments</h3>
-                        <div className="flex gap-7 ">
+                        <Link to={`#`} className="flex gap-7 ">
                             <Visa/>
                             <MasterCard/>
                             <ApplePay/>
                             <Paypal/>
-                        </div>
+                        </Link>
                         <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-3  lg:pb-6 mt-10 lg:mt-[73px] `}>Follow
                             Us</h3>
                         <List arr={footFollow}
