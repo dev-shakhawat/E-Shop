@@ -9,7 +9,7 @@ function Brands() {
             <Container>
 
                 {/*  brands marque  */}
-                <Marquee npm rpauseOnHover={true}>
+                <Marquee pauseOnHover={true}>
                     <div className="flex gap-10 sm:gap-20 md:gap-30 lg:gap-40 items-center">
 
                         <img src="/images/brand1.png" alt="brand1"
