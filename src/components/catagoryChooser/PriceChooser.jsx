@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import ArrowDown from "../../assets/icons/ArrowDown.jsx";
-import MultiRangeSlider from "multi-range-slider-react";
 import {Range} from "react-range";
+import { dir } from 'i18next';
 
 
 function PriceChooser() {
@@ -31,8 +31,8 @@ function PriceChooser() {
             {/*   head   */}
             <div className="flex items-center justify-between cursor-pointer" onClick={() => setIsopen(!isopen)}>
                 <h3 className="font-montserrat font-bold text-xl leading-[30px] text-primary">Price</h3>
-                {isopen ? <ArrowDown style={` duration-400  rotate-[180deg] `}/> :
-                    <ArrowDown style={`duration-400  rotate-[0deg]`}/>}
+                {isopen ? <ArrowDown style={` duration-400 w-[11px] h-[6px] rotate-[180deg] `}/> :
+                    <ArrowDown style={`duration-400 w-[11px] h-[6px] rotate-[0deg]`}/>}
             </div>
 
             {/*  body   */}
@@ -62,29 +62,38 @@ function PriceChooser() {
                     min={MIN}
                     max={MAX}
                     values={values}
+                    className=""
                     onChange={(values) => setValues(values)}
                     renderTrack={({props, children}) => (
                         <div {...props} style={{
                             ...props.style,
                             height: "2px",
                             width: "100%",
-                            backgroundColor: "#c3c3c3",
+                            backgroundColor: "#FF624C",
+                            zIndex: "-1"
                         }}>
                             {children}
                         </div>
                     )}
-                    renderThumb={({props}) => (
-                        <div {...props} style={{
+                    renderThumb={({props , index}) => (
+                        <div 
+                        key={index}
+                        {...props} 
+                        style={{
                             ...props.style,
                             height: "16px",
                             width: "16px",
                             backgroundColor: "#FF624C",
                             borderRadius: "50%",
-                        }}/>
+                            zIndex: "1"
+                        }}
+                        className={`after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-full after:bg-[#FF624C] after:z-[1]`}
+                        >
+                            <span key={index} {...props} className={`${index === 0 && " -left-[500px] -top-[15px] "}  w-[500px]  h-[2px] bg-[#c3c3c3] top-[7px]   `}     ></span>
+                        </div>
                     )}
                 />
                 <div>
-                    Selected range: {values[0]} - {values[1]}
                 </div>
 
 

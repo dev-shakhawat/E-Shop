@@ -37,7 +37,7 @@ function Shortby({shortsArr, shortWidth = 137,}) {
             {isModal &&
                 <div
                     ref={modalref}
-                    className={`absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 overflow-hidden border border-tertary h-[300px] overflow-y-scroll overflow-x-hidden `}>
+                    className={`${shortsArr.length > 5 ? "h-[300px]" : "h-fit" }  absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 overflow-hidden border border-tertary  overflow-y-scroll overflow-x-hidden `}>
                     <ul>
                         {shortsArr.map((short, index) => <li key={index}
                                                              onClick={() => handelShort(short)}

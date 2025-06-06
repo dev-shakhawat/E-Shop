@@ -5,7 +5,7 @@ import CheckboxChecked from "../../assets/icons/CheckboxChecked.jsx";
 
 function Chooser({allcatagories}) {
 
-    const [isopen, setIsopen] = useState(false)
+    const [isopen, setIsopen] = useState(true)
     const catagoryRef = useRef(null)
     const [catagoryHeight, setCatagoryHeight] = useState(0)
 
@@ -30,12 +30,12 @@ function Chooser({allcatagories}) {
             {/*   catagory chooser head    */}
             <div className="flex items-center justify-between cursor-pointer" onClick={() => setIsopen(!isopen)}>
                 <h3 className="font-montserrat font-bold text-xl leading-[30px] text-primary">Categories</h3>
-                {isopen ? <ArrowDown style={` duration-400  rotate-[180deg] `}/> :
-                    <ArrowDown style={`duration-400  rotate-[0deg]`}/>}
+                {isopen ? <ArrowDown style={` duration-400 w-[11px] h-[6px] rotate-[180deg] `}/> :
+                    <ArrowDown style={`duration-400 w-[11px] h-[6px] rotate-[0deg]`}/>}
             </div>
 
             {/*  all catagories list  */}
-            <div ref={catagoryRef} className="flex flex-col gap-y-3 mt-5 overflow-hidden transition-all duration-400"
+            <div ref={catagoryRef} className="flex flex-col gap-y-3 overflow-hidden transition-all duration-400"
                  style={{height: `${catagoryHeight}px`}}>
                 {allcatagories.map((cata, index) => (
                     <label onClick={(e) => handelclick(e)}

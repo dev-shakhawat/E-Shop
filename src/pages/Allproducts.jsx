@@ -2,6 +2,7 @@ import React from 'react';
 import Container from "../components/common/Container.jsx";
 import Chooser from "../components/catagoryChooser/Chooser.jsx";
 import PriceChooser from "../components/catagoryChooser/PriceChooser.jsx";
+import AllProducts from '../components/allProducts/AllProducts.jsx';
 
 function Allproducts() {
 
@@ -31,7 +32,7 @@ function Allproducts() {
     return (
         <div className={`mt-17 pb-20`}>
             <Container>
-                <div className="flex">
+                <div className="flex gap-6.5">
 
                     {/*  catagory/brand/price chooser  */}
                     <div className="min-w-[335px] bg-[#F4F4F4] rounded-[25px] p-12">
@@ -52,7 +53,9 @@ function Allproducts() {
 
 
                     {/*  all products  */}
-                    <div className=""></div>
+                    <div className="w-full">
+                        <AllProducts/>
+                    </div>
                 </div>
             </Container>
         </div>
