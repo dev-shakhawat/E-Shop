@@ -2,10 +2,20 @@ import React, { useState } from 'react'
 import Shortby from '../common/Shortby'
 import ListView from '../../assets/icons/ListView'
 import GridView from '../../assets/icons/GridView'
+import { useDispatch, useSelector } from 'react-redux'
+import {currentMode} from '../../redux/slices/viewmodeSlice'
 
 
 export default function ProductsHead() {
     const [viewmode , setViewmode] = useState('grid')
+    const dispatch = useDispatch()
+
+    const handleModeChange = (mode) => {
+        setViewmode(mode)
+        dispatch(currentMode(mode))
+      }
+    
+      
   return (
     <div className='w-full   '>
     <h2 className=" font-poppins font-semibold text-[36px] leading-[46px] text-primary    ">Products</h2>
@@ -17,20 +27,20 @@ export default function ProductsHead() {
         <div className="flex ">
 
             {/* short one */}
-            <div className="flex gap-4 items-center mr-6 ">
+            <div className="flex gap-4 items-center mr-6 relative  after:content-[''] after:w-[1px] after:h-[32px] after:bg-tertary after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-[24px]   ">
                 <p className="font-montserrat font-normal text-base leading-[24px] text-primary    ">Sort by </p>
                 <Shortby shortsArr={['Popularity', 'Most Recent']} shortWidth={135}/>
             </div>
 
             {/* short two */}
-            <div className="flex gap-4 items-center mx-6">
-                <Shortby shortsArr={['Price Low-to-High', 'Most Recent']} shortWidth={200}/>
+            <div className="flex gap-4 items-center mx-6 relative  after:content-[''] after:w-[1px] after:h-[32px] after:bg-tertary after:absolute after:top-1/2 after:-translate-y-1/2 after:-right-[24px]">
+                <Shortby shortsArr={['Price Low-to-High', 'Price High-to-Low' , 'Name A-Z', 'Name Z-A']} shortWidth={200}/>
             </div>
 
             {/* short three */}
             <div className="ml-6 flex items-center gap-4 ">
-                <GridView onClick={() => setViewmode('grid')} className={`w-6 h-6 cursor-pointer `} fill={ viewmode == 'grid' ? `#FF624C` : `#cbcbcb`}/>
-                <ListView onClick={() => setViewmode('list')} className={`w-6 h-6 cursor-pointer `} fill={ viewmode == 'list' ? `#FF624C` : `#cbcbcb`}/>
+                <GridView onClick={() => handleModeChange('grid') } className={`${viewmode == 'grid' ? 'text-brand' : 'text-tertary'}  w-6 h-6 cursor-pointer  `} />
+                <ListView onClick={() => handleModeChange('list')} className={`${viewmode == 'list' ? 'text-brand' : 'text-tertary'}  w-6 h-6 cursor-pointer  `} />
             </div>
 
         </div>

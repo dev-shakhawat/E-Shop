@@ -27,7 +27,7 @@ function Shortby({shortsArr, shortWidth = 137,}) {
         return () => window.removeEventListener('mousedown', handeloutside);
     }, [])
     return (
-        <div className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>
+        <div ref={modalref} className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>
             <p className="font-montserrat font-semibold lg:font-bold text-[13px] lg:text-base leading-[24px] text-brand"
                style={{width: `${shortWidth}px`}}>{shortVal}</p>
             {isModal ? <ArrowDown style={` w-[11px] h-[6px]  rotate-[180deg]`}/> :
@@ -36,7 +36,7 @@ function Shortby({shortsArr, shortWidth = 137,}) {
             {/*  shortBy modal  */}
             {isModal &&
                 <div
-                    ref={modalref}
+                    
                     className={`${shortsArr.length > 5 ? "h-[300px]" : "h-fit" }  absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 overflow-hidden border border-tertary  overflow-y-scroll overflow-x-hidden `}>
                     <ul>
                         {shortsArr.map((short, index) => <li key={index}

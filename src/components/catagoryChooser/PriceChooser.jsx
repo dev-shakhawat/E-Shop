@@ -8,7 +8,7 @@ function PriceChooser() {
     const STEP = 1;
     const MIN = 0;
     const MAX = 10000;
-    const [isopen, setIsopen] = useState(false);
+    const [isopen, setIsopen] = useState(true);
     const priceboxRef = useRef(null)
     const [priceboxHeight, setPriceboxHeight] = useState(0)
     const [startprice, setStartPrice] = useState(100);
