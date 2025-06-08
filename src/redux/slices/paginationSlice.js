@@ -1,8 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    value: 1,
-    totalPagination: 5
+    value: 3,
+    totalPagination: 12
 }
 
 

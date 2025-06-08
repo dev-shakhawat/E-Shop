@@ -89,7 +89,7 @@ function PriceChooser() {
                         }}
                         className={`after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-full after:bg-[#FF624C] after:z-[1]`}
                         >
-                            <span key={index} {...props} className={`${index === 0 && " -left-[500px] -top-[15px] "}  w-[500px]  h-[2px] bg-[#c3c3c3] top-[7px]   `}     ></span>
+                            <span key={index} {...props} className={`${index === 0 && " -left-[500px] -top-[15px] "}  w-[500px]  h-[2px] bg-[#c3c3c3] top-[7px]    `}     ></span>
                         </div>
                     )}
                 />
