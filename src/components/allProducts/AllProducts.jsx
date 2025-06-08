@@ -18,6 +18,7 @@ export default function AllProducts() {
   const dispatch = useDispatch();
   const paginationCurrent = useSelector(state => state.pagination.value)
   
+  
 
   useEffect(() => {
     fetch('https://dummyjson.com/products?limit=194')
@@ -39,6 +40,8 @@ export default function AllProducts() {
   
   const showPersentage = [2,5,8,11,13,16]
   const ShowDelPrice = [2,5,8,11,13,16]
+
+  
   
   
   

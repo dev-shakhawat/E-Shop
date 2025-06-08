@@ -9,6 +9,8 @@ import {currentMode} from '../../redux/slices/viewmodeSlice'
 export default function ProductsHead() {
     const [viewmode , setViewmode] = useState('grid')
     const dispatch = useDispatch()
+    const allpagi = useSelector(state => state.pagination.totalPagination)
+    const paginationCurrent = useSelector(state => state.pagination.value)
 
     const handleModeChange = (mode) => {
         setViewmode(mode)
@@ -22,7 +24,7 @@ export default function ProductsHead() {
 
     {/* short by tab */}
     <div className="flex justify-between mt-6">
-        <p className='w-[300px] font-montserrat text-base leading-[24px] text-primary '>Showing 1 - 16 of 160 results</p>
+        <p className='w-[300px] font-montserrat text-base leading-[24px] text-primary '>Showing {paginationCurrent == 1 ? 1 : (paginationCurrent - 1) * 16} - { paginationCurrent * 16 } of {allpagi * 16} results</p>
 
         <div className="flex ">
 
