@@ -25,6 +25,15 @@ export const handelAddToCart = (product, dispatch) => {
             message: 'Product added to cart successfully',
           },
         });
+        dispatch({
+          type: 'product/addToCart',
+          payload: cart,
+        });
+        setTimeout(() => {
+          dispatch({
+            type: 'product/checkoutPrice',
+          });
+        } , 100)
       }
     } else {
       cart.push({...product , totalPrice: product.price * product.minimumOrderQuantity , totalquantity: product.minimumOrderQuantity});
@@ -36,6 +45,15 @@ export const handelAddToCart = (product, dispatch) => {
           message: 'Product added to cart successfully',
         },
       });
+      dispatch({
+        type: 'product/addToCart',
+        payload: cart,
+      });
+      setTimeout(() => {
+        dispatch({
+          type: 'product/checkoutPrice',
+        });
+      } , 100)
     }
   
     setTimeout(() => {

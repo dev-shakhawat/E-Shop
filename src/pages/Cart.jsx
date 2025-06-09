@@ -52,7 +52,7 @@ function Cart() {
                     <div className="flex-1 flex items-center justify-between py-8 px-9 bg-[#F4F4F4] rounded-[15px] ">
                         <h2 className=" font-montserrat font-bold text-base leading-[24px] text-primary uppercase  ">sub total</h2>
                         <h2 className=" font-poppins font-semibold text-[24px] leading-[30px] text-brand   ">
-                            ${subtotalPrice}
+                            ${subtotalPrice.toFixed(2)}
                             <span className='font-montserrat font-normal text-sm leading-[20px] text-primary ml-[23px] '>( excl. shipping fee )</span>
                         </h2>
                     </div> 

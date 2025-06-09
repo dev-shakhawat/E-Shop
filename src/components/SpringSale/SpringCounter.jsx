@@ -1,27 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Button from "../common/Button.jsx";
+import {calculateTimeLeft} from "../../helpers/calculateTime.js";
 
 function SpringCounter() {
 
     const [timeleft, setTimeleft] = useState(calculateTimeLeft());
-
-    function calculateTimeLeft() {
-        const saleEndtime = new Date("Jun 7 , 2025 12:00 AM GMT+6").getTime();
-        const currentDate = new Date().getTime();
-        const diffrent = saleEndtime - currentDate;
-
-        if (diffrent < 0) {
-            return {day: 0, hour: 0, munite: 0, second: 0}
-        }
-
-        return {
-            day: Math.floor(diffrent / (1000 * 60 * 60 * 24)),
-            hour: Math.floor((diffrent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-            munite: Math.floor((diffrent % (1000 * 60 * 60)) / (1000 * 60)),
-            second: Math.floor((diffrent % (1000 * 60)) / 1000)
-        }
-    }
-
+    
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeleft(calculateTimeLeft())

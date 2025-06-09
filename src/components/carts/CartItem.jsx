@@ -111,7 +111,7 @@ export default function CartItem({data}) {
             </div>
 
             {/* total price */}
-            <p className=" font-montserrat font-semibold text-xl my-auto leading-[30px] text-primary  ">${price  * quantity}</p>
+            <p className=" font-montserrat font-semibold text-xl my-auto leading-[30px] text-primary  ">${(price  * quantity).toFixed(2)}</p>
         </div>
 
     </div>
