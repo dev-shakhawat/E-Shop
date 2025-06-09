@@ -25,7 +25,8 @@ function ProductCart({
                          customStar,
                          strok = false,
                          available,
-                         image
+                         image,
+                         onClick
                      }) {
 
     const [ratingval, setRatingval] = React.useState(new Array(rating).fill(rating))
@@ -35,6 +36,7 @@ function ProductCart({
 
     return (
         <div
+            onClick={onClick}
             className={`${customstyle} ${mode == 'list' && "flex items-center"} duration-300  p-2 sm:p-3.5 md:p-5 lg:p-6 border rounded-lg cursor-pointer border-transparent  group relative overflow-hidden `}>
 
             {/*  top part  */}
