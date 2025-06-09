@@ -4,6 +4,7 @@ import languageSlice from "./slices/languageSlice.js";
 import viewmodeSlice from './slices/viewmodeSlice.js';
 import paginationSlice from './slices/paginationSlice.js';
 import productSlice from './slices/productSlice.js';
+import notificationSlice from './slices/notificationSlice.js';
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
         language: languageSlice,
         viewmode: viewmodeSlice,
         pagination: paginationSlice,
-        product: productSlice
+        product: productSlice,
+        notification: notificationSlice
     },
 })

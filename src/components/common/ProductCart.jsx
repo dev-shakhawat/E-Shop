@@ -26,7 +26,8 @@ function ProductCart({
                          strok = false,
                          available,
                          image,
-                         onClick
+                         onClick,
+                         addCart
                      }) {
 
     const [ratingval, setRatingval] = React.useState(new Array(rating).fill(rating))
@@ -53,11 +54,12 @@ function ProductCart({
 
                 {/*  cart/love/share   */}
                 <div
+                    onClick={e => e.stopPropagation()}
                     className={` ${mode == 'grid' ? "-bottom-1/2 group-hover:bottom-1.5 left-0" : "bottom-[80px] left-[55%] group-hover:left-[47%]  rotate-90 "}  flex justify-center gap-4.5 absolute  w-full duration-200 `}>
                     <div
+                        onClick={addCart}
                         className="duration-300 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white  grid place-items-center rounded-full border border-brand   ">
-                        <CartIcon color={`#FF624C`}
-                                  className={` ${mode !== "grid" && "-rotate-90"} w-[15px] md:w-[20px]`}/>
+                        <CartIcon color={`#FF624C`} className={` ${mode !== "grid" && "-rotate-90"} w-[15px] md:w-[20px]`}/>
                     </div>
                     <div
                         className="duration-300 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white grid place-items-center rounded-full border border-brand   ">

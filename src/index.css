@@ -15,6 +15,18 @@
     /*    font */
     --font-montserrat: 'Montserrat', sans-serif;
     --font-poppins: 'Poppins', sans-serif;
+
+
+    --animate-notify: notify .4s ease-in-out alternate;
+    @keyframes notify {
+      0%{
+        opacity: 0.3;
+
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 }
 
 
