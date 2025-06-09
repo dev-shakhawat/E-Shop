@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // icons
 import { RxMinus } from "react-icons/rx";
 import { HiPlus } from "react-icons/hi2";
 import Delete from '../../assets/icons/Delete';
 import Share from '../../assets/icons/Share';
+import { useDispatch } from 'react-redux';
+import { checkoutPrice } from '../../redux/slices/productSlice';
 
 
 export default function CartItem({data}) {
@@ -14,6 +16,11 @@ export default function CartItem({data}) {
 
     // quantity
     const [quantity , setQuantity] = useState(data.totalquantity || minimumOrderQuantity);
+
+    // subtotal price
+    const [subtotalPrice , setSubtotalPrice] = useState(0);
+
+    const dispatch = useDispatch();
 
     const increment = (product) => {
         let updatedQuantity = quantity + 1;
@@ -31,6 +38,25 @@ export default function CartItem({data}) {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
         setQuantity(updatedQuantity);
     };
+
+
+    useEffect(() => {
+        setSubtotalPrice(0)
+        const allcarts = JSON.parse(localStorage.getItem('cart')) ;
+        allcarts.map(item => {
+            setSubtotalPrice(prev => prev + item.totalPrice)
+        })
+        
+    } , [quantity])
+
+    useEffect(() => {
+        
+        dispatch(checkoutPrice(subtotalPrice))
+
+        
+    } , [subtotalPrice])
+
+    
     
     
     
@@ -83,7 +109,6 @@ export default function CartItem({data}) {
                 {/* plus btn */}
                 <button onClick={() => increment(data)} type='button' className='w-[40px] h-[40px] grid place-items-center cursor-pointer  ' ><HiPlus /></button>
             </div>
-
 
             {/* total price */}
             <p className=" font-montserrat font-semibold text-xl my-auto leading-[30px] text-primary  ">${price  * quantity}</p>

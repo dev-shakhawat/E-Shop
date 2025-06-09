@@ -16,6 +16,7 @@ import {useTranslation} from "react-i18next";
 function HeaderMiddle() {
 
     const userInfo = useSelector((state) => state.user.value)
+    const {subtotalPrice} = useSelector(state => state.product);
     const navigate = useNavigate();
     const [ismobile, setIsmobile] = useState(false);
     const logoRef = useRef(null);
@@ -114,7 +115,7 @@ function HeaderMiddle() {
                         <CartIcon className={`w-[17px] sm:w-[22px] md:w-[26px] lg:w-[28px]`}/>
                         <div className="hidden sm:block">
                             <p className="font-montserrat font-normal text-primary text-[13px] lg:text-base leading-[24px]">{t("Cart")}</p>
-                            <h3 className=" font-montserrat flex gap-1 font-bold text-[12px] lg:text-base leading-[24px]  ">$ <span>150,00</span>
+                            <h3 className=" font-montserrat flex gap-1 font-bold text-[12px] lg:text-base leading-[24px]  ">$ <span>{subtotalPrice}</span>
                             </h3>
                         </div>
                     </div>
