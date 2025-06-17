@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router";
 
 // components
@@ -7,14 +7,14 @@ import Container from "../common/Container.jsx";
 
 
 // icons
-import {IoIosSearch} from "react-icons/io";
 import CartIcon from "../../assets/icons/CartIcon.jsx";
 import UserIcon from "../../assets/icons/UserIcon.jsx";
 import SearchIcon from "../../assets/icons/SearchIcon.jsx";
 import {useTranslation} from "react-i18next";
 
 function HeaderMiddle() {
-
+    
+    const dispatch = useDispatch();
     const userInfo = useSelector((state) => state.user.value)
     const {subtotalPrice} = useSelector(state => state.product);
     const navigate = useNavigate();
@@ -22,6 +22,8 @@ function HeaderMiddle() {
     const logoRef = useRef(null);
     const searchRef = useRef(null);
     const inputRef = useRef(null);
+
+    dispatch({ type: 'product/checkoutPrice', });
 
     const handelAccount = () => {
         if (userInfo) {
