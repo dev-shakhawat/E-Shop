@@ -52,3 +52,12 @@
 .navLink {
     @apply cursor-pointer flex gap-1 md:gap-2 items-center font-montserrat text-white text-[12px] lg:text-base lg:leading-[24px] font-medium md:font-bold
 }
+
+
+/* footer css */
+.footerHead {
+    @apply font-poppins font-semibold text-base lg:text-xl leading-[30px]  pb-3  lg:pb-6 
+}
+.footlinks {
+    @apply  font-montserrat text-[13px] lg:text-base lg:leading-[24px]
+}

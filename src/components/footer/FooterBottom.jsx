@@ -10,7 +10,8 @@ import MasterCard from "../../assets/icons/MasterCard.jsx";
 import Paypal from "../../assets/icons/Paypal.jsx";
 import {Link} from "react-router";
 
-function FooterBottom() {
+function FooterBottom({isblack}) {
+
 
     const footContact = [
         {link: "tel:+1 (555) 123-4567", icon: <Call style={`absolute top-0 left-0  `}/>, text: "+1 (555) 123-4567"},
@@ -58,56 +59,61 @@ function FooterBottom() {
         {text: "Instagram", link: "https://www.instagram.com/"},
         {text: "Facebook", link: "https://www.facebook.com/"},
     ]
+
     return (
-        <div className={`mt-[100px]`}>
+        <div className={``}>
+
             <Container>
                 <div className="flex  ">
                     {/*  logo/contact  */}
-                    <div className="flex flex-col justify-between  mr-[160px] ">
-                        <img src="/images/logo.png" alt="logo" className={`max-w-[129px]`}/>
-                        <List arr={footContact}
-                              liststyle={`relative pl-8 cursor-pointer text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
-                              boxstyle={`flex flex-col gap-1.5 lg:gap-3   `}/>
+                    <div className={`${isblack ? 'flex-col-reverse' : 'flex-col'} flex  justify-between  mr-[160px] `}>
+                        <img src={isblack ? '/images/logowhite.png' : '/images/logo.png'} alt="logo" className={`max-w-[129px]`}/>
+                        <div className="">
+                            {isblack &&  <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Contact us</h3>}
+                            <List arr={footContact}
+                                  liststyle={`${isblack ? 'text-white' : 'text-primary'} relative pl-8 cursor-pointer  font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
+                                  boxstyle={`flex flex-col gap-1.5 lg:gap-3   `}/>
+                        </div>
                     </div>
 
                     {/*  links  */}
                     <div className="">
-                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-6 `}>Links</h3>
+                        <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Links</h3>
                         <List arr={footLinks}
-                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'}`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
 
                     {/*  supports  */}
                     <div className="mx-[96px] ">
-                        <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Supports</h3>
+                        <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Supports</h3>
                         <List arr={footSupports}
-                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'}`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
 
                     </div>
 
                     {/*  catagories  */}
                     <div className="lg:justify-self-end lggap-0 gap-5 ">
-                        <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Catagories</h3>
+                        <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Catagories</h3>
                         <List arr={footCatagories}
-                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'}`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
 
                     {/*  payments  */}
                     <div className="ml-20 ">
-                        <h3 className={`font-poppins font-semibold text-base lg:text-xl leading-[30px] text-primary pb-3  lg:pb-6 `}>Payments</h3>
+                        <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Payments</h3>
                         <Link to={`#`} className="flex gap-7 ">
                             <Visa/>
                             <MasterCard/>
                             <ApplePay/>
                             <Paypal/>
                         </Link>
-                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] text-primary pb-3  lg:pb-6 mt-10 lg:mt-[73px] `}>Follow
+                        <h3 className={`font-poppins font-semibold text-xl leading-[30px] ${isblack ? 'text-white' : 'text-primary'} pb-3  lg:pb-6 mt-10 lg:mt-[73px] `}>Follow
                             Us</h3>
                         <List arr={footFollow}
-                              liststyle={`text-primary font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              liststyle={`${isblack ? 'text-white' : 'text-primary'} font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
                 </div>
@@ -116,12 +122,12 @@ function FooterBottom() {
                 {/*  copyright part  */}
                 <div
                     className="flex flex-col gap-2 md:gap-0 md:flex-row md:justify-between mt-5 sm:mt-0 md:mt-15 lg:mt-20 border-t border-secondery/50 pt-2 pb-5 sm:pb-10 md:pb-15 lg:pb-20  ">
-                    <p className="font-montserrat text-sm text-primary leading-5  ">Copyright © 2023 <Link
+                    <p className={`font-montserrat text-sm text-primary leading-5 ${isblack ? 'text-white' : 'text-primary'} `}>Copyright © 2023 <Link
                         to={`/`}>E-Shop</Link>.
                         All Rights
                         Reserved.</p>
 
-                    <p className="flex gap-5 font-montserrat text-sm text-primary leading-5 ">
+                    <p className={`flex gap-5 font-montserrat text-sm text-primary leading-5 ${isblack ? 'text-white' : 'text-primary'}`}>
                         <Link to={`/#`}>Privacy Policy</Link>
                         <Link to={`/#`}
                               className={`relative after:content-[''] after:w-[1px] after:h-5/6 after:bg-secondery after:absolute after:top-0.5 after:left-0 after:-translate-x-2 `}>Terms

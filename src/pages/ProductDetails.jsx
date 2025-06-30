@@ -89,6 +89,11 @@ function ProductDetails() {
             </div>
 
 
+            {/* related products */}
+
+            hi related
+
+
         </Container>
     );
 }
