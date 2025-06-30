@@ -6,6 +6,7 @@ import Container from '../components/common/Container';
 import CartItem from '../components/carts/CartItem';
 import Breadcrump from '../components/common/Breadcrumb';
 import Facility from '../components/facility/Facility';
+import { Link } from 'react-router';
 
 function Cart() {
     const {carts} = useSelector(state => state.product);
@@ -62,7 +63,7 @@ function Cart() {
                 {/* cart options */}
                 <div className="flex justify-end mt-8 ">
                     <button type="button" className='cursor-pointer font-poppins font-semibold text-primary text-xl leading-[30px] py-4 px-10 hover:text-white hover:bg-brand rounded-[10px] duration-300 ' >Continue Shopping</button>
-                    <button type="button" className='cursor-pointer font-poppins font-semibold text-primary text-xl leading-[30px] py-4 px-10 hover:text-white hover:bg-brand rounded-[10px] duration-300 ' >Update Cart</button>
+                    <Link to={"/checkout"}  className='cursor-pointer font-poppins font-semibold text-primary text-xl leading-[30px] py-4 px-10 hover:text-white hover:bg-brand rounded-[10px] duration-300 ' >Update Cart</Link>
                 </div>
 
             </Container>

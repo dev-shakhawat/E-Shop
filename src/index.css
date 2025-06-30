@@ -61,3 +61,6 @@
 .footlinks {
     @apply  font-montserrat text-[13px] lg:text-base lg:leading-[24px]
 }
+.checkoutButtons{
+    @apply font-poppins font-semibold text-[24px]  leading-[30px] duration-300  cursor-pointer
+}
