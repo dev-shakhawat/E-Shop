@@ -25,7 +25,7 @@ function Checkout() {
     
 
     return (
-        <div>
+        <div className='pb-20'>
             <Container>
                <Breadcrumb/>
 

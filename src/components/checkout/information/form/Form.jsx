@@ -21,7 +21,6 @@ export default function Form() {
     const [zipcode , setZipcode] = useState('')
     const [note , setNote] = useState('')
 
-    console.log(note);
     
  
     
