@@ -1,6 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import ArrowDown from "../../assets/icons/ArrowDown.jsx";
 
+import ToggleMenu from "../../helpers/toggleMenu.js"
+
 function Shortby({shortsArr, shortWidth = 137,}) {
 
     const [shortVal, setShortVal] = useState(shortsArr[0]);
@@ -15,16 +17,8 @@ function Shortby({shortsArr, shortWidth = 137,}) {
 
     // outside click toggle modal
     useEffect(() => {
-
-        const handeloutside = (event) => {
-            if (modalref.current && !modalref.current.contains(event.target)) {
-                setIsModal(false)
-            }
-        }
-
-        window.addEventListener('mousedown', handeloutside);
-
-        return () => window.removeEventListener('mousedown', handeloutside);
+        window.addEventListener('mousedown', ToggleMenu(modalref , setIsModal ));
+        return () => window.removeEventListener('mousedown', ToggleMenu(modalref , setIsModal ));
     }, [])
     return (
         <div ref={modalref} className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>

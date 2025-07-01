@@ -11,6 +11,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import ArrowDown from "../../../assets/icons/ArrowDown.jsx";
 import CallOutline from "../../../assets/icons/CallOutline.jsx";
 import LocationOutline from "../../../assets/icons/LocationOutline.jsx";
+import ToggleMenu from "../../../helpers/toggleMenu.js";
 
 function HeaderTop() {
   // for currency
@@ -71,14 +72,10 @@ function HeaderTop() {
     //  for dropdown show/hide
     const handleOutsideClick = (event) => {
       // for language
-      if (countryRef.current && !countryRef.current.contains(event.target)) {
-        setIsDropdown(false);
-      }
+      ToggleMenu(countryRef , setIsDropdown)(event) 
 
       //     for currency
-      if (currencyRef.current && !currencyRef.current.contains(event.target)) {
-        setIsCurrencyDropdown(false);
-      }
+      ToggleMenu(currencyRef , setIsCurrencyDropdown)(event)
     };
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {

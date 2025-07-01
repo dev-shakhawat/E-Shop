@@ -11,6 +11,8 @@ import ArrowDown from "../../../assets/icons/ArrowDown.jsx";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { SlClose } from "react-icons/sl";
 
+import ToggleMenu from "../../../helpers/toggleMenu.js";
+
 const leftNavList = [
   {
     icon: <IoIosArrowDown />,
@@ -46,26 +48,20 @@ function HeaderBottom() {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    //  for dropdown show/hide
-    const handleOutsideClick = (event) => {
-      // for product dropdown
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsdropdown(false);
-      }
+    const handleOutsideClick = (e) => {
+      // for product dropdown 
+      ToggleMenu(dropdownRef , setIsdropdown)(e)
 
-      // for mobile/responsive modal
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setIsModal(false);
-      }
+      // for mobile/responsive modal 
+      ToggleMenu(modalRef , setIsModal)(e) 
 
-      // for all catagory
-      if (allcataRef.current && !allcataRef.current.contains(event.target)) {
-        setIsAllcata(false);
-      }
+      // for all catagory 
+      ToggleMenu(allcataRef , setIsAllcata)(e) 
     };
-    document.addEventListener("mousedown", handleOutsideClick);
+
+    document.addEventListener("mousedown", handleOutsideClick   );
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("mousedown",  handleOutsideClick );
     };
   }, []);
 
