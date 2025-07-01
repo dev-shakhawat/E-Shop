@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 
 // components
 import Container from '../components/common/Container';
-import CartItem from '../components/carts/CartItem';
+import CartItem from '../components/customeUI/carts/CartItem';
 import Breadcrump from '../components/common/Breadcrumb';
-import Facility from '../components/facility/Facility';
+import Facility from '../components/customeUI/facility/Facility';
 import { Link } from 'react-router';
 
 function Cart() {

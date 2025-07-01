@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Breadcrumb from '../components/common/Breadcrumb';
 import Container from '../components/common/Container'; 
-import Information from '../components/checkout/information/Information';
+import Information from '../components/customeUI/checkout/information/Information';
 
 function Checkout() {
     

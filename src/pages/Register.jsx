@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import InputField from '../components/register/InputField';
-import RoboCheck from '../components/register/RoboCheck';
-import SubscribeNotification from '../components/register/SubscribeNotification';
+import InputField from '../components/customeUI/register/InputField';
+import RoboCheck from '../components/customeUI/register/RoboCheck';
+import SubscribeNotification from '../components/customeUI/register/SubscribeNotification';
 
 
 // icons

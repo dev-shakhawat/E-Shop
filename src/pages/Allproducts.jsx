@@ -1,8 +1,8 @@
 import React from 'react';
 import Container from "../components/common/Container.jsx";
-import Chooser from "../components/catagoryChooser/Chooser.jsx";
-import PriceChooser from "../components/catagoryChooser/PriceChooser.jsx";
-import AllProducts from '../components/allProducts/AllProducts.jsx';
+import Chooser from "../components/customeUI/catagoryChooser/Chooser.jsx";
+import PriceChooser from "../components/customeUI/catagoryChooser/PriceChooser.jsx";
+import AllProducts from '../components/customeUI/allProducts/AllProducts.jsx';
 
 function Allproducts() {
 

@@ -1,9 +1,9 @@
 import React from "react";
 import Container from "../components/common/Container";
-import ProfileNav from "../components/profile/ProfileNav";
-import TrackingBilling from "../components/profile/TrackingBilling";
+import ProfileNav from "../components/customeUI/profile/ProfileNav";
+import TrackingBilling from "../components/customeUI/profile/TrackingBilling";
 import { useSelector } from "react-redux";
-import AccountDetails from "../components/profile/AccountDetails";
+import AccountDetails from "../components/customeUI/profile/AccountDetails";
 
 function MyAccount( ) {
   const activetab = useSelector(state => state.user.profileActiveTab)

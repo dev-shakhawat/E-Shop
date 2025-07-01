@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Breadcrumb from '../components/common/Breadcrumb';
-import ProductImage from '../components/productDetails/ProductImage';
+import ProductImage from '../components/customeUI/productDetails/ProductImage';
 import Container from '../components/common/Container';
-import ShortDetails from '../components/productDetails/ShortDetails';
-import ProductFacility from '../components/allProducts/ProductFacility';
+import ShortDetails from '../components/customeUI/productDetails/ShortDetails';
+import ProductFacility from '../components/customeUI/allProducts/ProductFacility';
 
 
 // icons
@@ -11,7 +11,7 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { BsPlusLg } from "react-icons/bs";
 import { useSelector } from 'react-redux';
 import CartIcon from '../assets/icons/CartIcon';
-import ProductTabs from '../components/productDetails/ProductTabs';
+import ProductTabs from '../components/customeUI/productDetails/ProductTabs';
 
 
 
