@@ -9,8 +9,8 @@ import {currentMode} from '../../../redux/slices/viewmodeSlice'
 export default function ProductsHead() {
     const [viewmode , setViewmode] = useState('grid')
     const dispatch = useDispatch()
-    const allpagi = useSelector(state => state.pagination.totalPagination)
-    const paginationCurrent = useSelector(state => state.pagination.value)
+    const allpagi = useSelector(state => state.pagination.productPagi.totalPage)
+    const paginationCurrent = useSelector(state => state.pagination.productPagi.currentPage)
 
     const handleModeChange = (mode) => {
         setViewmode(mode)

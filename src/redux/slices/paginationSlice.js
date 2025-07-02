@@ -1,25 +1,37 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: 3,
-    totalPagination: 12
-}
-
+  productPagi: {
+    currentPage: 3,
+    totalPage: 12,
+  },
+  blogPagi: {
+    currentPage: 1,
+    totalPage: null,
+  },
+};
 
 export const paginationSlice = createSlice({
-    name: 'pagination',
-    initialState,
-    reducers: {
-        currentPagination: (state, action) => {
-            state.value = action.payload;
-        },
-        totalPagination: (state, action) => {
-            state.totalPagination = action.payload;
-        },
+  name: "pagination",
+  initialState,
+  reducers: {
+    currentProductPagination: (state, action) => {
+      state.productPagi.currentPage = action.payload;
     },
-})
+    totalProductPagination: (state, action) => {
+      state.productPagi.totalPage = action.payload;
+    },
+    currentBlogPagination: (state, action) => {
+      state.blogPagi.currentPage = action.payload;
+    },
+    totalBlogPagination: (state, action) => {
+      state.blogPagi.totalPage = action.payload;
+    },
+  },
+});
 
 // Action creators are generated for each case reducer function
-export const {currentPagination , totalPagination} = paginationSlice.actions
+export const { currentProductPagination, totalProductPagination , currentBlogPagination , totalBlogPagination } =
+  paginationSlice.actions;
 
-export default paginationSlice.reducer
+export default paginationSlice.reducer;

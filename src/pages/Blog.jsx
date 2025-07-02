@@ -1,55 +1,71 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 
 
 // components
-import Container from '../components/common/Container';
-import BlogSearch from '../components/customeUI/blog/BlogSearch';
-import BlogCategories from '../components/customeUI/blog/BlogCategories';
-import BlogTags from '../components/customeUI/blog/BlogTags';
+import Container from '../components/common/Container'; 
+import BlogPostCart from '../components/customeUI/blog/BlogPostCart';
+import Pagination from '../components/common/Pagination';
+
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+import { totalBlogPagination } from '../redux/slices/paginationSlice';
+import { currentBlogPagination } from '../redux/slices/paginationSlice';
+import BlogViewSkeleton from '../components/customeUI/blog/BlogViewSkeleton';
 
 function Blog() {
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const currentPage = useSelector(state => state.pagination.blogPagi.currentPage);
+    const totalPage = useSelector(state => state.pagination.blogPagi.totalPage);
+    const [data , setData] = useState([]);
+    const [blogs , setBlogs] = useState([]);
+
+
+
+      useEffect(() => {
+        fetch('https://jsonfakery.com/blogs')
+       .then(res => res.json())
+       .then(data => {
+        console.log(data.length );
+        dispatch(totalBlogPagination(Math.floor(data.length/10)))
+        setData(data)
+        
+       });
+      }, [])
+
+      useEffect(() => {
+        
+        data.length > 0 && setBlogs(data.slice((currentPage - 1) * 10 , (currentPage - 1) * 10 + 10))
+        
+      }, [currentPage , data])
+      
+
+      const handleViewBlogDetails = (blogItem)=>{ 
+        localStorage.setItem('blogView' , JSON.stringify(blogItem))
+        navigate(`/blog/details/${blogItem.id}`)
+      }
+       
+
+
     return (
-        <Container>
-            
-            {/* blog banner */}
-            <div className="mt-8 bg-[#F8F8F8] py-[242px] pl-[110px] rounded-[15px]  ">
-              
-              {/* title */}
-              <h2 className=" font-poppins font-bold text-[56px] text-[#303030] leading-[68px]   ">Tech Talk Blog</h2>
+        <div>   
+                    {/* all posts */}
+                    <div className=" grid grid-cols-2  ">
+                      {blogs.length === 0 ? 
+                        Array(10).fill(0).map((_, index) => ( 
+                          <BlogViewSkeleton key={index} />
+                        )) 
+                      :  
+                      blogs.map((post) => (
+                        <BlogPostCart key={post.user_id} onClick={()=>handleViewBlogDetails(post)} tag={post.category} title={post.subtitle} userName={post.user.first_name} postTime={post.created_at} preview={post.featured_image} />
+                      ))}
+                    </div>
 
-              <div className="flex items-center gap-4 mt-6  ">
-                <p className="font-normal font-montserrat text-base leading-[24px] text-[#303030] ">Home</p>
-                <span className="w-[2px] h-6 bg-[#303030]    "></span>
-                <p className=" font-bold font-montserrat text-base leading-[24px] text-[#303030]    ">Blog</p>
-              </div>
-            </div>
-
-
-            {/* all blogs */}
-            <div className="flex mt-20 ">
-
-                {/* blog filters */}
-                <div className="w-[440px]   ">
-
-                    {/* blog search */}
-                    <BlogSearch/>
-
-                    {/* blog categories */}
-                    <BlogCategories/>
-
-                    {/* blog tags */}
-                    <BlogTags/>
-
-                </div>
-
-                {/* blog posts */}
-                <div className="flex-1">
-
-                </div>
-            </div>
-
-
-        </Container>
+                    {/* pagination */} 
+                    <Pagination currentPaginationPageDispatch={currentBlogPagination} currentPage={currentPage} totalPage={totalPage} /> 
+        </div>
     );
 }
 

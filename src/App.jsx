@@ -19,6 +19,7 @@ import Blog from "./pages/Blog.jsx";
 import BlogDetails from "./pages/BlogDetails.jsx";
 import Contact from "./pages/Contact.jsx";
 import Layout from "./components/common/Layout.jsx";
+import BlogLayout from "./components/common/BlogLayout.jsx";
 
 
 function App() {
@@ -34,9 +35,11 @@ function App() {
                         <Route path="/checkout" element={<Checkout/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/account" element={<MyAccount/>}/>
-                        <Route path="/blog" element={<Blog/>}/>
-                        <Route path="/blog-details" element={<BlogDetails/>}/>
                         <Route path="/contact" element={<Contact/>}/>
+                    </Route>
+                    <Route path="/blog" element={<BlogLayout/>}>
+                        <Route index element={<Blog/>}/>
+                        <Route path="details/:id" element={<BlogDetails/>}/>  
                     </Route>
                 </Routes>
             </BrowserRouter>

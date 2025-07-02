@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { totalPagination } from '../../../redux/slices/paginationSlice';
+import { currentProductPagination, totalProductPagination } from '../../../redux/slices/paginationSlice';
 import { CurrentDetailedProduct } from '../../../redux/slices/productSlice';
 import { notify } from '../../../redux/slices/notificationSlice';
 
 // components
-import Pagination from './Pagination';
+import Pagination from '../../common/Pagination';
 import ProductsHead from './ProductsHead'
 import ProductCart from '../../common/ProductCart'
 import Notification from '../../common/Notification';
@@ -23,10 +23,12 @@ export default function AllProducts() {
   const [products , setProducts] = useState([]);
   const mode = useSelector(state => state.viewmode.value);
   const dispatch = useDispatch();
-  const paginationCurrent = useSelector(state => state.pagination.value);
+  const paginationCurrent = useSelector(state => state.pagination.productPagi.currentPage);
+  const totalPage = useSelector(state => state.pagination.productPagi.totalPage);
   const noti = useSelector(state => state.notification.value);
   const navigate = useNavigate();
 
+  
   
   
 
@@ -34,7 +36,7 @@ export default function AllProducts() {
     fetch('https://dummyjson.com/products?limit=194')
    .then(res => res.json())
    .then(data => {
-    dispatch(totalPagination(Math.floor(data.total/16)))
+    dispatch(totalProductPagination(Math.floor(data.total/16)))
    });
   }, [])
 
@@ -84,7 +86,7 @@ export default function AllProducts() {
                 <div className="">
                   <h2 className=" font-montserrat font-extrabold text-5xl text-tertary ">Offs, Sorry!</h2>
                   <h4 className=" font-poppins font-semibold text-primary/80  ">It's may be your internet problem or our server problem.</h4>
-                  <p className=" font-poppins font-semibold text-primary/80  ">Please try again later. or <Link to={`#`} className='text-brand'>Contact Us</Link></p>
+                  <p className=" font-poppins font-semibold text-primary/80  ">Please try again later. or <Link to={`/contact`} className='text-brand'>Contact Us</Link></p>
                 </div>
               </div>
                : 
@@ -98,7 +100,7 @@ export default function AllProducts() {
             }
 
         {/* pagination */}
-        <Pagination/>
+        <Pagination currentPaginationPageDispatch={currentProductPagination} currentPage={paginationCurrent} totalPage={totalPage} />
 
     </div>
   )
