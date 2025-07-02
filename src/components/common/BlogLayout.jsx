@@ -19,7 +19,7 @@ export default function BlogLayout() {
         {/* blog banner */}
          <Container>
         {location.pathname === "/blog" ?
-            <div className="mt-8 bg-[#F8F8F8] py-[242px] pl-[110px] rounded-[15px]  ">
+            <div className="mt-8 bg-[#F8F8F8] py-[242px] pl-[110px] rounded-[15px]  mb-20  ">
             
             {/* title */}
             <h2 className=" font-poppins font-bold text-[56px] text-[#303030] leading-[68px]   ">Tech Talk Blog</h2>
@@ -37,7 +37,7 @@ export default function BlogLayout() {
 
 
         <Container>
-            <div className="flex mt-20 gap-x-14 ">
+            <div className="flex gap-x-14 ">
 
                 {/* blog filters */}
                 <div className="w-[440px]   ">
@@ -49,7 +49,7 @@ export default function BlogLayout() {
                     <BlogCategories/>
 
                     {/* blog tags */}
-                    <BlogTags/>
+                    <BlogTags title={"Tags"} allTags ={["Technology" , "Trending" , "Innovation" , "Tips" , "Gadget" , "Guide" , "Gadget Review" ]}    />
 
                 </div>
 

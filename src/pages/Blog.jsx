@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import {  useNavigate } from 'react-router';
 
 
-// components
-import Container from '../components/common/Container'; 
+// components 
 import BlogPostCart from '../components/customeUI/blog/BlogPostCart';
 import Pagination from '../components/common/Pagination';
 
@@ -51,20 +50,20 @@ function Blog() {
 
     return (
         <div>   
-                    {/* all posts */}
-                    <div className=" grid grid-cols-2  ">
-                      {blogs.length === 0 ? 
-                        Array(10).fill(0).map((_, index) => ( 
-                          <BlogViewSkeleton key={index} />
-                        )) 
-                      :  
-                      blogs.map((post) => (
-                        <BlogPostCart key={post.user_id} onClick={()=>handleViewBlogDetails(post)} tag={post.category} title={post.subtitle} userName={post.user.first_name} postTime={post.created_at} preview={post.featured_image} />
-                      ))}
-                    </div>
+          {/* all posts */}
+          <div className=" grid grid-cols-2  ">
+            {blogs.length === 0 ? 
+              Array(10).fill(0).map((_, index) => ( 
+                <BlogViewSkeleton key={index} />
+              )) 
+            :  
+            blogs.map((post) => (
+              <BlogPostCart key={post.user_id} onClick={()=>handleViewBlogDetails(post)} tag={post.category} title={post.subtitle} userName={post.user.first_name} postTime={post.created_at} preview={post.featured_image} />
+            ))}
+           </div>
 
-                    {/* pagination */} 
-                    <Pagination currentPaginationPageDispatch={currentBlogPagination} currentPage={currentPage} totalPage={totalPage} /> 
+          {/* pagination */} 
+          <Pagination currentPaginationPageDispatch={currentBlogPagination} currentPage={currentPage} totalPage={totalPage} /> 
         </div>
     );
 }
