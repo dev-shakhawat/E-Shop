@@ -74,3 +74,12 @@
 .checkoutButtons{
     @apply font-poppins font-semibold text-[24px]  leading-[30px] duration-300  cursor-pointer
 }
+
+/* blog */
+.blogCategory{
+  @apply font-montserrat font-normal text-base leading-6 text-white pb-3 border-b border-[#646464] cursor-pointer  
+}
+
+.blogTag{
+  @apply font-montserrat font-normal text-sm leading-5 text-[#303030] py-3 px-4 rounded-[5px] bg-white  cursor-pointer 
+}

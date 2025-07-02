@@ -177,7 +177,7 @@ function HeaderBottom() {
               )}
             </li>
             <li className={`navLink `}>
-              <Link to={`#`}>{t("Blog")}</Link>
+              <Link to={`/blog`}>{t("Blog")}</Link>
             </li>
             <li className={`navLink `}>
               <Link to={`#`}>{t("Contact")}</Link>
