@@ -1,8 +1,7 @@
 import React from "react";
 
 // image
-import product from "../../../assets/images/product.png";
-import Button from "../../common/Button.jsx";
+import product from "../../../assets/images/product.png"; 
 import { Link } from "react-router";
 import Timer from "../../../assets/icons/Timer.jsx";
 
