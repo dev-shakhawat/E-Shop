@@ -1,8 +1,12 @@
 import React from 'react'
 
-export default function TextAreaField({title , required = true , placeholder , onChange}) {
+export default function TextAreaField({title , required = true , placeholder , onChange , className}) {
+
+
+
+
   return (
-    <div className=''>
+    <div className={className}>
         
     {/* title */}
     <p className=" font-montserrat font-bold text-xl leading-7.5 flex items-start gap-1  ">

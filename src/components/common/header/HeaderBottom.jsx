@@ -100,7 +100,7 @@ function HeaderBottom() {
 
               {isallcata && (
                 <ul
-                  className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}
+                  className={`absolute top-8 left-0 z-[1] bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}
                 >
                   <li
                     className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
@@ -146,7 +146,7 @@ function HeaderBottom() {
               {/*  dropdown   */}
               {isdropdown && (
                 <ul
-                  className={`absolute top-8 left-0 bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1  `}
+                  className={`absolute top-8 left-0 z-[1] bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1  `}
                 >
                   <li
                     className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
@@ -180,7 +180,7 @@ function HeaderBottom() {
               <Link to={`/blog`}>{t("Blog")}</Link>
             </li>
             <li className={`navLink `}>
-              <Link to={`#`}>{t("Contact")}</Link>
+              <Link to={`/contact`}>{t("Contact")}</Link>
             </li>
           </ul>
 

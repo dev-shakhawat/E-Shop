@@ -32,10 +32,10 @@ function Allproducts() {
     return (
         <div className={`mt-17 pb-20`}>
             <Container>
-                <div className="flex gap-6.5 h-fit ">
+                <div className="flex gap-6.5 h-fit relative ">
 
                     {/*  catagory/brand/price chooser  */}
-                    <div className="min-w-[335px] h-fit bg-[#F4F4F4] rounded-[25px] p-12">
+                    <div className="min-w-[335px] h-fit bg-[#F4F4F4] rounded-[25px] p-12 sticky top-0 left-0   ">
 
                         {/*  catagory chooser  */}
                         <Chooser allcatagories={allcatagories}/>
