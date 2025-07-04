@@ -46,7 +46,7 @@ export default function Information() {
               </div>
 
               {/* btn */}
-              <button type="button" className='font-montserrat font-bold text-xl leading-7.5 text-white py-6 rounded-[10px] bg-brand mt-6 w-full cursor-pointer    '  >Order Now</button>
+              <button type="button" className='commonButton w-full mt-7   '  >Order Now</button>
             </div>
         </div>
 

@@ -1,6 +1,5 @@
 import React from "react";
-import Container from "../Container.jsx";
-import Button from "../Button.jsx";
+import Container from "../Container.jsx"; 
 import { useLocation } from "react-router";
 
 function FooterTop() {
@@ -35,10 +34,7 @@ function FooterTop() {
             />
 
             {/*  button  */}
-            <Button
-              text={`Subscribe`}
-              style={` mt-5 sm:mt-7 md:mt-10   lg:mt-16 py-1.5 md:py-4 px-6 md:px-10  `}
-            />
+            <button type="button" className="commonButton mt-4 w-fit ">Subscribe</button>
           </div>
         </div>
       </div>

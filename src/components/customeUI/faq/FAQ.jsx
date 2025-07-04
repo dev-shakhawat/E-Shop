@@ -3,8 +3,7 @@ import Container from "../../common/Container.jsx";
 import Accordian from "../accordian/Accordian.jsx";
 
 // shap
-import faqShap from "../../../assets/images/faqShap.png";
-import Button from "../../common/Button.jsx";
+import faqShap from "../../../assets/images/faqShap.png"; 
 
 function Faq() {
   const accordians = [
@@ -64,10 +63,7 @@ function Faq() {
               Questions that get asked the most by our clients. Get any burning
               questions?
             </p>
-            <Button
-              style={` mt-5 sm:mt-7 md:mt-10   lg:mt-16 py-1.5 md:py-4 px-6 md:px-10  `}
-              text={`Ask A Question`}
-            />
+            <button type="button" className="commonButton mt-16   " >Ask A Question</button>
           </div>
         </div>
       </Container>

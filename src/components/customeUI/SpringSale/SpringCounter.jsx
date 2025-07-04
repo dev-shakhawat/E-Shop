@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import Button from "../../common/Button.jsx";
+import React, {useEffect, useState} from 'react'; 
 import {calculateTimeLeft} from "../../../helpers/calculateTime.js";
 
 function SpringCounter() {
@@ -61,7 +60,7 @@ function SpringCounter() {
 
 
             {/*  button  */}
-            <Button text={`Shop Now`} style={` mt-5 sm:mt-7 md:mt-10   lg:mt-16 py-1.5 md:py-4 px-6 md:px-10  `}/>
+            <button type="button" className='commonButton mt-18   ' >Shop Now</button>
         </div>
     );
 }

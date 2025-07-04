@@ -134,6 +134,7 @@ function BlogDetails() {
                {/* leave a comment */}
                <LeaveComment/>
              </div>
+ 
   
         </div>
     );

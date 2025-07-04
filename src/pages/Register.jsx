@@ -48,7 +48,7 @@ function Register() {
 
               {/* submit btn */}
 
-              <button type="button" className=' font-montserrat text-xl font-bold py-6 mt-10 leading-7.5 text-white w-full rounded-[10px] bg-brand    '   >Create Account</button>
+              <button type="button" className=' commonButton w-full  mt-10 mb-12  '   >Create Account</button>
 
 
               {/* sign in link */}

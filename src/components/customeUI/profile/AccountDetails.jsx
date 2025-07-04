@@ -25,7 +25,7 @@ export default function AccountDetails() {
          </form>
 
          {/* button */}
-         <button type="button" className='mt-10 py-4 px-10 bg-brand rounded-[5px] md:rounded-[10px] w-fit font-montserrat font-bold  text-[14px] md:text-base lg:text-[20px] leading-[30px] text-white cursor-pointer   '>Edit Profile</button>
+         <button type="button" className='mt-10 commonButton  '>Edit Profile</button>
 
 
     </div>
