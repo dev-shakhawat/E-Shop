@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 
 
 // icons
@@ -20,6 +20,10 @@ import BlogComment from '../components/customeUI/blog/BlogComment';
 import LeaveComment from "../components/customeUI/blog/LeaveComment"
 
 function BlogDetails() {
+
+   const location = useLocation();
+   console.log(location);
+   
  
 
     const blog = JSON.parse(localStorage.getItem('blogView'))
@@ -75,7 +79,7 @@ function BlogDetails() {
              {/* all points */}
              <div className="mt-8">
                 {blogTopics.map((topic) => (
-                    <DetailsTopic topicNumber={topic.id} title={topic.title} text={topic.text} />
+                    <DetailsTopic key={topic.id} topicNumber={topic.id} title={topic.title} text={topic.text} />
                 ))}
              </div>
 

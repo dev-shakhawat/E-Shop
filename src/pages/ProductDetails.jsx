@@ -12,6 +12,8 @@ import { BsPlusLg } from "react-icons/bs";
 import { useSelector } from 'react-redux';
 import CartIcon from '../assets/icons/CartIcon';
 import ProductTabs from '../components/customeUI/productDetails/ProductTabs';
+import ViewAll from '../components/common/ViewAll';
+import ProductCart from '../components/common/ProductCart';
 
 
 
@@ -29,6 +31,47 @@ function ProductDetails() {
             setQuantity(prev => prev - 1)
         }
     }
+
+    const newProducts = [
+        {
+          catagory: "laptop",
+          title: "Gaming Laptop ZDY 15.6 Inch 512 GB VGA ...",
+          currentprice: '16,59.00', 
+          totalrating: 120,
+          rating: 5,
+        },
+        {
+          catagory: "laptop",
+          title: "Surface Laptop 4 XPS 13 Plus 64GB i7 Touch ...",
+          currentprice: "23,99.99",
+          delprice: "2,878.00",
+          totalrating: 120,
+          rating: 5,
+          persent: 20,
+        },
+        {
+          catagory: "laptop",
+          title: "2019 Smart Laptop 256 GB 13 inch Pro Chip ...",
+          currentprice: '20,99.99',
+          totalrating: 20,
+          rating: 5,
+        },
+        {
+          catagory: "laptop",
+          title: "S21 Laptop Ultra HD LED Screen Feature 2023 ...",
+          currentprice: '11,99.00',
+          delprice: "2878.00", 
+          totalrating: 100,
+          rating: 5,
+        },
+        {
+          catagory: "laptop",
+          title: "Sleek Laptop HQ 256 GB SSD 8 GB Intel iCor...",
+          currentprice: '15,19.99',
+          totalrating: 20,
+          rating: 5,
+        },
+      ];
 
     return (
         <Container>
@@ -90,8 +133,32 @@ function ProductDetails() {
 
 
             {/* related products */}
+            <div className="pb-16">
 
-            hi related
+                {/* title */}
+                <h2 className=" flex justify-between items-center font-poppins font-semibold text-[36px] leading-[46px] text-[#303030]   ">
+                  <p className="">Related Articles</p>
+                  <ViewAll/>
+                </h2>
+
+                <div className="grid grid-cols-5   mt-12   ">
+                {newProducts.map((product, index) => (
+                    <ProductCart
+                    key={index}
+                    persent={product.persent}
+                    title={product.title}
+                    totalrating={product.totalrating}
+                    currentprice={product.currentprice}
+                    delprice={product.delprice}
+                    catagory={product.catagory}
+                    rating={product.rating}
+                    customstyle={`hover:border-tertary`}
+                    customStar={`text-[#fbd550]`}
+                    />
+                ))}
+                </div>
+
+            </div>
 
 
         </Container>

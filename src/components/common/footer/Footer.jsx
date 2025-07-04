@@ -13,7 +13,7 @@ function Footer() {
     
     
     const noFooteTop = ["/carts","/register","/account","/blog","/blog-details","/contact" ];
-    const isFootTop = noFooteTop.includes(location.pathname)
+    const isFootTop = noFooteTop.some(basePath => location.pathname.startsWith(basePath))
     
     return (
         <div>

@@ -7,6 +7,7 @@ import Header from "../common/header/Index.jsx"
 import Footer from './footer/Footer'
 import Container from './Container'
 import Beadcrumb from '../common/Breadcrumb.jsx'
+import RelatedArticle from '../customeUI/blog/RelatedArticle.jsx'
 
 export default function BlogLayout() {
 
@@ -55,9 +56,14 @@ export default function BlogLayout() {
 
                 <div className="flex-1">
                     <Outlet/>
-                </div>
+                </div> 
 
             </div>
+            
+            {/* articles */}
+            {location.pathname.includes("/blog/details") && <RelatedArticle/> }
+
+
         </Container>
 
         <Footer/>
