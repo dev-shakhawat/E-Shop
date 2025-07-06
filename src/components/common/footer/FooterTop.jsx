@@ -20,7 +20,7 @@ function FooterTop() {
           <h2 className=" font-semibold font-poppins text-primary text-xl sm:text-2xl md:text-[30px] lg:text-[36px] leading-[46px]  ">
             Get Our Updates
           </h2>
-          <p className="font-montserrat text-base md:text-[18px]  lg:text-[20px] leading-[30px] text-primary mt-2  lg:mt-4 lg:max-w-[488px] ">
+          <p className="commonPara mt-2  lg:mt-4 lg:max-w-[488px] ">
             Browse our wide selection of electronics and find the perfect promo
             for you from newsletter.
           </p>

@@ -32,7 +32,7 @@ function TechTalk() {
         <div className="flex justify-between items-end">
           <div className="w-[70%] lg:w-auto  ">
             <h2 className="commonHead">Tech Talk</h2>
-            <p className="font-montserrat  font-normal text-[13px] md:text-base lg:text-xl lg:leading-[30px] text-primary mt-2 md:mt-4 lg:mt-6">
+            <p className="commonPara mt-2 md:mt-4 lg:mt-6">
               Stay up to date with the latest trends, reviews, and insights from
               our experts.
             </p>

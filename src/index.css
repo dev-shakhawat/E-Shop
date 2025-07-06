@@ -56,6 +56,9 @@
 .commonHead {
     @apply font-poppins font-semibold text-xl md:text-2xl  lg:text-4xl text-primary leading-[46px]
 }
+.commonPara {
+    @apply font-montserrat font-normal text-[13px] md:text-base lg:text-xl lg:leading-[30px]
+}
 
 .commonButton{
   @apply  py-4 px-10 bg-brand rounded-[5px] md:rounded-[10px]  font-montserrat font-bold  text-[14px] md:text-base lg:text-[20px] leading-[30px] text-white cursor-pointer    

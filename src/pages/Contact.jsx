@@ -12,6 +12,7 @@ import List from '../components/common/List';
 import Call from '../assets/icons/Call.jsx';
 import Mail from '../assets/icons/Mail.jsx';
 import Location from '../assets/icons/Location.jsx';
+import Breadcrumb from '../components/common/Breadcrumb.jsx';
 
 function Contact() {
 
@@ -32,15 +33,14 @@ function Contact() {
         <Container>
             
             {/* location bannner */}
-            <div className="mt-8 relative     ">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.631884818617!2d-118.23991969731155!3d34.07349723941036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6f954005675%3A0x9e94554f839c09df!2sDodger%20Stadium!5e1!3m2!1sen!2sbd!4v1751602062275!5m2!1sen!2sbd"   allowFullscreen={true}   referrerPolicy="no-referrer-when-downgrade" className='w-full min-h-[600px]   '></iframe>
+            <div className="mt-8 rounded-[10px] overflow-hidden    ">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.631884818617!2d-118.23991969731155!3d34.07349723941036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c6f954005675%3A0x9e94554f839c09df!2sDodger%20Stadium!5e1!3m2!1sen!2sbd!4v1751602062275!5m2!1sen!2sbd"   allowFullscreen={true}   referrerPolicy="no-referrer-when-downgrade" className='w-full min-h-[600px]   '></iframe>
+            </div>
 
 
             {/* breadcrumb */}
-            <ul className='flex items-center   gap-8 mt-16 mb-12 font-montserrat  text-base leading-6 text-primary  '>
-                <li className=" font-normal relative after:content-[''] after:w-[2px] after:h-5 after:bg-primary after:absolute after:-right-4 after:top-1/2 after:-translate-y-1/2     "  ><Link to="/">Home</Link></li>
-                <li className='font-bold'  ><Link to="/contact">Contact</Link></li>
-            </ul>
+            <Breadcrumb/>
 
 
             
@@ -109,7 +109,7 @@ function Contact() {
             </div>
 
 
-            </div>
+            
         </Container>
     );
 }

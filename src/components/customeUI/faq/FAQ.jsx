@@ -59,7 +59,7 @@ function Faq() {
             <h2 className=" font-poppins font-semibold text-xl sm:text-[24px] md:text-[30px] lg:text-[36px] leading-[46px] text-primary lg:w-[306px]  ">
               Frequently Asked Questions
             </h2>
-            <p className="font-montserrat font-normal text-[13px] md:text-base lg:text-xl lg:leading-[30px] mt-2 md:mt-4 lg:mt-6 w-[85%]  ">
+            <p className="commonPara mt-2 md:mt-4 lg:mt-6 w-[85%]  ">
               Questions that get asked the most by our clients. Get any burning
               questions?
             </p>

@@ -33,7 +33,7 @@ function Accordian({title, description, open = false}) {
             <div className={` overflow-hidden transition-all duration-300 `}
                  style={{height}} ref={contentRef}>
                 {isOpen &&
-                    <p className=" lg:w-[750px] font-montserrat font-normal text-[12px] sm:text-base md:text-[18px] lg:text-[20px] mt-2 lg:mt-4 ml-8 md:ml-12 lg:ml-16 lg:leading-[30px] text-primary">{description}</p>}
+                    <p className=" lg:w-[750px] commonPara mt-2 lg:mt-4 ml-8 md:ml-12 lg:ml-16 lg:leading-[30px] text-primary">{description}</p>}
             </div>
         </div>
     );

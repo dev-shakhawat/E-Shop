@@ -32,7 +32,7 @@ export default function ProductTabs() {
 
         {/* description */}
         {activeTab == 1 && <div className="mt-10">
-            <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.description}</p>
+            <p className="commonPara  ">{product.description}</p>
         </div>}
 
         {/* specification */}
@@ -40,75 +40,75 @@ export default function ProductTabs() {
             <ul className="mt-12 flex flex-col gap-4">
               <li className='flex '>
                   <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Brand</p>
-                  <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.brand || "No brand"}</p>
+                  <p className="commonPara  ">{product.brand || "No brand"}</p>
               </li>
               <li className='flex '>
                   <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Size</p>
-                  <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{`${product.dimensions.width} x ${product.dimensions.depth} x ${product.dimensions.height}`} inches (W x D x H) </p>
+                  <p className="commonPara  ">{`${product.dimensions.width} x ${product.dimensions.depth} x ${product.dimensions.height}`} inches (W x D x H) </p>
               </li>
               <li className='flex '>
                   <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Weight</p>
-                  <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.weight} pounds </p>
+                  <p className="commonPara  ">{product.weight} pounds </p>
               </li>
               <li className='flex '>
                   <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Delevery</p>
-                  <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.delivery || "Worldwide"} </p>
+                  <p className="commonPara  ">{product.delivery || "Worldwide"} </p>
               </li>
               <li className='flex '>
                   <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Return</p>
-                  <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.returnPolicy || "No Return"} </p>
+                  <p className="commonPara  ">{product.returnPolicy || "No Return"} </p>
               </li>
               {product.variant && 
               <li className='flex '>
                   <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Variant</p>
-                  <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.delivery || "Need to check"} </p>
+                  <p className="commonPara  ">{product.delivery || "Need to check"} </p>
               </li>}
             </ul>
         </div>}
 
         {/* return policy */}
         {activeTab == 3 && <div className="mt-10">
-            <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">
+            <p className="commonPara  ">
               We are committed to ensuring customer satisfaction. If you are not entirely satisfied with your purchase, please review our return policy below:
             </p>
 
             {/* Eligibility for Returns */}
             <h3 className="  font-poppins mt-4 font-semibold text-xl leading-[30px] text-primary ">Eligibility for Returns</h3>
             <ul className='list-disc ml-6 mt-4'>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">The item must be unused, undamaged, and in its original condition.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">All original tags, labels, packaging, and the purchase receipt must be included.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Return requests must be made within 7 days of receiving the product.</li>
+                <li className="commonPara  ">The item must be unused, undamaged, and in its original condition.</li>
+                <li className="commonPara  ">All original tags, labels, packaging, and the purchase receipt must be included.</li>
+                <li className="commonPara  ">Return requests must be made within 7 days of receiving the product.</li>
             </ul>
 
             {/* Non-Returnable Items */}
             <h3 className="  font-poppins mt-4 font-semibold text-xl leading-[30px] text-primary ">Eligibility for Returns</h3>
             <ul className='list-disc ml-6 mt-4'>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  "> Used, damaged, or washed items.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Personal care, hygiene products, or undergarments.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Certain discounted or promotional items (if applicable)</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Customized or pre-order items</li>
+                <li className="commonPara  "> Used, damaged, or washed items.</li>
+                <li className="commonPara  ">Personal care, hygiene products, or undergarments.</li>
+                <li className="commonPara  ">Certain discounted or promotional items (if applicable)</li>
+                <li className="commonPara  ">Customized or pre-order items</li>
             </ul>
 
             {/* Return Process */}
             <h3 className="  font-poppins mt-4 font-semibold text-xl leading-[30px] text-primary ">Return Process</h3>
             <ul className='list-disc ml-6 mt-4'>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Submit a return request via our website or customer support.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Once your request is approved, send the item to the provided return address.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">After receiving and inspecting the product, we will process a refund or replacement within 5–7 business days.</li>
+                <li className="commonPara  ">Submit a return request via our website or customer support.</li>
+                <li className="commonPara  ">Once your request is approved, send the item to the provided return address.</li>
+                <li className="commonPara  ">After receiving and inspecting the product, we will process a refund or replacement within 5–7 business days.</li>
             </ul>
 
             {/* Refund Policy */}
             <h3 className="  font-poppins mt-4 font-semibold text-xl leading-[30px] text-primary ">Refund Policy</h3>
             <ul className='list-disc ml-6 mt-4'>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">Refunds will be issued to the original payment method.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">For Cash on Delivery (COD) orders, we may offer a refund via bKash/Nagad/Rocket or another preferred method.</li>
+                <li className="commonPara  ">Refunds will be issued to the original payment method.</li>
+                <li className="commonPara  ">For Cash on Delivery (COD) orders, we may offer a refund via bKash/Nagad/Rocket or another preferred method.</li>
             </ul>
 
             {/* Refund Policy */}
             <h3 className="  font-poppins mt-4 font-semibold text-xl leading-[30px] text-primary ">Shipping Costs</h3>
             <ul className='list-disc ml-6 mt-4'>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">If the return is due to a defective or incorrect item, we will cover the return shipping cost.</li>
-                <li className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">If the return is due to a change of mind, the customer will be responsible for the return shipping cost.</li>
+                <li className="commonPara  ">If the return is due to a defective or incorrect item, we will cover the return shipping cost.</li>
+                <li className="commonPara  ">If the return is due to a change of mind, the customer will be responsible for the return shipping cost.</li>
             </ul>
         </div>}
 
@@ -129,7 +129,7 @@ export default function ProductTabs() {
                                    </li>
                                  ))}
                                 </ul>
-                                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary mt-2 ">{item.comment}</p>
+                                <p className="commonPara mt-2 ">{item.comment}</p>
                             </div>
                         </div>
                         )

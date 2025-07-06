@@ -25,7 +25,6 @@ function BlogDetails() {
    console.log(location);
    
  
-
     const blog = JSON.parse(localStorage.getItem('blogView'))
        
 
@@ -39,7 +38,6 @@ function BlogDetails() {
         {id: '07' , title: "Quantum Computing" , text: "Quantum computing is a new type of computing that uses the principles of quantum mechanics to perform calculations. With the potential to solve complex problems that are beyond the capabilities of classical computers, quantum computing has the potential to revolutionize many industries, from finance and healthcare to energy and transportation."},
     ]
     
-
     
     return (
         <div>
@@ -74,17 +72,17 @@ function BlogDetails() {
              <img src={blog.featured_image} alt={blog.featured_image} className="mt-12 rounded-[25px] h-[645px]      " />
 
              {/* summary */}
-             <p className="mt-12 font-montserrat font-normal text-xl leading-7.5 text-[#303030]     ">{blog.summary}</p>
+             <p className="mt-12 commonPara     ">{blog.summary}</p>
 
              {/* all points */}
-             <div className="mt-8">
+             <div className="mt-8 flex flex-col gap-6    ">
                 {blogTopics.map((topic) => (
                     <DetailsTopic key={topic.id} topicNumber={topic.id} title={topic.title} text={topic.text} />
                 ))}
              </div>
 
              {/* summary two */}
-             <p className="mt-12 font-montserrat font-normal text-xl leading-7.5 text-[#303030]     ">In conclusion, staying up to date with the latest tech trends is essential for anyone who wants to stay ahead of the curve. From 5G connectivity and AI to VR and AR, these technologies have the potential to transform the way we live and work. By keeping up with the latest trends and innovations, you can prepare yourself for the future and stay ahead of the competition.</p>
+             <p className="mt-12 commonPara    ">In conclusion, staying up to date with the latest tech trends is essential for anyone who wants to stay ahead of the curve. From 5G connectivity and AI to VR and AR, these technologies have the potential to transform the way we live and work. By keeping up with the latest trends and innovations, you can prepare yourself for the future and stay ahead of the competition.</p>
 
 
              {/* blog tags */}

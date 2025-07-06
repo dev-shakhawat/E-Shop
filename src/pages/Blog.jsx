@@ -42,8 +42,9 @@ function Blog() {
       
 
       const handleViewBlogDetails = (blogItem)=>{ 
+        console.log(blogItem); 
         localStorage.setItem('blogView' , JSON.stringify(blogItem))
-        navigate(`/blog/details/${blogItem.id}`)
+        navigate(`/blog/details/${blogItem.title}`)
       }
        
 
