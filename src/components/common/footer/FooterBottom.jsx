@@ -71,8 +71,8 @@ function FooterBottom({isblack}) {
                         <div className="">
                             {isblack &&  <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Contact us</h3>}
                             <List arr={footContact}
-                                  liststyle={`${isblack ? 'text-white' : 'text-primary'} relative pl-8 cursor-pointer  font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
-                                  boxstyle={`flex flex-col gap-1.5 lg:gap-3   `}/>
+                                  liststyle={`${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-300 relative pl-8 cursor-pointer  font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
+                                  boxstyle={`flex flex-col gap-1.5 lg:gap-3    `}/>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@ function FooterBottom({isblack}) {
                     <div className="">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Links</h3>
                         <List arr={footLinks}
-                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'}`}
+                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200 `}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
 
@@ -88,7 +88,7 @@ function FooterBottom({isblack}) {
                     <div className="mx-[96px] ">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Supports</h3>
                         <List arr={footSupports}
-                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'}`}
+                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
 
                     </div>
@@ -97,7 +97,7 @@ function FooterBottom({isblack}) {
                     <div className="lg:justify-self-end lggap-0 gap-5 ">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Catagories</h3>
                         <List arr={footCatagories}
-                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'}`}
+                              liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
 
@@ -113,7 +113,7 @@ function FooterBottom({isblack}) {
                         <h3 className={`font-poppins font-semibold text-xl leading-[30px] ${isblack ? 'text-white' : 'text-primary'} pb-3  lg:pb-6 mt-10 lg:mt-[73px] `}>Follow
                             Us</h3>
                         <List arr={footFollow}
-                              liststyle={`${isblack ? 'text-white' : 'text-primary'} font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
+                              liststyle={`${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200 font-montserrat text-[13px] lg:text-base lg:leading-[24px]`}
                               boxstyle={`flex flex-col gap-1.5 lg:gap-3`}/>
                     </div>
                 </div>

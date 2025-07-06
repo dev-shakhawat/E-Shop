@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import InputField from "./InputField";
-import SelectField from "./SelectField";
+import InputField from "./InputField"; 
 import TextAreaField from "./TextAreaField";
+import Selection from "../../../../common/Selection";
 
 export default function Form() {
 
@@ -44,19 +44,42 @@ export default function Form() {
 
       {/* address */}
       <InputField onChange={(e) => setAddress(e.target.value)} title="Address" placeholder={`Home Address, Auxiliary St. 12345, Anywhere State`} />
+      
 
+      {/* country and state */}
+      <div className="grid grid-cols-2 gap-4  ">
+        
+        {/* country */}
+        <div className="">
+          <p className={`  font-montserrat font-bold  leading-7.5 flex items-start gap-1  `}>
+               Country  
+               <span className='text-brand text-2xl '>*</span>
+          </p>
+          <Selection modalPosition={`top-15 left-0  `} items={["Bangladesh" ,"USA" ,"Ukraine" ,"Australia" ,"Japan"]} setValue={setCountry}   className={[" mt-3 border border-tertary rounded-[10px] py-6 px-8 font-montserrat font-normal text-[24px] leading-7.5 " ]}  />
+        </div>
+        
+        {/* state */}
+        <div className="">
+          <p className={`  font-montserrat font-bold  leading-7.5 flex items-start gap-1  `}>
+               State  
+               <span className='text-brand text-2xl '>*</span>
+          </p>
+          <Selection modalPosition={`top-15 left-0  `} items={["Bangladesh" ,"USA" ,"Ukraine" ,"Australia" ,"Japan"]} setValue={setCountry}   className={[" mt-3 border border-tertary rounded-[10px] py-6 px-8 font-montserrat font-normal text-[24px] leading-7.5 " ]}  />
+        </div>
+      </div>
 
       {/*  */}
       <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-        {/* country */}
-        <SelectField onChange={(e) => setCountry(e.target.value)} title={`Country`} list={["Indonesia", "Afghanistan", "Albania", "Algeria",  "Andorra", "Angola",]}  />
-        
-        {/* state */}
-        <SelectField onChange={(e) => setState(e.target.value)} title={`State`} list={[  "Aceh",  "Bali",  "Banten", "Central Java", "Central Kalimantan", "Central Sulawesi",  "East Java",]}  />
-        
+
         {/* city */}
-        <SelectField onChange={(e) => setCity(e.target.value)} title={`City`} list={["Jakarta", "Surabaya",  "Bekasi", "Bandung", "Medan", "Depok", "Tangerang", "Palembang",  "Semarang", "Makassar",]}  />
-        
+        <div className="">
+          <p className={`  font-montserrat font-bold  leading-7.5 flex items-start gap-1  `}>
+               City  
+               <span className='text-brand text-2xl '>*</span>
+          </p>
+          <Selection modalPosition={`top-15 left-0  `} items={["Bangladesh" ,"USA" ,"Ukraine" ,"Australia" ,"Japan"]} setValue={setCountry}   className={[" mt-3 border border-tertary rounded-[10px] py-6 px-8 font-montserrat font-normal text-[24px] leading-7.5 " ]}  />
+        </div>
+ 
         {/* zipcode */}
         <InputField onChange={(e) => setZipcode(e.target.value)} title="ZIP Code" placeholder={`555555`}  required={false} />
       </div>

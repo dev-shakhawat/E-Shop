@@ -46,7 +46,7 @@ function ProductCart({
                 {/*   persent tag    */}
                 {persent &&
                     <div
-                        className={` ${mode == "grid" ? "top-0 right-0" : "top-2 right-2" }  absolute  bg-brand   md:font-bold  px-3 md:px-5 py-1.5 flex justify-center items-center text-white ${persentRound ? " w-[100px] h-[100px]  text-[24px] leading-[30px]  font-poppins  rounded-full font-bold " : "rounded-[5px] font-montserrat text-base leading-[24px]  font-semibold "}  `}>{persent}%
+                        className={` ${mode == "grid" ? "top-0 right-0" : "top-2 left-2" }  absolute  bg-brand   md:font-bold  px-3 md:px-5 py-1.5 flex justify-center items-center text-white ${persentRound ? " w-[100px] h-[100px]  text-[24px] leading-[30px]  font-poppins  rounded-full font-bold " : "rounded-[5px] font-montserrat text-base leading-[24px]  font-semibold "}  `}>{persent}%
                     </div>}
 
                 {/*  product image  */}
@@ -55,7 +55,7 @@ function ProductCart({
                 {/*  cart/love/share   */}
                 <div
                     onClick={e => e.stopPropagation()}
-                    className={` ${mode == 'grid' ? "-bottom-1/2 group-hover:bottom-1.5 left-0" : "bottom-[80px] left-[55%] group-hover:left-[47%]  rotate-90 "}  flex justify-center gap-4.5 absolute  w-full duration-200 `}>
+                    className={` ${mode == 'grid' ? "-bottom-1/2 group-hover:bottom-1.5 left-0" : "bottom-1/2 translate-y-1/2 left-[55%] group-hover:left-[47%]  rotate-90 "}  flex justify-center gap-4.5 absolute  w-full duration-200 `}>
                     <div
                         onClick={addCart}
                         className="duration-300 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white  grid place-items-center rounded-full border border-brand   ">
