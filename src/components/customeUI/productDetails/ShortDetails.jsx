@@ -36,7 +36,7 @@ export default function ShortDetails() {
 
             <h3 className="mt-6">
                 <span className="font-poppins font-bold text-[56px] leading-[68px] text-brand ">${product.price}</span>
-                <del className="font-montserrat font-normal text-[20px] leading-[30px] text-secondery ml-[19px] ">{Math.floor(product.price / (1 - product.discountPercentage / 100))}</del>
+                <del className="font-montserrat font-normal text-[20px] leading-[30px] text-secondery ml-[19px] ">${Math.floor(product.price / (1 - product.discountPercentage / 100))}</del>
             </h3>
         </div>
 
@@ -61,12 +61,19 @@ export default function ShortDetails() {
             <li className='flex '>
                 <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Return</p>
                 <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.returnPolicy || "No Return"} </p>
-            </li>
-            {product.variant && 
+            </li> 
             <li className='flex '>
                 <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Variant</p>
-                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.delivery || "Need to check"} </p>
-            </li>}
+                <div className="grid grid-cols-3 gap-1  ">
+                    {product.variants ? product.variants.map((item , index) => {
+                        return (
+                            <p className={`hover:border-brand hover:text-brand  py-4 px-8 rounded-[5px] border border-tertary font-montserrat font-bold text-base leading-6 text-primary   `} key={index}>{item}</p>
+                        )
+                    }): 
+                    <p className='font-montserrat font-normal text-xl leading-[30px] text-primary '>No variant</p>
+                    }
+                </div>
+            </li>
         </ul>
     </div>
   )

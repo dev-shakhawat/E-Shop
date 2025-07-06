@@ -63,6 +63,8 @@ export default function AllProducts() {
 
 
   // add to cart
+  console.log(products);
+  
 
   
   
