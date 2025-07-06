@@ -23,8 +23,6 @@ function Chooser({allcatagories}) {
             [categoryId]: !prev[categoryId]
         }));
     };
-
-    console.log(checkedCategories);
     
 
     return (

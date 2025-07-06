@@ -90,3 +90,35 @@
 .blogTag{
   @apply font-montserrat font-normal text-sm leading-5 text-[#303030] py-3 px-4 rounded-[5px] bg-white  cursor-pointer 
 }
+
+/* price chooser */ 
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #FF624C;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  pointer-events: auto;
+
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #FF624C;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  appearance: none;
+}
