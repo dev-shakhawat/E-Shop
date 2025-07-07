@@ -49,7 +49,7 @@ function SpringSlider() {
         ]
     };
     return (
-        <div className={`   lg:w-[950px] lg:px-5`}>
+        <div className={` lg:w-[630px] xl:w-[800px] 2xl:w-[950px] lg:px-5 overflow-hidden`}>
             <Slider {...sliderSeting}>
                 <ProductCart catagory={`television`}
                              title={`LP78245 Smart TV OLED 43 Inch 4K HD Dynamic Color Enhancer USB Movie ...`}

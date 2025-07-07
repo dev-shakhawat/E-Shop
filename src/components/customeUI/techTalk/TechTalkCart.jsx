@@ -25,7 +25,7 @@ function TechTalkCart({ title, buttontxt, date, buttonlink, image = product }) {
         <div className="flex items-center justify-between mt-2 sm:mt-4 md:mt-6 lg:mt-8">
           <Link
             to={buttonlink}
-            className={`font-montserrat font-bold text-[14px] lg:text-base leading-[24px] rounded-[10px] text-white bg-brand px-5 py-2`}
+            className={`font-montserrat font-bold text-[10px] md:text-xs lg:text-sm xl:text-base leading-[24px] lg:rounded-[10px] rounded-[5px] text-white bg-brand 2xl:px-5 xl:px-4 lg:px-3 md:px-2 px-1 py-1 lg:py-2  `}
           >
             {buttontxt}
           </Link>

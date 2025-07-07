@@ -38,7 +38,7 @@ function Faq() {
       <Container>
         <div className="flex lg:flex-row flex-col-reverse relative">
           {/*  accordian part  */}
-          <div className="flex flex-col gap-2 md:gap-4 lg:gap-6 lg:min-w-[926px] lg:mr-[112px] ">
+          <div className="flex flex-col gap-2 md:gap-4 lg:gap-6 lg:min-w-[600px] xl:min-w-[700px] 2xl:min-w-[926px]  lg:mr-[70px] xl:mr-[112px] ">
             {accordians.map((acc, index) => (
               <Accordian
                 key={index}
@@ -54,16 +54,16 @@ function Faq() {
             <img
               src={faqShap}
               alt="faqShap"
-              className={`absolute top-0 right-0 lg:inline-block hidden `}
+              className={`absolute top-0 lg:right-2 right-1 lg:inline-block hidden `}
             />
-            <h2 className=" font-poppins font-semibold text-xl sm:text-[24px] md:text-[30px] lg:text-[36px] leading-[46px] text-primary lg:w-[306px]  ">
+            <h2 className=" font-poppins font-semibold text-xl sm:text-[24px] md:text-[30px] lg:text-[30px] leading-[46px] text-primary lg:w-[306px]  ">
               Frequently Asked Questions
             </h2>
             <p className="commonPara mt-2 md:mt-4 lg:mt-6 w-[85%]  ">
               Questions that get asked the most by our clients. Get any burning
               questions?
             </p>
-            <button type="button" className="commonButton mt-16   " >Ask A Question</button>
+            <button type="button" className="commonButton 2xl:mt-16  xl:mt-12 lg:mt-10 md:mt-8 mt-6   " >Ask A Question</button>
           </div>
         </div>
       </Container>

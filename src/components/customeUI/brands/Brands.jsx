@@ -6,7 +6,7 @@ import {Link} from "react-router";
 
 function Brands() {
     return (
-        <div className={` py-25`}>
+        <div className={` 2xl:py-25 py-10 md:py-15 lg:py-20 xl:py-23 `}>
             <Container>
 
                 {/*  brands marque  */}

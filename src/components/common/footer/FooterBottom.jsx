@@ -64,11 +64,12 @@ function FooterBottom({isblack}) {
         <div className={``}>
 
             <Container>
-                <div className="flex  ">
+                <div className="flex flex-wrap xl:flex-nowrap  ">
                     {/*  logo/contact  */}
-                    <div className={`${isblack ? 'flex-col-reverse' : 'flex-col'} flex  justify-between  mr-[160px] `}>
+                    <div className={`${isblack ? 'flex-col-reverse' : 'flex-col'} flex  justify-between  sm:basis-1/2 md:basis-1/3 lg:basis-1/4 `}>
                         <img src={isblack ? '/images/logowhite.png' : '/images/logo.png'} alt="logo" className={`max-w-[129px]`}/>
-                        <div className="">
+
+                        <div className="mt-7 md:mt-0 xl:min-w-[450px] ">
                             {isblack &&  <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Contact us</h3>}
                             <List arr={footContact}
                                   liststyle={`${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-300 relative pl-8 cursor-pointer  font-montserrat text-[13px] lg:text-base lg:leading-[24px]  `}
@@ -77,7 +78,7 @@ function FooterBottom({isblack}) {
                     </div>
 
                     {/*  links  */}
-                    <div className="">
+                    <div className="mt-10 sm:mt-0 basis-1/2 md:basis-1/3 lg:basis-1/4  ">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Links</h3>
                         <List arr={footLinks}
                               liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200 `}
@@ -85,7 +86,7 @@ function FooterBottom({isblack}) {
                     </div>
 
                     {/*  supports  */}
-                    <div className="mx-[96px] ">
+                    <div className=" mt-10 basis-1/2  md:basis-1/3 md:mt-0 lg:basis-1/4 ">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Supports</h3>
                         <List arr={footSupports}
                               liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200`}
@@ -94,7 +95,7 @@ function FooterBottom({isblack}) {
                     </div>
 
                     {/*  catagories  */}
-                    <div className="lg:justify-self-end lggap-0 gap-5 ">
+                    <div className="lg:justify-self-end lggap-0 gap-5 mt-10 lg:mt-0 basis-1/1 sm:basis-1/2 lg:basis-1/4   ">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Catagories</h3>
                         <List arr={footCatagories}
                               liststyle={`footlinks ${isblack ? 'text-white' : 'text-primary'} hover:text-brand duration-200`}
@@ -102,7 +103,7 @@ function FooterBottom({isblack}) {
                     </div>
 
                     {/*  payments  */}
-                    <div className="ml-20 ">
+                    <div className="2xl:ml-20 mt-10 xl:mt-0 lg:basis-0  ">
                         <h3 className={`footerHead ${isblack ? 'text-white' : 'text-primary'} `}>Payments</h3>
                         <Link to={`#`} className="flex gap-7 ">
                             <Visa/>
@@ -122,12 +123,12 @@ function FooterBottom({isblack}) {
                 {/*  copyright part  */}
                 <div
                     className="flex flex-col gap-2 md:gap-0 md:flex-row md:justify-between mt-5 sm:mt-0 md:mt-15 lg:mt-20 border-t border-secondery/50 pt-2 pb-5 sm:pb-10 md:pb-15 lg:pb-20  ">
-                    <p className={`font-montserrat text-sm text-primary leading-5 ${isblack ? 'text-white' : 'text-primary'} `}>Copyright © 2023 <Link
+                    <p className={`font-montserrat text-xs md:text-sm text-primary leading-5 ${isblack ? 'text-white' : 'text-primary'} `}>Copyright © 2023 <Link
                         to={`/`}>E-Shop</Link>.
                         All Rights
                         Reserved.</p>
 
-                    <p className={`flex gap-5 font-montserrat text-sm text-primary leading-5 ${isblack ? 'text-white' : 'text-primary'}`}>
+                    <p className={`flex gap-5 font-montserrat text-xs md:text-sm text-primary leading-5 ${isblack ? 'text-white' : 'text-primary'}`}>
                         <Link to={`/#`}>Privacy Policy</Link>
                         <Link to={`/#`}
                               className={`relative after:content-[''] after:w-[1px] after:h-5/6 after:bg-secondery after:absolute after:top-0.5 after:left-0 after:-translate-x-2 `}>Terms

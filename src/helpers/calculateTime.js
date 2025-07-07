@@ -1,5 +1,5 @@
 export function calculateTimeLeft() {
-        const saleEndtime = new Date("Jun 30 , 2025 12:00 AM GMT+6").getTime();
+        const saleEndtime = new Date("july 30 , 2025 12:00 AM GMT+6").getTime();
         const currentDate = new Date().getTime();
         const diffrent = saleEndtime - currentDate;
 

@@ -11,7 +11,7 @@ function SpringSale() {
         <div className={`bg-[#F4F4F4] py-5 sm:py-7 md:py-10 lg:py-16`}>
             <Container>
 
-                <div className="xl:flex justify-between ">
+                <div className="lg:flex justify-between ">
 
 
                     {/*  spring counter  */}
@@ -20,7 +20,7 @@ function SpringSale() {
 
                         {/*  shap  */}
                         <img src={springsaleshape} alt="springsaleshape"
-                             className={`absolute bottom-0 left-0 w-[70px] lg:w-auto`}/>
+                             className={`absolute bottom-0 lg:-bottom-5 left-0 w-[70px] lg:w-auto`}/>
                     </div>
 
 

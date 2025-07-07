@@ -3,7 +3,7 @@ import ArrowDown from "../../assets/icons/ArrowDown.jsx";
 
 import ToggleMenu from "../../helpers/toggleMenu.js"
 
-function Shortby({shortsArr, shortWidth = 137,}) {
+function Shortby({shortsArr, shortWidth}) {
 
     const [shortVal, setShortVal] = useState(shortsArr[0]);
     const [isModal, setIsModal] = useState(false);
@@ -22,8 +22,8 @@ function Shortby({shortsArr, shortWidth = 137,}) {
     }, [])
     return (
         <div ref={modalref} className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>
-            <p className="font-montserrat font-semibold lg:font-bold text-[13px] lg:text-base leading-[24px] text-brand"
-               style={{width: `${shortWidth}px`}}>{shortVal}</p>
+            <p className={`${shortWidth}   font-montserrat font-semibold lg:font-bold text-[13px] lg:text-base leading-[24px] text-brand`}
+                >{shortVal}</p>
             {isModal ? <ArrowDown style={` w-[11px] h-[6px]  rotate-[180deg]`}/> :
                 <ArrowDown style={`w-[11px] h-[6px] `}/>}
 
@@ -31,11 +31,11 @@ function Shortby({shortsArr, shortWidth = 137,}) {
             {isModal &&
                 <div
                     
-                    className={`${shortsArr.length > 5 ? "h-[300px]" : "h-fit" }  absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 overflow-hidden border border-tertary  overflow-y-scroll overflow-x-hidden `}>
+                    className={`max-h-[300px] overflow-y-scroll  absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 border border-tertary  overflow-y-scroll overflow-x-hidden `}>
                     <ul>
                         {shortsArr.map((short, index) => <li key={index}
                                                              onClick={() => handelShort(short)}
-                                                             className={`${short == shortVal ? "bg-brand hover:bg-brand text-white" : "hover:bg-tertary/50 "} py-1 p-5 font-montserrat font-normal text-base leading-[24px] text-primary `}>{short}</li>)}
+                                                             className={` line-clamp-1 text-ellipsis  ${short == shortVal ? "bg-brand hover:bg-brand text-white" : "hover:bg-tertary/50 "} py-1 p-5 font-montserrat font-normal text-base leading-[24px] text-primary `}>{short}</li>)}
                     </ul>
                 </div>}
         </div>

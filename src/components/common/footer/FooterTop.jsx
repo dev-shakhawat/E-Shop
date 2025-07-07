@@ -12,8 +12,8 @@ function FooterTop() {
           location.pathname == "/allproduct"
             ? "bg-[linear-gradient(270deg,_rgba(244,244,244,1)_0%,_rgba(244,244,244,1)_35%,_rgba(217,217,217,1)_50%,_rgba(217,217,217,1)_100%)]"
             : "bg-[linear-gradient(90deg,_rgba(244,244,244,1)_0%,_rgba(244,244,244,1)_35%,_rgba(217,217,217,1)_50%,_rgba(217,217,217,1)_100%)]"
-        }  rounded-[25px] 
-                lg:px-[100px] px-6 sm:px-16 md:px-20 lg:py-[114px] py-10 sm:py-1.5 md:py-20   `}
+        }  2xl:rounded-[25px] rounded-[5px] md:rounded-[10px] lg:rounded-[15px] xl:rounded-[20px]
+                lg:px-[100px] px-6 sm:px-16 md:px-20 lg:py-[114px] py-5 sm:py-1.5 md:py-20   `}
       >
         <div className={`w-fit ${location.pathname == "/allproduct" ? "ml-auto" : ""}  `}>
           {/*  text  */}

@@ -21,7 +21,7 @@ function Facility() {
       text: "Certified marketplace since 2017",
     },
     {
-      icon: <Delevery />,
+      icon: <Delevery className={`w-12 h-12   `} />,
       title: "Shipping",
       text: "Free, fast, and reliable worldwide",
     },
@@ -34,7 +34,7 @@ function Facility() {
   return (
     <div>
       <Container>
-        <div className="flex justify-between flex-wrap lg:flex-nowrap gap-y-5 ">
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-y-6 gap-x-[50px]  ">
           {facilities.map((facility, index) => (
             <FacilityCart
               key={index}

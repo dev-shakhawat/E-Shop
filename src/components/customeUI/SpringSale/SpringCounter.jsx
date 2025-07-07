@@ -16,7 +16,7 @@ function SpringCounter() {
     return (
         <div className={`pb-15 lg:pb-0`}>
 
-            <h2 className="font-poppins font-bold text-[25px] sm:text-[30px] md:text-[40px] lg:text-[56px] leading-[68px] text-primary">Spring
+            <h2 className="font-poppins font-bold text-[25px] sm:text-[30px] md:text-[30px] lg:text-[35px] xl:text-[40px] 2xl:text-[56px]  leading-[68px] text-primary">Spring
                 Sale</h2>
 
             {/*  counter down  */}
@@ -24,25 +24,25 @@ function SpringCounter() {
 
                 {/*  day  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[30px] xl:text-[36px]  leading-[46px] text-brand mb-2 ">
                         {timeleft.day < 9 ? `0${timeleft.day}` : timeleft.day}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>days</span>
                 </div>
                 <span
-                    className={`font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand`}>:</span>
+                    className={`font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[30px] xl:text-[36px] leading-[46px] text-brand`}>:</span>
 
                 {/*  hour  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[30px] xl:text-[36px] leading-[46px] text-brand mb-2 ">
                         {timeleft.hour < 9 ? `0${timeleft.hour}` : timeleft.hour}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>hours</span>
                 </div>
                 <span
-                    className={`font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand`}>:</span>
+                    className={`font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[30px] xl:text-[36px] leading-[46px] text-brand`}>:</span>
 
                 {/*  munite  */}
                 <div className="text-center">
-                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[36px] leading-[46px] text-brand mb-2 ">
+                    <h3 className="font-poppins font-semibold text-xl sm:text-[24px] md:text-[28px] lg:text-[30px] xl:text-[36px] leading-[46px] text-brand mb-2 ">
                         {timeleft.munite < 9 ? `0${timeleft.munite}` : timeleft.munite}</h3>
                     <span className={`font-montserrat font-normal text-base text-primary capitalize`}>munites</span>
                 </div>

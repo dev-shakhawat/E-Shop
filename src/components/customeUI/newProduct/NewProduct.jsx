@@ -88,13 +88,13 @@ function NewProduct() {
             </p>
             <Shortby
               shortsArr={shortArray}
-              shortWidth={window.innerWidth < 640 ? 120 : 217}
+              shortWidth={`w-[110px] md:w-[120px] lg:w-[130px] xl:w-[137px]  `}
             />
           </div>
         </div>
 
         {/*  new products  */}
-        <div className="grid grid-cols-2 gap-x-1 gap-y-2 sm:grid-cols-3  lg:grid-cols-5 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
+        <div className="grid grid-cols-1 gap-x-1 gap-y-2 sm:grid-cols-2  lg:grid-cols-4 xl:grid-cols-5 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
           {newProducts.map((product, index) => (
             <ProductCart
               key={index}
