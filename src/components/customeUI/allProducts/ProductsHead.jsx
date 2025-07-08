@@ -25,6 +25,10 @@ export default function ProductsHead() {
         dispatch(currentMode(mode))
       }
     
+      const handleFilter = (e) => { 
+        e.stopPropagation();
+        dispatch(filterMobile(!isFilter));
+      }
       
   return (
     <div className='w-full   '>
@@ -54,7 +58,7 @@ export default function ProductsHead() {
             </div>
 
             {/* filters */}
-            <button onClick={() => dispatch(filterMobile(!isFilter))} type="button"><CiFilter className='text-xl text-[#9c9c9c] cursor-pointer '/></button>
+            <button onClick={(e) => handleFilter(e)} type="button"><CiFilter className='text-xl text-[#9c9c9c] cursor-pointer '/></button>
 
         </div>
     </div>
