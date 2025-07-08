@@ -23,13 +23,14 @@ function Cart() {
                 <h2 className=" font-poppins font-bold 2xl:text-[56px] xl:text-[50px] lg:text-[44px] md:text-[38px] sm:text-[32px] text-[26px]    2xl:leading-[68px]  xl:leading-[62px] lg:leading-[56px] md:leading-[50px] sm:leading-[44px] leading-[38px]   text-primary  ">Your Cart</h2>
 
                 {/* cart header */}
-                <div className="flex items-center justify-between 2xl:py-8 xl:py-6 lg:py-5 md:py-4 py-2   bg-[#f4f4f4] 2xl:mt-7  xl:mt-5 lg:mt-4 md:mt-3 mt-2    lg:rounded-[15px] rounded-md ">
-                    <span className='uppercase font-montserrat 2xl:font-bold md:font-semibold font-medium xl:text-base md:text-sm text-xs leading-[24px] text-primary 2xl:ml-[56px] xl:ml-[48px] md:ml-[40px] ml-2'>product</span>
-
-                    <div className="flex  2xl:gap-[190px] xl:gap-[150px] lg:gap-[120px] md:gap-[90px] sm:gap-[60px]   2xl:mr-[256px] xl:mr-[220px] lg:mr-[180px] md:mr-[140px] sm:mr-[100px] mr-4   ">
-                       <span className='acrtTableHead '>price</span>
-                       <span className='acrtTableHead '>qty</span>
-                       <span className='acrtTableHead '>total</span>
+                <div className="flex items-center 2xl:py-8 xl:py-6 lg:py-5 md:py-4 py-2   bg-[#f4f4f4] 2xl:mt-7  xl:mt-5 lg:mt-4 md:mt-3 mt-2    lg:rounded-[15px] rounded-md "> 
+                    <div className="flex-1 ">
+                      <span className='acrtTableHead ml-20 '>product</span>
+                    </div>
+                    <div className="flex-1 grid grid-cols-3 ">
+                        <span className='acrtTableHead   '>price</span>
+                        <span className='acrtTableHead   '>qty</span>
+                        <span className='acrtTableHead   '>total</span> 
                     </div>
                 </div>
 
@@ -69,7 +70,7 @@ function Cart() {
             </Container>
 
                 {/* facilities */}
-                <div className="mt-25 py-20 border-t border-tertary ">
+                <div className="2xl:mt-25 xl:mt-20 lg:mt-16 md:mt-12 mt-5 2xl:py-20 xl:py-16 lg:py-12 md:py-10 py-5 border-t border-tertary ">
                     <Facility/>
                 </div>
         </div>

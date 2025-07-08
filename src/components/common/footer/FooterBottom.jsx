@@ -66,7 +66,7 @@ function FooterBottom({isblack}) {
             <Container>
                 <div className="flex flex-wrap xl:flex-nowrap  ">
                     {/*  logo/contact  */}
-                    <div className={`${isblack ? 'flex-col-reverse' : 'flex-col'} flex  justify-between  sm:basis-1/2 md:basis-1/3 lg:basis-1/4 `}>
+                    <div className={`${isblack ? 'lg:flex-col-reverse flex-col ' : 'flex-col'} flex  justify-between  sm:basis-1/2 md:basis-1/3 lg:basis-1/4 `}>
                         <img src={isblack ? '/images/logowhite.png' : '/images/logo.png'} alt="logo" className={`max-w-[129px]`}/>
 
                         <div className="mt-7 md:mt-0 xl:min-w-[450px] ">
