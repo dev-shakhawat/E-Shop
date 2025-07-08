@@ -24,11 +24,11 @@ function Cart() {
 
                 {/* cart header */}
                 <div className="flex items-center 2xl:py-8 xl:py-6 lg:py-5 md:py-4 py-2   bg-[#f4f4f4] 2xl:mt-7  xl:mt-5 lg:mt-4 md:mt-3 mt-2    lg:rounded-[15px] rounded-md "> 
-                    <div className="flex-1 ">
-                      <span className='acrtTableHead ml-20 '>product</span>
+                    <div className="md:flex-1 flex-3 ">
+                      <span className='acrtTableHead md:ml-20 ml-2 '>product</span>
                     </div>
-                    <div className="flex-1 grid grid-cols-3 ">
-                        <span className='acrtTableHead   '>price</span>
+                    <div className="md:flex-1 flex-2 grid grid-cols-3 ">
+                        <span className='acrtTableHead md:inline-block hidden  '>price</span>
                         <span className='acrtTableHead   '>qty</span>
                         <span className='acrtTableHead   '>total</span> 
                     </div>

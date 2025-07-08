@@ -61,29 +61,34 @@ export default function CartItem({data}) {
     
     
   return (
-    <div className='flex group border border-transparent hover:border-tertary rounded-[10px] md:rounded-[15px] lg:rounded-[25px] relative overflow-hidden '>
+    <div className='  flex group border border-transparent hover:border-tertary rounded-[10px] md:rounded-[15px] lg:rounded-[25px] relative overflow-hidden '>
 
         {/* cart delete/share */}
-        <div className=" flex flex-col gap-[38px] absolute top-1/2 -translate-y-[50%] -right-30 group-hover:right-3 duration-300 ">
+        <div className=" flex flex-col xl:gap-7 lg:gap-5 md:gap-3 gap-2 absolute top-1/2 -translate-y-[50%]  -right-30  group-hover:lg:right-3 
+        group-hover:md:right-2 group-hover:right-1 duration-300 ">
             <div
-                className="duration-300 w-[30px] md:w-[64px] h-[30px] md:h-[64px] bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white grid place-items-center rounded-full border border-brand cursor-pointer  ">
-                <Delete className={`w-[24px] h-[24px]   `} />
+                className="duration-300   xl:w-[64px] md:w-[40px]  w-8    xl:h-[64px] md:h-[40px]  h-8    bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white grid place-items-center rounded-full border border-brand cursor-pointer  ">
+                <Delete className={`lg:w-[24px] lg:h-[24px] w-[20px] h-[20px]  `} />
             </div>
             <div
-                className="duration-300 w-[30px] md:w-[64px] h-[30px] md:h-[64px] bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white grid place-items-center rounded-full border border-brand cursor-pointer  ">
-                <Share className={`  w-[24px] h-[24px]   `}/>
+                className="duration-300  xl:w-[64px] md:w-[40px] w-8     xl:h-[64px] md:h-[40px] h-8   bg-white hover:bg-brand group-hover:text-brand group-[.group]:hover:text-white grid place-items-center rounded-full border border-brand cursor-pointer  ">
+                <Share className={` lg:w-[24px] lg:h-[24px] w-[20px] h-[20px]   `}/>
             </div>
         </div>
 
-        <div className="flex  flex-1 items-center ">
+        <div className="flex  flex-3 md:flex-1 items-center ">
             {/* product image */}
-            <img src={thumbnail} alt="thumbnail" className='lg:max-w-[237px] lg:max-h-[214px]      '/>  
+            <img src={thumbnail} alt="thumbnail" className='lg:max-w-[237px] w-[120px] md:w-[200px]     '/>  
 
             {/* product details */}
             <div className="flex justify-between w-full   ">
                 <div className="">
                     <p className=" font-montserrat font-normal text-sm leading-5 text-primary  ">{category}</p>
-                    <h3 className=" font-poppins font-semibold 2xl:text-xl xl:text-[18px] lg:text-base   text-sm  leading-[30px] text-primary 2xl:mt-4 lg:mt-3 md:mt-2 mt-1   group-hover:text-brand group-hover:underline duration-300  ">{title}</h3>
+                    <h3 className=" font-poppins font-semibold 2xl:text-xl xl:text-[18px] lg:text-base   text-sm  leading-[30px] text-primary 2xl:mt-4 lg:mt-3 md:mt-2 mt-0   group-hover:text-brand group-hover:underline duration-300  ">{title}</h3>
+
+                    {/* product price */}
+                    <p className="  font-montserrat font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs my-auto md:leading-[30px] text-primary md:hidden ">${price}</p>
+
                     {variant && 
                     <h4 className="flex 2xl:mt-11.5 xl:mt-9 lg:mt-7 md:mt-5 sm:mt-4 mt-2 ">
                             <p className="">Variant:</p>
@@ -94,9 +99,9 @@ export default function CartItem({data}) {
 
         </div>
 
-        <div className="flex-1 grid grid-cols-3   ">
+        <div className=" flex-2 md:flex-1 grid md:grid-cols-3 grid-cols-2   ">
             {/* product price */}
-            <p className="  font-montserrat font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs my-auto leading-[30px] text-primary  ">${price}</p>
+            <p className=" md:inline-block hidden font-montserrat font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs my-auto leading-[30px] text-primary  ">${price}</p>
 
             {/* quantity button */}
             <div className=" flex items-center    ">
@@ -105,14 +110,16 @@ export default function CartItem({data}) {
                     <button type='button' className='w-[40px] h-[40px] grid place-items-center cursor-pointer  ' ><RxMinus /></button>
 
                     {/* quantity */}
-                    <p className="w-[40px] h-[40px] grid place-items-center bg-[#F4F4F4] rounded-full font-montserrat font-bold 2xl:text-base lg:text-base sm:text-sm text-xs leading-[24px] text-primary ">{quantity}</p>
+                    <p className="md:min-w-[40px] min-w-[30px]  md:min-h-[40px] min-h-[30px]  grid place-items-center bg-[#F4F4F4] rounded-full font-montserrat font-bold 2xl:text-base lg:text-base sm:text-sm text-xs leading-[24px] text-primary ">{quantity}</p>
 
                     {/* plus btn */}
-                    <button onClick={() => increment(data)} type='button' className='w-[40px] h-[40px] grid place-items-center cursor-pointer  ' ><HiPlus /></button>
+                    <button onClick={() => increment(data)} type='button' className='w-[40px] h-[40px] grid place-items-center cursor-pointer  ' ><HiPlus  /></button>
             </div>
 
             {/* total price */}
-            <p className=" font-montserrat font-semibold text-xl my-auto leading-[30px] text-primary  ">${(price  * quantity).toFixed(2)}</p>
+            <p className="ml-2 md:ml-0 font-montserrat font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs my-auto leading-[30px] text-primary  "> <span className='hidden md:inline-block'>$</span>
+                {(price  * quantity).toFixed(2)}
+            </p>
 
         </div>
 
