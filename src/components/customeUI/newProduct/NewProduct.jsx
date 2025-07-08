@@ -83,7 +83,7 @@ function NewProduct() {
 
           {/*  short by  */}
           <div className="flex gap-2 md:gap-4">
-            <p className="font-montserrat font-normal text-[14px] md:text-base leading-[24px] text-primary">
+            <p className="font-montserrat font-normal text-[14px] md:text-base leading-[24px] w-[75px] text-primary">
               Sort by
             </p>
             <Shortby
