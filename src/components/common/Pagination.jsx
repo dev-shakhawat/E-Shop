@@ -48,20 +48,20 @@ export default function Pagination({ currentPage, totalPage, currentPaginationPa
   const pages = generatePages()
 
   return (
-    <div className="flex items-center justify-center mt-20">
+    <div className="flex items-center justify-center 2xl:mt-20 xl:mt-16 lg:mt-12 md:mt-8 mt-4    ">
 
       {/* Minus button */}
       <button onClick={handlePaginationMinus} type="button" className='p-3'>
-        <Arrow className="w-[12px] h-[22px]" />
+        <Arrow className="xl:w-[12px] w-[10px] xl:h-[22px] h-[10px]" />
       </button>
 
       {/* Pagination numbers */}
-      <div className="flex gap-[30px] mx-13 items-center">
+      <div className="flex 2xl:gap-[30px] xl:gap-6 lg:gap-5 md:gap-4 gap-2  2xl:mx-13 xl:mx-10 lg:mx-8 md:mx-6 mx-2    items-center">
         
         {pages[0] > 1 && (
           <>
             <button type="button" onClick={() => setActivePage(1)}
-              className={`${activePage === 1 ? 'bg-brand text-white' : 'text-primary bg-transparent'} font-poppins font-semibold text-xl leading-[30px] cursor-pointer py-[9px] px-[18px] rounded-[5px]`}>
+              className={`${activePage === 1 ? 'bg-brand text-white' : 'text-primary bg-transparent'} font-poppins font-semibold 2xl:text-xl lg:text-base md:text-sm text-xs 2xl:leading-[30px] xl:leading-6 lg:leading-5 md:leading-4 leading-3 cursor-pointer 2xl:py-[9px] lg:py-[6px] py-1 2xl:px-[18px] lg:px-[14px] px-[10px] rounded-[5px]`}>
               1
             </button>
             {pages[0] > 2 && <span className="font-poppins text-xl">...</span>}
@@ -70,7 +70,7 @@ export default function Pagination({ currentPage, totalPage, currentPaginationPa
 
         {pages.map((page) => (
           <button key={page} type="button" onClick={() => setActivePage(page)}
-            className={`${activePage === page ? 'bg-brand text-white' : 'text-primary bg-transparent'} font-poppins font-semibold text-xl leading-[30px] cursor-pointer py-[9px] px-[18px] rounded-[5px]`}>
+            className={`${activePage === page ? 'bg-brand text-white' : 'text-primary bg-transparent'} font-poppins font-semibold 2xl:text-xl lg:text-base md:text-sm text-xs 2xl:leading-[30px] xl:leading-6 lg:leading-5 md:leading-4 leading-3 cursor-pointer 2xl:py-[9px] lg:py-[6px] py-1 2xl:px-[18px] lg:px-[14px] px-[10px] rounded-[5px]`}>
             {page}
           </button>
         ))}
@@ -79,7 +79,7 @@ export default function Pagination({ currentPage, totalPage, currentPaginationPa
           <>
             {pages[pages.length - 1] < totalPage - 1 && <span className="font-poppins text-xl">...</span>}
             <button type="button" onClick={() => setActivePage(totalPage)}
-              className={`${activePage === totalPage ? 'bg-brand text-white' : 'text-primary bg-transparent'} font-poppins font-semibold text-xl leading-[30px] cursor-pointer py-[9px] px-[18px] rounded-[5px]`}>
+              className={`${activePage === totalPage ? 'bg-brand text-white' : 'text-primary bg-transparent'} font-poppins font-semibold 2xl:text-xl lg:text-base md:text-sm text-xs 2xl:leading-[30px] xl:leading-6 lg:leading-5 md:leading-4 leading-3 cursor-pointer 2xl:py-[9px] lg:py-[6px] py-1 2xl:px-[18px] lg:px-[14px] px-[10px] rounded-[5px]`}>
               {totalPage}
             </button>
           </>
@@ -89,7 +89,7 @@ export default function Pagination({ currentPage, totalPage, currentPaginationPa
 
       {/* Plus button */}
       <button onClick={handlePaginationPlus} type="button" className='p-3'>
-        <Arrow className="w-[12px] h-[22px] rotate-[180deg]" />
+        <Arrow className="xl:w-[12px] w-[10px] xl:h-[22px] h-[10px] rotate-[180deg]" />
       </button>
     </div>
   )

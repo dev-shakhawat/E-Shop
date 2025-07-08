@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Container from "../components/common/Container.jsx";
 import Chooser from "../components/customeUI/catagoryChooser/Chooser.jsx";
 import PriceChooser from "../components/customeUI/catagoryChooser/PriceChooser.jsx";
 import AllProducts from '../components/customeUI/allProducts/AllProducts.jsx';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterMobile } from '../redux/slices/productSlice.js';
 
 function Allproducts() {
 
@@ -31,6 +32,19 @@ function Allproducts() {
         total: 17
     }]
     const isFilter = useSelector(state => state.product.filter) 
+    const filterRef = useRef(null)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (filterRef.current && !filterRef.current.contains(event.target)) {
+                dispatch(filterMobile(false))
+            }
+        };
+        document.addEventListener("click", handleOutsideClick);
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        };
+    })
 
 
     return (
@@ -39,7 +53,7 @@ function Allproducts() {
                 <div className="flex gap-6.5 h-fit relative ">
 
                     {/*  catagory/brand/price chooser  */}
-                    <div className={` ${isFilter ? "fixed top-0 left-0 z-1 h-screen  " : "sticky top-0 left-0  h-fit rounded-[25px] "}  w-fit lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
+                    <div ref={filterRef} className={` ${isFilter ? "fixed top-0 left-0 z-1 h-screen overflow-y-scroll w-[80%]  " : "sticky top-0 left-0  h-fit rounded-[25px] "}  lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
 
                         {/*  catagory chooser  */}
                         <Chooser allcatagories={allcatagories}/>
