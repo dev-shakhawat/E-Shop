@@ -62,7 +62,7 @@ function Cart() {
 
                 {/* cart options */}
                 <div className="flex flex-col md:flex-row justify-end 2xl:mt-8 lg:mt-6 md:mt-4 mt-2 ">
-                    <button type="button" className='w-full md:w-fit cartButton ' >Continue Shopping</button>
+                    <button type="button" className='w-full md:w-fit cartButton cursor-pointer' >Continue Shopping</button>
                     <Link to={"/checkout"}  className='w-full md:w-fit cartButton inline-block ' >Update Cart</Link>
                 </div>
 
