@@ -94,7 +94,7 @@ export default function AllProducts() {
                : 
 
               // all products data
-              <div className={` ${mode == 'grid' ?  "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 " : 'grid-cols-1' }  grid mt-12 `}>
+              <div className={` ${mode == 'grid' ?  "grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 " : 'grid-cols-1' }  grid mt-12 `}>
                 {products.length > 0 && 
                   products.map(product => <ProductCart addCart={()=> handelAddToCart(product, dispatch)} onClick={() => handelNavigateToProductDetails(product)} key={product.id} delprice={ShowDelPrice.includes(product.id) && Math.floor(product.price / (1 - product.discountPercentage / 100)) } persent={ showPersentage.includes(product.id) && product.discountPercentage} image={`${product.images[0]}`} customStar={`text-[#fbd550]`} totalrating={product.reviews.length} rating={product.reviews.length} catagory={product.category} currentprice={product.price} title={product.title} customstyle="hover:border-tertary" />)
                 }

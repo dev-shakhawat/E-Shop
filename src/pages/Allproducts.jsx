@@ -53,17 +53,17 @@ function Allproducts() {
                 <div className="flex gap-6.5 h-fit relative ">
 
                     {/*  catagory/brand/price chooser  */}
-                    <div ref={filterRef} className={` ${isFilter ? "fixed md:sticky top-0 left-0 z-1 md:z-0 h-screen md:h-fit overflow-y-scroll w-[70%] sm:w-[50%]   " : "hidden md:sticky top-0 left-0  h-fit rounded-[25px] "}  lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
+                    <div ref={filterRef} className={` ${isFilter ? "fixed md:sticky top-0 left-0 z-1 md:z-0 h-screen md:h-fit overflow-y-scroll w-[70%] sm:w-[50%]   " : "hidden md:block md:sticky top-0 left-0  h-fit rounded-[25px] "}  lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
 
                         {/*  catagory chooser  */}
                         <Chooser allcatagories={allcatagories}/>
 
-                        <hr className={`my-10 text-tertary`}/>
+                        <hr className={`2xl:my-10 xl:my-9 lg:my-8 md:my-6 my-4   text-tertary`}/>
 
                         {/*  brand chooser  */}
                         <Chooser allcatagories={brands}/>
 
-                        <hr className={`my-10 text-tertary`}/>
+                        <hr className={`2xl:my-10 xl:my-9 lg:my-8 md:my-6 my-4   text-tertary`}/>
 
                         {/*  price chooser  */}
                         <PriceChooser/>
