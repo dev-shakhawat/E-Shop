@@ -88,7 +88,7 @@ function NewProduct() {
             </p>
             <Shortby
               shortsArr={shortArray}
-              shortWidth={`w-[110px] md:w-[120px] lg:w-[130px] xl:w-[137px]  `}
+              shortWidth={`w-[110px] md:w-[120px] lg:w-[130px] xl:w-[217px]  `}
             />
           </div>
         </div>

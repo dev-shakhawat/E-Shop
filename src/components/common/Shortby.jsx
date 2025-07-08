@@ -21,7 +21,7 @@ function Shortby({shortsArr, shortWidth}) {
         return () => window.removeEventListener('mousedown', ToggleMenu(modalref , setIsModal ));
     }, [])
     return (
-        <div ref={modalref} className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>
+        <div ref={modalref} className={`flex items-center cursor-pointer relative w-full  `} onClick={() => setIsModal(!isModal)}>
             <p className={`${shortWidth} line-clamp-1 text-ellipsis    font-montserrat font-semibold lg:font-bold  text-xs xl:text-sm 2xl:text-base leading-[24px] text-brand`}
                 >{shortVal}</p>
             {isModal ? <ArrowDown style={` w-[11px] h-[6px]  rotate-[180deg]`}/> :

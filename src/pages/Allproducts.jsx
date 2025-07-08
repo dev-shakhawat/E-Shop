@@ -53,7 +53,7 @@ function Allproducts() {
                 <div className="flex gap-6.5 h-fit relative ">
 
                     {/*  catagory/brand/price chooser  */}
-                    <div ref={filterRef} className={` ${isFilter ? "fixed md:sticky top-0 left-0 z-1 md:z-0 h-screen md:h-fit overflow-y-scroll w-[70%] sm:w-[50%]   " : "hidden md:block md:sticky top-0 left-0  h-fit rounded-[25px] "}  lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
+                    <div ref={filterRef} className={` ${isFilter ? "fixed md:sticky top-0 left-0 z-1 md:z-0 h-screen md:h-fit overflow-y-scroll w-[70%] sm:w-[50%]   " : "hidden md:block md:sticky top-0 left-0  h-fit 2xl:rounded-[25px] xl:rounded-[20px] lg:rounded-[15px] rounded-[10px]   "}  lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
 
                         {/*  catagory chooser  */}
                         <Chooser allcatagories={allcatagories}/>

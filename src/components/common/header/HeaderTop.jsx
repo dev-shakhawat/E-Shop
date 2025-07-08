@@ -104,7 +104,7 @@ function HeaderTop() {
           </div>
 
           {/*  currency & social & language  */}
-          <div className="flex items-center  ">
+          <div className="flex items-center gap-5 lg:gap-0 ">
             {/* currency */}
             <Selection modalPosition={`top-9 -left-[100px] `} seledtedTxtStyle={`text-[12px] sm:text-[14px] font-montserrat leading-5  `} items={[...correncies]} setValue={setSelectedCurrency} className={`lg:mr-12`}  />
 
