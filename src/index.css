@@ -56,6 +56,9 @@
 .commonHead {
     @apply font-poppins font-semibold text-base md:text-xl  lg:text-2xl 2xl:text-4xl text-primary leading-[46px]
 }
+.cmnHeadTwo{
+  @apply font-poppins font-semibold 2xl:text-[36px] xl:text-[32px] lg:text-[30px] md:text-[28px] sm:text-[26px] text-xl  2xl:leading-[46px]    
+}
 .commonPara {
     @apply font-montserrat font-normal text-[13px] md:text-base lg:text-xl lg:leading-[30px]
 }

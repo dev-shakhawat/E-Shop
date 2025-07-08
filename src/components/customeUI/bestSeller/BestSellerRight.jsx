@@ -7,7 +7,7 @@ function BestSellerRight() {
       {/*   image    */}
       {/*<Link to={`#`}><img src="/images/bestseller.png" alt="bestseller"/></Link>*/}
 
-      <h2 className="font-poppins font-semibold text-xl sm:text-[25px] md:text-[28px] lg:text-[36px] lg:leading-[46px] text-primary mt-5 sm:mt-10 md:mt-15 lg:mt-20   ">
+      <h2 className="cmnHeadTwo text-primary  mt-5 sm:mt-10 md:mt-15 lg:mt-20   ">
         Buy One,
         <br />
         Get One Free!

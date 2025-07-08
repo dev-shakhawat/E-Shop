@@ -12,7 +12,7 @@ export default function AccountDetails() {
 
   return (
     <div className='mt-12'>
-        <h2 className="pb-2 font-poppins font-semibold text-[36px] leading-[46px] text-primary border-b-4 border-brand w-fit  ">Account Details</h2>
+        <h2 className="pb-2 cmnHeadTwo text-primary  border-b-4 border-brand w-fit  ">Account Details</h2>
 
         {/* form */}
          <form className='mt-12 grid grid-cols-2 gap-6  '>

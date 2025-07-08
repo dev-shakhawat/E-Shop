@@ -35,7 +35,7 @@ function Shortby({shortsArr, shortWidth}) {
                     <ul>
                         {shortsArr.map((short, index) => <li key={index}
                                                              onClick={() => handelShort(short)}
-                                                             className={` line-clamp-1 text-ellipsis  ${short == shortVal ? "bg-brand hover:bg-brand text-white" : "hover:bg-tertary/50 "} py-1 p-5 font-montserrat font-normal text-base leading-[24px] text-primary `}>{short}</li>)}
+                                                             className={` line-clamp-1 text-ellipsis  ${short == shortVal ? "bg-brand hover:bg-brand text-white" : "hover:bg-tertary/50 "} py-1 2xl:px-5 xl:px-4 lg:px-3 md:px-2 px-1  font-montserrat font-normal 2xl:text-base lg:text-sm text-xs leading-[24px] text-primary `}>{short}</li>)}
                     </ul>
                 </div>}
         </div>

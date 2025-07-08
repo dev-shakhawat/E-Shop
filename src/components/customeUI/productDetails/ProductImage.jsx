@@ -47,7 +47,7 @@ export default function ProductImage() {
     <div className=" w-full relative">
 
       {/* image resizer */}
-      <Resizer onClick={() => setImageModal(true)}  className="absolute top-5 right-5 z-1 cursor-ew-resize " /> 
+      <Resizer onClick={() => setImageModal(true)}  className="absolute top-5 right-5 z-1 cursor-ew-resize hidden lg:inline-block " /> 
       {isImageModal  && <ProductImageViewerModal closeModal={setImageModal}  image={ productImages[currentIndex]} />}
 
       

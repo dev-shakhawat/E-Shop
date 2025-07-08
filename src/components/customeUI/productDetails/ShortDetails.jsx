@@ -9,12 +9,11 @@ export default function ShortDetails() {
 
     const product = useSelector(state => state.product.detailedProduct)
     const rating = Array(Math.floor(product.rating)).fill(Math.floor(product.rating))
-
-    console.log(product);
+ 
     
 
   return (
-    <div className='w-full'>
+    <div className='w-full mt-10 lg:mt-0 '>
 
         {/* rating/star */}
         <div className="flex items-center ">
@@ -30,7 +29,7 @@ export default function ShortDetails() {
 
         {/* product mane and price */}
         <div className="w-full">
-            <h2 className="font-poppins font-semibold text-[36px] leading-[46px] text-primary mt-4 pb-6 border-b border-tertary ">
+            <h2 className="cmnHeadTwo text-primary  mt-4 pb-6 border-b border-tertary ">
                 {product.title}
             </h2>
 

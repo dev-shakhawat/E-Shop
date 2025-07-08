@@ -81,15 +81,15 @@ function ProductDetails() {
             <Breadcrumb/>
 
             {/* detailes */}
-            <div className="flex">
+            <div className="flex flex-col lg:flex-row      ">
 
                 {/* product image */}
-                <div className="lg:max-w-[833px]"><ProductImage/></div>
+                <div className="2xl:max-w-[833px] xl:max-w-[600px] max-w-full     "><ProductImage/></div>
                 
 
 
                 {/* product detailes */}
-                <div className="ml-[56px]">
+                <div className="lg:ml-[56px] ml-1 ">
                     <ShortDetails/>
                 </div>
 

@@ -32,7 +32,7 @@ export default function ProductsHead() {
       
   return (
     <div className='w-full   '>
-    <h2 className=" font-poppins font-semibold 2xl:text-[36px] xl:text-[32px] lg:text-[30px] md:text-[28px] sm:text-[26px] text-xl  2xl:leading-[46px] text-primary    ">Products</h2>
+    <h2 className=" cmnHeadTwo text-primary ">Products</h2>
 
     {/* short by tab */}
     <div className="xl:flex justify-between 2xl:mt-6 xl:mt-5 md:mt-4 mt-1    ">
