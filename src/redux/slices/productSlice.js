@@ -5,7 +5,8 @@ import {createSlice} from '@reduxjs/toolkit'
 const initialState = {
     detailedProduct: localStorage.getItem('product') ? JSON.parse(localStorage.getItem('product')) : null,
     carts: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
-    subtotalPrice: 0
+    subtotalPrice: 0,
+    filter: false,
 }
 
 
@@ -29,10 +30,13 @@ export const productSlice = createSlice({
         addToCart: (state, action) => {
             state.carts = action.payload;
         },
+        filterMobile: (state, action) => {
+            state.filter = action.payload;
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {CurrentDetailedProduct , checkoutPrice , addToCart} = productSlice.actions
+export const {CurrentDetailedProduct , checkoutPrice , addToCart , filterMobile } = productSlice.actions
 
 export default productSlice.reducer

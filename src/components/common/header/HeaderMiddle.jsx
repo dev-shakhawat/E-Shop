@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 // components
@@ -11,8 +11,7 @@ import UserIcon from "../../../assets/icons/UserIcon.jsx";
 import SearchIcon from "../../../assets/icons/SearchIcon.jsx";
 import { useTranslation } from "react-i18next";
 
-function HeaderMiddle() {
-  const dispatch = useDispatch();
+function HeaderMiddle() { 
   const userInfo = useSelector((state) => state.user.value);
   const { subtotalPrice } = useSelector((state) => state.product);
   const navigate = useNavigate();
@@ -20,8 +19,7 @@ function HeaderMiddle() {
   const logoRef = useRef(null);
   const searchRef = useRef(null);
   const inputRef = useRef(null);
-
-  dispatch({ type: "product/checkoutPrice" });
+ 
 
   const handelAccount = () => {
     if (userInfo) {
@@ -116,7 +114,7 @@ function HeaderMiddle() {
 
           {/*  cart  */}
           <div
-            className=" ml-12 mr-[100px]  cursor-pointer flex items-center gap-6 relative"
+            className=" 2xl:ml-12 xl:ml-10 lg:ml-6 md:ml-4 ml-2 2xl:mr-25 xl:mr-20 lg:mr-12 md:mr-8 mr-4   cursor-pointer flex items-center gap-6 relative"
             onClick={() => navigate("/carts")}
           >
             <span className="absolute w-[6px] h-[6px] bg-brand rounded-full  -top-1  md:top-1 left-[90%] md:left-[25%]  "></span>
@@ -139,7 +137,7 @@ function HeaderMiddle() {
           {/* user */}
           <div
             onClick={() => handelAccount()}
-            className=" cursor-pointer  flex items-center gap-6  relative after:content-[''] after:absolute after:w-[1px] after:h-[32px] after:bg-tertary after:top-1/2 after:-left-4.5 lg:after:-left-[50%] after:-translate-y-[50%]"
+            className=" cursor-pointer  flex items-center gap-6  relative after:content-[''] after:absolute md:after:w-[1px] after:h-[32px] after:bg-tertary after:top-1/2 after:-left-4.5 lg:after:-left-[50%] after:-translate-y-[50%]"
           >
             <UserIcon
               className={`w-[17px] sm:w-[22px] md:w-[26px] lg:w-[28px]`}

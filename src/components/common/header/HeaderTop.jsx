@@ -78,7 +78,7 @@ function HeaderTop() {
       <Container>
         <div className={`flex justify-between items-center `}>
           {/*  header top contact  */}
-          <div className="flex lg:gap-12 sm:gap-8 gap-4 relative after:content-[] after:absolute after:w-[1px] sm:after:h-[20px] lg:after:h-[32px]  sm:after:bg-tertary after:top-1/2 after:left-[61.5%] after:-translate-y-[50%]">
+          <div className="flex lg:gap-12 sm:gap-8 gap-4 relative after:content-[] after:absolute md:after:w-[1px] sm:after:h-[20px] lg:after:h-[32px]  sm:after:bg-tertary after:top-1/2 after:left-[61.5%] after:-translate-y-[50%]">
             {/* location */}
             <Link
               to="https://maps.app.goo.gl/s3CtZ3oZhrHXWLBy9"
@@ -109,11 +109,11 @@ function HeaderTop() {
             <Selection modalPosition={`top-9 -left-[100px] `} seledtedTxtStyle={`text-[12px] sm:text-[14px] font-montserrat leading-5  `} items={[...correncies]} setValue={setSelectedCurrency} className={`lg:mr-12`}  />
 
             {/*  language  */}
-            <Selection modalPosition={`top-9 left-0`} seledtedTxtStyle={`text-[12px] sm:text-[14px] font-montserrat leading-5  `} items={[...countries]} setValue={setSelectedCountry} icon={true} className={`lg:mr-14  lg:w-[112px] cursor-pointer flex relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:left-[-27px] after:top-[0px] lg:after:top-[-5px]     `}  />
+            <Selection modalPosition={`top-9 left-0`} seledtedTxtStyle={`text-[12px] sm:text-[14px] font-montserrat leading-5  `} items={[...countries]} setValue={setSelectedCountry} icon={true} className={`lg:mr-14  lg:w-[112px] cursor-pointer flex relative after:content-[''] md:after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:left-[-27px] after:top-[0px] lg:after:top-[-5px]     `}  />
             
             {/*  socials  */}
             <ul
-              className={`flex gap-2.5 md:gap-4.5 lg:gap-6 text-primary relative after:content-[''] after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:-left-[24px] after:top-[0px] lg:after:top-[-5px] `}
+              className={`flex gap-2.5 md:gap-4.5 lg:gap-6 text-primary relative after:content-[''] md:after:w-[1px] after:h-[20px] lg:after:h-[32px] after:bg-tertary after:absolute after:left-[-10px] lg:after:-left-[24px] after:top-[0px] lg:after:top-[-5px] `}
             >
               <li>
                 <Link to={`https://www.facebook.com/`} target={`_blank`}>

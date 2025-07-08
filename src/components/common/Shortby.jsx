@@ -22,7 +22,7 @@ function Shortby({shortsArr, shortWidth}) {
     }, [])
     return (
         <div ref={modalref} className={`flex items-center cursor-pointer relative   `} onClick={() => setIsModal(!isModal)}>
-            <p className={`${shortWidth}   font-montserrat font-semibold lg:font-bold text-[13px] lg:text-base leading-[24px] text-brand`}
+            <p className={`${shortWidth} line-clamp-1 text-ellipsis    font-montserrat font-semibold lg:font-bold  text-xs xl:text-sm 2xl:text-base leading-[24px] text-brand`}
                 >{shortVal}</p>
             {isModal ? <ArrowDown style={` w-[11px] h-[6px]  rotate-[180deg]`}/> :
                 <ArrowDown style={`w-[11px] h-[6px] `}/>}
@@ -31,7 +31,7 @@ function Shortby({shortsArr, shortWidth}) {
             {isModal &&
                 <div
                     
-                    className={`max-h-[300px] overflow-y-scroll  absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 border border-tertary  overflow-y-scroll overflow-x-hidden `}>
+                    className={`max-h-[300px]  absolute top-8 left-0 bg-white w-full shadow-lg rounded-md z-10 border border-tertary  overflow-y-scroll overflow-x-hidden `}>
                     <ul>
                         {shortsArr.map((short, index) => <li key={index}
                                                              onClick={() => handelShort(short)}

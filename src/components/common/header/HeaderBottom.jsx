@@ -35,8 +35,7 @@ const rightNavList = [
   { icon: null, text: "New Arrival", link: "#" },
 ];
 
-function HeaderBottom() {
-  const currentCountry = useSelector((state) => state.language.value);
+function HeaderBottom() { 
 
   const { t } = useTranslation();
 
@@ -83,21 +82,20 @@ function HeaderBottom() {
           <ul className={`flex gap-5 md:gap-x-10 lg:gap-x-15 xl:gap-x-20`}>
             <li
               ref={allcataRef}
-              className={`navLink cursor-pointer relative `}
-              onClick={() => handelallcata()}
+              className={` navLink cursor-pointer relative `}
+              
             >
-              <Link to={`#`} className={`flex items-center gap-2 md:gap-x-4`}>
-                <div className="w-[20px]">
+              <Link onClick={() => handelallcata()} to={`#`} className={`flex  items-center gap-2 md:gap-x-4 `}>
+                <div className="md:w-[20px]  ">
                   {isallcata ? (
-                    <SlClose className={`text-xl`} />
+                    <SlClose className={`text-xl  hidden md:inline-block `} />
                   ) : (
-                    <HiOutlineMenu className={`md:text-2xl text-lg`} />
+                    <HiOutlineMenu className={`md:text-2xl text-lg hidden md:inline-block `} />
                   )}
                 </div>
 
-                <span>{t("All_Catagories")}</span>
-              </Link>
-
+                <span className="">{t("All_Catagories")}</span>
+              </Link> 
               {isallcata && (
                 <ul
                   className={`absolute top-8 left-0 z-[1] bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}
@@ -125,6 +123,10 @@ function HeaderBottom() {
                 </ul>
               )}
             </li>
+            {/* all catagory for product find mobile devise */}
+
+
+
             <li
               ref={dropdownRef}
               onClick={() => handleProduct()}
@@ -208,7 +210,7 @@ function HeaderBottom() {
             onClick={() => setIsModal(!isModal)}
           />
           {isModal && (
-            <div className="fixed top-0 right-0 bg-tertary/60 shadow-2xl w-full h-screen  md:hidden ">
+            <div className="fixed top-0 right-0 z-1 bg-tertary/60 shadow-2xl w-full h-screen  md:hidden ">
               <div className="bg-white ml-auto w-1/2 h-screen relative">
                 <IoCloseCircleOutline
                   onClick={() => setIsModal(!isModal)}

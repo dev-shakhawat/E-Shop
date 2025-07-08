@@ -33,9 +33,9 @@ export default function Selection({ items = [] , setValue , icon = false , class
            {icon ? selectedItem.name : selectedItem}
         </span>
         {isDropdown ? (
-          <ArrowDown style={`w-[12px] h-[6px] rotate-[180deg] `} />
+          <ArrowDown style={`w-[12px] h-[6px] rotate-[180deg] hidden sm:inline-block   `} />
         ) : (
-          <ArrowDown style={`w-[12px] h-[6px]`} />
+          <ArrowDown style={`w-[12px] h-[6px] hidden sm:inline-block  `} />
         )}
       </div>
 
