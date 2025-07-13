@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    value: true,
+    value: null,
     profileActiveTab: "accountDetails"
 }
 
