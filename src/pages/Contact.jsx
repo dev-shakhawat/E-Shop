@@ -44,26 +44,26 @@ function Contact() {
 
 
             
-            <div className="flex gap-14  ">
+            <div className="lg:flex gap-14  ">
 
                 {/* form site */}
               <div className="flex-2">
-                <h2 className="font-poppins font-semibold text-[36px] leading-[46px] text-primary   ">Contact Us</h2>
-                <p className="mt-3 font-montserrat font-normal text-xl leading-7.5 text-primary   ">Have any questions for us? Don’t hesitate to contact us.</p>
+                <h2 className="cmnHeadTwo text-primary   ">Contact Us</h2>
+                <p className="commonPara text-primary   ">Have any questions for us? Don’t hesitate to contact us.</p>
 
                 {/* contact forms */}
-                <form className='mt-12'>
+                <form className='2xl:mt-12 xl:mt-10 lg:mt-8 md:mt-6 mt-4  '>
 
                     <InputField title="Name"  type='text' placeholder={`Amelia Robert Watson`}   />
 
-                    <div className="mt-8 grid grid-cols-2 gap-4   ">
+                    <div className="2xl:mt-8 xl:mt-7 lg:mt-6 md:mt-5 mt-4 grid lg:grid-cols-2 gap-4   ">
                       <InputField title="Phone Number"  type='text' placeholder={`+123 456 7890`} required={false}   />
                       <InputField title="Email Address"  type='text' placeholder={`amelia.watson@eshop.com`}   />
                     </div>
 
-                    <TextAreaField className={`mt-8`} title="Message" placeholder={`Type your message here...`}  />
+                    <TextAreaField className={`2xl:mt-8 xl:mt-6 lg:mt-5 mt-4  `} title="Message" placeholder={`Type your message here...`}  />
 
-                    <button type="button" className='commonButton mt-8  ' >Submit</button>
+                    <button type="button" className='commonButton 2xl:mt-8 xl:mt-7 lg:mt-6 md:mt-5 sm:mt-4 mt-3  ' >Submit</button>
 
                 </form>
                 
@@ -71,8 +71,8 @@ function Contact() {
 
               
               {/* touch site */}
-              <div className="flex-1 bg-[#F4F4F4] p-10 h-fit rounded-[25px]  ">
-                <h3 className="font-poppins font-semibold text-[24px] leading-7.5 text-primary      ">Let’s Keep in Touch!</h3>
+              <div className="flex-1 mt-5 md:mt-0 bg-[#F4F4F4] 2xl:p-10 xl:p-8 lg:p-6 md:p-5 p-4  h-fit 2xl:rounded-[25px] xl:rounded-[20px] lg:rounded-[15px] rounded-[10px]  ">
+                <h3 className="font-poppins font-semibold 2xl:text-[24px] xl:text-xl lg:text-[18px] md:text-base text-sm leading-7.5 text-primary      ">Let’s Keep in Touch!</h3>
                 <p className="mt-4 font-montserrat font-normal text-xl leading-7.5 text-[#303030] pb-10    ">We would love to hear from you. Contact us for any inquiries you might have for us.</p>
 
                 <List arr={footContact}
@@ -98,13 +98,13 @@ function Contact() {
 
 
             {/* shop now update */}
-            <div className=" mt-20 mb-25 py-30 px-25 bg-[#F4F4F4] rounded-[25px]    ">
+            <div className=" 2xl:mt-20 xl:mt-16 lg:mt-14 md:mt-12 mt-10 2xl:mb-25 xl:mb-20 lg:mb-16 md:mb-12 mb-5  2xl:py-30 xl:py-25 lg:py-20 md:py-15 py-10 2xl:px-25 xl:px-20 lg:px-15 md:px-10 px-5 bg-[#F4F4F4] 2xl:rounded-[25px] xl:rounded-[20px] lg:rounded-[15px] rounded-[10px]    ">
 
-                <h2 className="font-poppins font-semibold text-[36px] leading-[46px] text-primary max-w-[360px]    ">Get Up-to-Date Gadget Technology</h2>
+                <h2 className="commonPara text-primary max-w-[360px]    ">Get Up-to-Date Gadget Technology</h2>
 
-                <p className="font-montserrat font-normal text-xl leading-7.5 text-[#303030]   mt-6 mb-12 max-w-[514px]    ">Browse our wide selection of electronics and find the perfect promo for you from newsletter.</p>
+                <p className="font-montserrat font-normal text-xl leading-7.5 text-[#303030]   mt-6 2xl:mb-12 xl:mb-10 lg:mb-8 md:mb-6 mb-4 max-w-[514px]    ">Browse our wide selection of electronics and find the perfect promo for you from newsletter.</p>
 
-                <Link to="/allproduct" className="commonButton   " >Shop Now</Link>
+                <Link to="/allproduct" className="commonButton    " >Shop Now</Link>
 
             </div>
 

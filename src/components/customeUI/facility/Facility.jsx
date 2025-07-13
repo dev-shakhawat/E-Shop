@@ -26,7 +26,7 @@ function Facility() {
       text: "Free, fast, and reliable worldwide",
     },
     {
-      icon: <Transparent />,
+      icon: <Transparent className={`w-10`} />,
       title: "Transparent",
       text: "Hassle-free return policy",
     },
