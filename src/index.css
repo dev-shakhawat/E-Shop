@@ -127,6 +127,13 @@
 }
 
 /* product details */
+
+.detlOptionHead{
+  @apply font-poppins 2xl:w-[170px] xl:w-[150px] lg:w-[130px] md:w-[110px] w-[90px] font-semibold 2xl:text-xl lg:text-base md:text-sm text-xs leading-[30px]
+}
+.detlOption{
+  @apply font-montserrat font-normal 2xl:text-xl lg:text-base md:text-sm text-xs  leading-[30px]
+}
 .thumbnailimage .slick-active.slick-current{
   border: 1px solid #FF624C;
   overflow: hidden; 

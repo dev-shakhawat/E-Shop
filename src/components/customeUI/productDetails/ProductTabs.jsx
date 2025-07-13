@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import Star from '../../../assets/icons/Star'
 import Slider from "react-slick";
+import ShortDetails from './ShortDetails';
 
 export default function ProductTabs() {
 
@@ -14,60 +15,60 @@ export default function ProductTabs() {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                initialSlide: 1
+              }
+            },
+            {
+              breakpoint: 640,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+              }
+            }
+          ]
       };
 
   return (
-    <div className='pb-20 border-b border-tertary '>
+    <div className='2xl:pb-20 xl:pb-16 lg:pb-12 md:pb-10 pb-8 border-b border-tertary '>
 
         {/* tab buttons */}
-        <div className="flex  gap-12 ">
-            <button onClick={()=> setActiveTab(1)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 1 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold text-[24px] leading-[30px] pb-2    `}  >Description</button>
-            <button onClick={()=> setActiveTab(2)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 2 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold text-[24px] leading-[30px] pb-2    `}  >Specification</button>
-            <button onClick={()=> setActiveTab(3)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 3 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold text-[24px] leading-[30px] pb-2    `}  >Return</button>
-            <button onClick={()=> setActiveTab(4)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 4 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold text-[24px] leading-[30px] pb-2    `}  >Reviews</button>
+        <div className="flex  2xl:gap-12 xl:gap-10 lg:gap-8 md:gap-6 gap-4 ">
+            <button onClick={()=> setActiveTab(1)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 1 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold 2xl:text-[24px] xl:text-xl lg:text-[18px] md:text-base text-xs 2xl:leading-7.5 xl:leading-6 leading-5  lg:pb-2    `}  >Description</button>
+            <button onClick={()=> setActiveTab(2)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 2 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold 2xl:text-[24px] xl:text-xl lg:text-[18px] md:text-base text-xs 2xl:leading-7.5 xl:leading-6 leading-5  lg:pb-2    `}  >Specification</button>
+            <button onClick={()=> setActiveTab(3)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 3 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold 2xl:text-[24px] xl:text-xl lg:text-[18px] md:text-base text-xs 2xl:leading-7.5 xl:leading-6 leading-5  lg:pb-2    `}  >Return</button>
+            <button onClick={()=> setActiveTab(4)} type="button" className={`border-b-[4px] cursor-pointer ${activeTab == 4 ? "text-primary border-brand " : "text-secondery border-transparent "} font-poppins font-semibold 2xl:text-[24px] xl:text-xl lg:text-[18px] md:text-base text-xs 2xl:leading-7.5 xl:leading-6 leading-5  lg:pb-2    `}  >Reviews</button>
         </div>
 
         {/* tab content */}
 
         {/* description */}
-        {activeTab == 1 && <div className="mt-10">
+        {activeTab == 1 && <div className="2xl:mt-10 xl:mt-8 lg:mt-6 md:mt-4 mt-2">
             <p className="commonPara  ">{product.description}</p>
         </div>}
 
         {/* specification */}
-        {activeTab == 2 && <div className="mt-10">
-            <ul className="mt-12 flex flex-col gap-4">
-              <li className='flex '>
-                  <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Brand</p>
-                  <p className="commonPara  ">{product.brand || "No brand"}</p>
-              </li>
-              <li className='flex '>
-                  <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Size</p>
-                  <p className="commonPara  ">{`${product.dimensions.width} x ${product.dimensions.depth} x ${product.dimensions.height}`} inches (W x D x H) </p>
-              </li>
-              <li className='flex '>
-                  <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Weight</p>
-                  <p className="commonPara  ">{product.weight} pounds </p>
-              </li>
-              <li className='flex '>
-                  <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Delevery</p>
-                  <p className="commonPara  ">{product.delivery || "Worldwide"} </p>
-              </li>
-              <li className='flex '>
-                  <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Return</p>
-                  <p className="commonPara  ">{product.returnPolicy || "No Return"} </p>
-              </li>
-              {product.variant && 
-              <li className='flex '>
-                  <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Variant</p>
-                  <p className="commonPara  ">{product.delivery || "Need to check"} </p>
-              </li>}
-            </ul>
+        {activeTab == 2 && <div className="2xl:mt-10 xl:mt-8 lg:mt-6 md:mt-4 mt-2   "> 
+            <ShortDetails onlyDescription/>
         </div>}
 
         {/* return policy */}
-        {activeTab == 3 && <div className="mt-10">
+        {activeTab == 3 && <div className="2xl:mt-10 xl:mt-8 lg:mt-6 md:mt-4 mt-2">
             <p className="commonPara  ">
               We are committed to ensuring customer satisfaction. If you are not entirely satisfied with your purchase, please review our return policy below:
             </p>
@@ -113,7 +114,7 @@ export default function ProductTabs() {
         </div>}
 
         {/* reviews */}
-        {activeTab == 4 && <div className="mt-10">
+        {activeTab == 4 && <div className="2xl:mt-10 xl:mt-8 lg:mt-6 md:mt-4 mt-2">
             {product.reviews.length > 0 ? <div className='w-full'>
                     <Slider {...reviewSliderSettings}>
                     {product.reviews.map((item , index) => {
@@ -121,7 +122,7 @@ export default function ProductTabs() {
                         <div className="text-center   ">
                             <img src={item.image || "https://cdn-icons-png.flaticon.com/512/149/149071.png"} alt="user" className='w-[50px] h-[50px] mx-auto ' />
                             <div className="">
-                                <h3 className="font-poppins mt-4 font-semibold text-xl leading-[30px] text-primary ">{item.reviewerName}</h3>
+                                <h3 className="font-poppins 2xl:mt-4 xl:mt-3 lg:mt-2 md:mt-1 mt-0 font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs leading-[30px] text-primary ">{item.reviewerName}</h3>
                                 <ul className='flex justify-center '>
                                 {Array.from({ length: item.rating }).map((_, i) => (
                                    <li key={i}>
@@ -129,7 +130,7 @@ export default function ProductTabs() {
                                    </li>
                                  ))}
                                 </ul>
-                                <p className="commonPara mt-2 ">{item.comment}</p>
+                                <p className="commonPara lg:mt-2 mt-1 ">{item.comment}</p>
                             </div>
                         </div>
                         )

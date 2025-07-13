@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 // components
 import Star from '../../../assets/icons/Star.jsx'
 
-export default function ShortDetails() {
+export default function ShortDetails({onlyDescription = false}) {
 
     const product = useSelector(state => state.product.detailedProduct)
     const rating = Array(Math.floor(product.rating)).fill(Math.floor(product.rating))
@@ -13,9 +13,10 @@ export default function ShortDetails() {
     
 
   return (
-    <div className='w-full mt-10 lg:mt-0 '>
+    <div className='w-full '>
 
         {/* rating/star */}
+        {!onlyDescription &&  
         <div className="flex items-center ">
             <ul className='flex '>
                 {rating.map((item , index) => {
@@ -24,52 +25,53 @@ export default function ShortDetails() {
                     )
                 })}
             </ul>
-            <p className="ml-2 font-montserrat font-normal text-xl leading-[30px] text-primary">({product.rating})</p>
-        </div>
+            <p className="ml-2 detlOption text-primary">({product.rating})</p>
+        </div>}
 
         {/* product mane and price */}
+        {!onlyDescription &&
         <div className="w-full">
-            <h2 className="cmnHeadTwo text-primary  mt-4 pb-6 border-b border-tertary ">
+            <h2 className="cmnHeadTwo text-primary  2xl:mt-4 xl:mt-3 lg:mt-2 md:mt-1 mt-0 2xl:pb-6 lg:pb-4 md:pb-3 pb-1  border-b border-tertary ">
                 {product.title}
             </h2>
 
-            <h3 className="mt-6">
-                <span className="font-poppins font-bold text-[56px] leading-[68px] text-brand ">${product.price}</span>
+            <h3 className="2xl:mt-6 lg:mt-4 md:mt-3 mt-1 ">
+                <span className="font-poppins font-bold 2xl:text-[56px] xl:text-[50px] lg:text-[40px] md:text-[30px] text-[25px] 2xl:leading-[68px] xl:leading-15 lg:leading-12 md:leading-10 leading-8 text-brand ">${product.price}</span>
                 <del className="font-montserrat font-normal text-[20px] leading-[30px] text-secondery ml-[19px] ">${Math.floor(product.price / (1 - product.discountPercentage / 100))}</del>
             </h3>
-        </div>
+        </div>}
 
-        {/* description */}
-        <ul className="mt-12 flex flex-col gap-4">
+        {/* description */} 
+        <ul className="2xl:mt-12 xl:mt-10 lg:mt-8 md:mt-6 mt-4 flex flex-col 2xl:gap-4 xl:gap-3 lg:gap-2 md:gap-1 gap-0  ">
             <li className='flex '>
-                <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Brand</p>
-                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.brand || "No brand"}</p>
+                <p className="detlOptionHead text-primary ">Brand</p>
+                <p className="detlOption text-primary  ">{product.brand || "No brand"}</p>
             </li>
             <li className='flex '>
-                <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Size</p>
-                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{`${product.dimensions.width} x ${product.dimensions.depth} x ${product.dimensions.height}`} inches (W x D x H) </p>
+                <p className="detlOptionHead text-primary ">Size</p>
+                <p className="detlOption text-primary  ">{`${product.dimensions.width} x ${product.dimensions.depth} x ${product.dimensions.height}`} inches (W x D x H) </p>
             </li>
             <li className='flex '>
-                <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Weight</p>
-                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.weight} pounds </p>
+                <p className="detlOptionHead text-primary ">Weight</p>
+                <p className="detlOption text-primary  ">{product.weight} pounds </p>
             </li>
             <li className='flex '>
-                <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Delevery</p>
-                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.delivery || "Worldwide"} </p>
+                <p className="detlOptionHead text-primary ">Delevery</p>
+                <p className="detlOption text-primary  ">{product.delivery || "Worldwide"} </p>
             </li>
             <li className='flex '>
-                <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Return</p>
-                <p className="font-montserrat font-normal text-xl leading-[30px] text-primary  ">{product.returnPolicy || "No Return"} </p>
+                <p className="detlOptionHead text-primary ">Return</p>
+                <p className="detlOption text-primary  ">{product.returnPolicy || "No Return"} </p>
             </li> 
             <li className='flex '>
-                <p className="font-poppins w-[170px] font-semibold text-xl leading-[30px] text-primary ">Variant</p>
+                <p className="detlOptionHead text-primary ">Variant</p>
                 <div className="grid grid-cols-3 gap-1  ">
                     {product.variants ? product.variants.map((item , index) => {
                         return (
                             <p className={`hover:border-brand hover:text-brand  py-4 px-8 rounded-[5px] border border-tertary font-montserrat font-bold text-base leading-6 text-primary   `} key={index}>{item}</p>
                         )
                     }): 
-                    <p className='font-montserrat font-normal text-xl leading-[30px] text-primary '>No variant</p>
+                    <p className='detlOption text-primary '>No variant</p>
                     }
                 </div>
             </li>

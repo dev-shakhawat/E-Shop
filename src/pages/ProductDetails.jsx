@@ -89,34 +89,32 @@ function ProductDetails() {
 
 
                 {/* product detailes */}
-                <div className="lg:ml-[56px] ml-1 ">
+                <div className="lg:ml-[56px] ml-1 mt-10 lg:mt-0 ">
                     <ShortDetails/>
                 </div>
 
             </div>
 
-            <div className="flex gap-[100px] mt-[63px] pb-25 ">
+            <div className="flex flex-col lg:flex-row justify-between 2xl:mt-[63px] xl:mt-14 lg:mt-10 md:mt-8 mt-6 2xl:pb-25 xl:pb-20 lg:pb-16 md:pb-12 pb-8 ">
 
                 {/* product facility */}
-                <div className="">
-                   <ProductFacility/>
-                </div>
+                <ProductFacility/>  
 
                 {/* quantity+cart */}
-                <div className="flex gap-20">
+                <div className="flex 2xl:gap-20 xl:gap-16 lg:gap-12 md:gap-8 gap-4 mt-5 lg:mt-0 ">
                    
                    {/* quantity */}
-                   <div className="flex items-center gap-10 ">
-                      <button onClick={handleQuantityDown} type='button' className='w-[56px] h-[56px] hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><AiOutlineMinus /></button>
-                      <p className="w-[42px] font-poppins font-semibold text-[36px] leading-[46px] text-primary  ">{quantity}</p>
-                      <button onClick={handleQuantityUp} type='button' className='w-[56px] h-[56px] hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><BsPlusLg /></button>
+                   <div className="flex items-center 2xl:gap-10 xl:gap-8 lg:gap-6  gap-4 ">
+                      <button onClick={handleQuantityDown} type='button' className='2xl:w-[56px] xl:w-12 lg:w-10 md:w-8 w-6 2xl:h-[56px] xl:h-12 lg:h-10 md:h-8 h-6 hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><AiOutlineMinus /></button>
+                      <p className="2xl:w-[42px] xl:w-10 lg:w-8 md:w-6 w-4 cmnHeadTwo text-primary  ">{quantity}</p>
+                      <button onClick={handleQuantityUp} type='button' className='2xl:w-[56px] xl:w-12 lg:w-10 md:w-8 w-6 2xl:h-[56px] xl:h-12 lg:h-10 md:h-8 h-6 hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><BsPlusLg /></button>
                    </div>
 
                    {/* buy-cart */}
-                   <div className="flex gap-4 ">
-                    <button type="button" className=' duration-300 cursor-pointer border border-primary hover:border-brand font-montserrat font-semibold text-xl leading-[30px] text-primary hover:text-white bg-transparent hover:bg-brand py-4 px-10 rounded-[10px]  '>Buy Now</button>
-                    <button type="button" className=' duration-300 cursor-pointer border border-primary hover:border-brand font-montserrat font-semibold text-xl leading-[30px] text-primary hover:text-white bg-transparent hover:bg-brand p-4 rounded-[10px]  '>
-                        <CartIcon className={`w-[28px] h-[28px]  `}/>
+                   <div className="flex 2xl:gap-4 xl:gap-3  gap-2  ">
+                    <button type="button" className='2xl:w-[200px] xl:w-[170px] lg:w-[130px] md:w-[110px] w-[90px] duration-300 cursor-pointer border border-primary hover:border-brand font-montserrat font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs leading-[30px] text-primary hover:text-white bg-transparent hover:bg-brand 2xl:py-4 xl:py-3 lg:py-2 md:py-1.5 py-1 h-fit  2xl:rounded-[10px] md:rounded-[7px] rounded-[5px]  '>Buy Now</button>
+                    <button type="button" className='  duration-300 cursor-pointer border border-primary hover:border-brand font-montserrat font-semibold 2xl:text-xl xl:text-[18px] lg:text-base md:text-sm text-xs leading-[30px] text-primary hover:text-white bg-transparent hover:bg-brand 2xl:py-4 xl:py-3 lg:py-2 md:py-1.5 py-1 h-full  2xl:rounded-[10px] md:rounded-[7px] rounded-[5px] p-2     '>
+                        <CartIcon className={`2xl:w-[28px] xl:w-6 lg:w-5 w-4 2xl:h-[28px] xl:h-6 lg:h-5 h-4  `}/>
                     </button>
                    </div>
 
@@ -127,21 +125,21 @@ function ProductDetails() {
             
 
             {/* product details tab/about product */}
-            <div className="pb-16">
+            <div className="2xl:pb-16 xl:pb-14 lg:pb-12 md:pb-10 pb-8 ">
               <ProductTabs/>
             </div>
 
 
             {/* related products */}
-            <div className="pb-16">
+            <div className=" 2xl:pb-16 xl:pb-14 lg:pb-12 md:pb-10 pb-8   ">
 
                 {/* title */}
-                <h2 className=" flex justify-between items-center font-poppins font-semibold text-[36px] leading-[46px] text-[#303030]   ">
+                <h2 className=" flex justify-between items-center cmnHeadTwo text-[#303030]   ">
                   <p className="">Related Articles</p>
                   <ViewAll/>
                 </h2>
 
-                <div className="grid grid-cols-5   mt-12   ">
+                <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4   mt-12   ">
                 {newProducts.map((product, index) => (
                     <ProductCart
                     key={index}
