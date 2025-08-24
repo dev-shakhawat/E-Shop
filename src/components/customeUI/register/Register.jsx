@@ -10,6 +10,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { Link } from "react-router";
 import { useDispatch } from "react-redux";
 import { setauthStatus } from "../../../redux/slices/userSlice";
+import Notification from "../../common/Notification";
+import axios from "axios";
 
 function Register() {
   const dispatch = useDispatch();
@@ -19,9 +21,35 @@ function Register() {
   const [isRobotChecked, setIsRobotChecked] = useState(false);
   const [isSubscribeChecked, setIsSubscribeChecked] = useState(false);
   const [isNotificationAllowed, setIsNotificationAllowed] = useState(false);
+  const [notify , setNotify] = useState({isShow: false , status: false , message: ''})
+
+  const handleCreateAccount = async () => {
+     
+     if(!email || !password || !username){ 
+      setNotify({isShow: true , status: false , message: 'All fields are required'})
+      
+      setTimeout(() => {
+        setNotify({isShow: false , status: false , message: ''}) 
+      }, 1500);
+
+        return
+     } 
+
+     axios.post(`${import.meta.env.VITE_BASE_URL}/auth/register`, { email , password ,username , })
+     .then((res)=>{
+       console.log(res.data);
+       
+     })
+     .catch((err)=>{
+       console.log(err.response.data); 
+     })
+  };
 
   return (
     <div className="pb-20">
+
+      {notify.isShow && <Notification success={notify.status} message={notify.message}/>}
+
       {/* head */}
       <h2 className="text-center font-poppins font-bold text-[56px] leading-[68px] text-primary pt-16 pb-21    ">
         Register
@@ -31,6 +59,7 @@ function Register() {
       <form className="py-12 px-9 bg-[#f4f4f4] max-w-[594px] mx-auto rounded-[15px]   ">
         {/* email */}
         <InputField
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           title="Email Address"
           type="text"
@@ -39,6 +68,7 @@ function Register() {
 
         {/* password */}
         <InputField
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           title="Password"
           type="password"
@@ -48,6 +78,7 @@ function Register() {
 
         {/* username */}
         <InputField
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
           isUserNameAvailable={true}
           title="Username"
@@ -74,7 +105,7 @@ function Register() {
 
         {/* submit btn */}
 
-        <button type="button" className=" commonButton w-full  mt-10 mb-12  ">
+        <button onClick={handleCreateAccount} type="button" className=" commonButton w-full  mt-10 mb-12  ">
           Create Account
         </button>
 

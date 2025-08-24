@@ -6,7 +6,7 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
 import { IoCheckmark } from "react-icons/io5";
 
-export default function InputField({inputStyle , title , type = "text" , placeholder , onChange , className , isUserNameAvailable = false}) {
+export default function InputField({value , inputStyle , title , type = "text" , placeholder , onChange , className , isUserNameAvailable = false}) {
 
     const [inputType , setInputType] = useState(type)
 
@@ -17,7 +17,7 @@ export default function InputField({inputStyle , title , type = "text" , placeho
         <p className=" font-montserrat font-bold text-xl leading-7.5    ">{title}</p>
 
         {/* input */}
-        <input onChange={onChange} autoComplete='on' type={type == "password" ? inputType : type} className={`${inputStyle} ${type == "password" && "pr-12"}  py-6 px-8 bg-white rounded-[10px] font-montserrat font-normal text-xl leading-7.5 w-full mt-3 outline-0  `} placeholder={placeholder}/>
+        <input value={value} onChange={onChange} autoComplete='on' type={type == "password" ? inputType : type} className={`${inputStyle} ${type == "password" && "pr-12"}  py-6 px-8 bg-white rounded-[10px] font-montserrat font-normal text-xl leading-7.5 w-full mt-3 outline-0   `} placeholder={placeholder}/>
          
         
         {/* eye icon */}
