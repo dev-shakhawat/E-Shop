@@ -1,7 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    value: null,
+    authStatus: "register",
+    user: null,
     profileActiveTab: "accountDetails"
 }
 
@@ -11,12 +12,15 @@ export const userSlice = createSlice({
     reducers: {
         activeProfileTab: (state, action) => {
             state.profileActiveTab = action.payload
-        }
+        },
+        setauthStatus: (state, action) => {
+            state.authStatus = action.payload;
+        },
         
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {activeProfileTab} = userSlice.actions
+export const {activeProfileTab , setauthStatus} = userSlice.actions
 
 export default userSlice.reducer

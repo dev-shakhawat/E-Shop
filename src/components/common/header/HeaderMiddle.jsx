@@ -21,13 +21,7 @@ function HeaderMiddle() {
   const inputRef = useRef(null);
  
 
-  const handelAccount = () => {
-    if (userInfo) {
-      navigate("/account");
-    } else {
-      navigate("/register");
-    }
-  };
+   
 
   const { t } = useTranslation();
 
@@ -136,7 +130,7 @@ function HeaderMiddle() {
 
           {/* user */}
           <div
-            onClick={() => handelAccount()}
+            onClick={() =>  navigate("/account")}
             className=" cursor-pointer  flex items-center gap-6  relative after:content-[''] after:absolute md:after:w-[1px] after:h-[32px] after:bg-tertary after:top-1/2 after:-left-4.5 lg:after:-left-[50%] after:-translate-y-[50%]"
           >
             <UserIcon
