@@ -15,11 +15,11 @@ export default function RoboCheck({setState}) {
 <div className="flex items-center justify-between py-5 px-4.5 bg-white rounded-[10px] mt-6   ">
     <div className="flex items-center relative  ">
         <input   type="checkbox" className="cursor-pointer   w-full h-full opacity-0 absolute top-0 left-0  "  onClick={(e) => setIsRobotChecked(e.target.checked)} />
-        {isRobotChecked ? <CheckboxChecked/> :  <CheckboxOutline/>}
+        {isRobotChecked ? <CheckboxChecked className={"w-6 h-6"}/> :  <CheckboxOutline className={"w-6 h-6"}/>}
         <p className="font-montserrat font-normal text-xl leading-7.5 text-primary  ml-4    ">I am not a robot</p>
     </div>
     <button type="button" className='cursor-pointer'>
-        <img src="/images/recapcha.png" alt="recapcha" />
+        <img src="/images/recapcha.png" alt="recapcha" className='w-15'/>
     </button>
   </div>
   )
