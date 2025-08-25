@@ -14,10 +14,10 @@ export default function InputField({value , inputStyle , title , type = "text" ,
     <div className={`${className} relative`}>
         
         {/* title */}
-        <p className=" font-montserrat font-bold text-xl leading-7.5    ">{title}</p>
+        {title && <p className=" font-montserrat font-bold text-xl leading-7.5 mb-3    ">{title}</p>}
 
         {/* input */}
-        <input value={value} onChange={onChange} autoComplete='on' type={type == "password" ? inputType : type} className={`${inputStyle} ${type == "password" && "pr-12"}  py-6 px-8 bg-white rounded-[10px] font-montserrat font-normal text-xl leading-7.5 w-full mt-3 outline-0   `} placeholder={placeholder}/>
+        <input value={value} onChange={onChange} autoComplete='on' type={type == "password" ? inputType : type} className={`${inputStyle} ${type == "password" && "pr-12"}  py-6 px-8 bg-white rounded-[10px] font-montserrat font-normal text-xl leading-7.5 w-full  outline-0   `} placeholder={placeholder}/>
          
         
         {/* eye icon */}

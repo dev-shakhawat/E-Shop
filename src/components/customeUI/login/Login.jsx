@@ -1,21 +1,56 @@
 import React, { useState } from "react";
 import InputField from "../register/InputField";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa6";
-import { Link } from "react-router";
+import Notification from "../../common/Notification";
 import { useDispatch } from "react-redux";
 import { setauthStatus } from "../../../redux/slices/userSlice";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import axios from "axios";
 
 export default function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [isRobotChecked, setIsRobotChecked] = useState(false);
-  const [isSubscribeChecked, setIsSubscribeChecked] = useState(false);
-  const [isNotificationAllowed, setIsNotificationAllowed] = useState(false);
+  const [password, setPassword] = useState("");    
+  const [notify , setNotify] = useState({isShow: false , status: false , message: ''})
+  const [loading , setLoading] = useState(false)
+
+  const handleLogin = async () => { 
+
+    
+    if(!email || !password){
+      setNotify({isShow: true , status: false , message: 'All fields are required'})
+      setLoading(false)
+      setTimeout(() => {
+        setNotify({isShow: false , status: false , message: ''}) 
+      }, 1500);
+      return
+    } 
+
+    setLoading(prev => !prev)
+
+    axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, { email , password })
+    .then((res)=>{
+      console.log(res.data);
+      
+      setLoading(false)
+      setNotify({isShow: true , status: true , message: 'Login successfully'})
+      setTimeout(() => {
+        setNotify({isShow: false , status: false , message: ''}) 
+      }, 1500);
+      dispatch(setauthStatus(""))
+    })
+    .catch((err)=>{
+      setLoading(false)
+      setNotify({isShow: true , status: false , message: err.response.data.message || err.message})
+      setTimeout(() => {
+        setNotify({isShow: false , status: false , message: ''}) 
+      }, 1500);
+    })
+  };
 
   return (
     <div className="pb-20">
+      {notify.isShow && <Notification success={notify.status} message={notify.message}/>}
       {/* head */}
       <h2 className="text-center font-poppins font-bold text-[56px] leading-[68px] text-primary pt-16 pb-21    ">
         Register
@@ -40,10 +75,20 @@ export default function Login() {
           className={`mt-6`}
         />
 
+        {/* forget password */}
+        <button
+          onClick={() => dispatch(setauthStatus("forgetPassword"))}
+          type="button"
+          className="font-montserrat font-normal text-base leading-6 text-primary mt-6    "
+        >
+          Forget Password?
+        </button>
+
         {/* submit btn */}
 
-        <button type="button" className=" commonButton w-full  mt-10 mb-12  ">
+        <button onClick={handleLogin} type="button" className="flex items-center justify-center gap-2 commonButton w-full  mt-10 mb-12  ">
           <span>Login</span>
+          {loading && <AiOutlineLoading3Quarters className="animate-spin"/>}
         </button>
 
         {/* sign in link */}

@@ -1,17 +1,22 @@
 import React, { useRef, useState } from "react";
-import InputField from "./InputField";
-import RoboCheck from "./RoboCheck";
-import SubscribeNotification from "./SubscribeNotification";
+import { Link } from "react-router";
+
 
 // icons
 import { FaGoogle } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
-import { Link } from "react-router";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { setauthStatus } from "../../../redux/slices/userSlice";
-import Notification from "../../common/Notification";
+
 import axios from "axios";
+
+// components
+import InputField from "./InputField";
+import RoboCheck from "./RoboCheck";
+import SubscribeNotification from "./SubscribeNotification";
+import Notification from "../../common/Notification";
 
 function Register() {
   const dispatch = useDispatch();
@@ -22,8 +27,11 @@ function Register() {
   const [isSubscribeChecked, setIsSubscribeChecked] = useState(false);
   const [isNotificationAllowed, setIsNotificationAllowed] = useState(false);
   const [notify , setNotify] = useState({isShow: false , status: false , message: ''})
+  const [loading , setLoading] = useState(false)
 
   const handleCreateAccount = async () => {
+    setLoading(true)
+
      
      if(!email || !password || !username){ 
       setNotify({isShow: true , status: false , message: 'All fields are required'})
@@ -31,19 +39,34 @@ function Register() {
       setTimeout(() => {
         setNotify({isShow: false , status: false , message: ''}) 
       }, 1500);
+      setLoading(false)
 
         return
      } 
 
      axios.post(`${import.meta.env.VITE_BASE_URL}/auth/register`, { email , password ,username , })
      .then((res)=>{
-       console.log(res.data);
+      setLoading(false)
+      setNotify({isShow: true , status: true , message: 'Account created successfully'})
+
+      setTimeout(() => {
+        setNotify({isShow: false , status: false , message: ''}) 
+      }, 1500);
        
      })
      .catch((err)=>{
-       console.log(err.response.data); 
+       setLoading(false)  
+       setNotify({isShow: true , status: false , message: err.response.data.message || err.message})
+
+      setTimeout(() => {
+        setNotify({isShow: false , status: false , message: ''}) 
+      }, 1500);
+      
      })
   };
+
+  console.log(loading);
+  
 
   return (
     <div className="pb-20">
@@ -105,8 +128,9 @@ function Register() {
 
         {/* submit btn */}
 
-        <button onClick={handleCreateAccount} type="button" className=" commonButton w-full  mt-10 mb-12  ">
-          Create Account
+        <button onClick={handleCreateAccount} type="button" className=" flex items-center gap-2 justify-center commonButton w-full  mt-10 mb-12  ">
+          <span>Create Account</span> 
+          {loading && <AiOutlineLoading3Quarters className="animate-spin" />}
         </button>
 
         {/* sign in link */}
