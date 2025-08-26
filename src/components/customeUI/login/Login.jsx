@@ -3,10 +3,10 @@ import InputField from "../register/InputField";
 import { FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa6";
 import Notification from "../../common/Notification";
 import { useDispatch } from "react-redux";
-import { setauthStatus } from "../../../redux/slices/userSlice";
+import { userSet } from "../../../redux/slices/userSlice";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router"; 
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -24,21 +24,23 @@ export default function Login() {
       setLoading(false)
       setTimeout(() => {
         setNotify({isShow: false , status: false , message: ''}) 
-      }, 1500);
+      }, 2000);
       return
     } 
 
     setLoading(prev => !prev)
 
-    axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, { email , password })
-    .then((res)=>{
-      console.log(res);
+    axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, { email , password } , {withCredentials: true} )
+    .then((res)=>{ 
+      dispatch(userSet(res.data.data))
       
+    })
+    .then((res)=>{
       setLoading(false)
       setNotify({isShow: true , status: true , message: 'Login successfully'})
       setTimeout(() => {
         setNotify({isShow: false , status: false , message: ''}) 
-        navigate('/account')
+        navigate('/auth')
       }, 1500);
     })
     .catch((err)=>{
@@ -49,6 +51,7 @@ export default function Login() {
       setTimeout(() => {
         setNotify({isShow: false , status: false , message: ''}) 
         if(err.response.data.redirectID){
+          
           navigate(`/auth/otp/${err.response.data.redirectID}`)
         }
       }, 1500);

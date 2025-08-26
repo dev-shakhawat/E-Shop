@@ -3,10 +3,16 @@ import ProfileNav from "../components/customeUI/profile/ProfileNav";
 import TrackingBilling from "../components/customeUI/profile/TrackingBilling"
 import { useSelector } from "react-redux";
 import AccountDetails from "../components/customeUI/profile/AccountDetails";
-import Container from "../components/common/Container";
+import Container from "../components/common/Container";  
 
-function Account() {
+function Account() { 
+
+  const userInfo = useSelector((state) => state.user.user);
   const activetab = useSelector((state) => state.user.profileActiveTab);
+
+
+
+
   return (
     <div className="pt-16 pb-20 ">
       <Container>
@@ -24,10 +30,10 @@ function Account() {
 
             {/* name */}
             <h2 className=" font-poppins font-semibold text-[26px] leading-[30px] text-primary mt-10 text-center  ">
-              Amelia Robert
+              {userInfo?.username}
             </h2>
             <p className=" font-montserrat font-normal text-sm leading-5 text-primary mt-2 text-center   ">
-              amelia.watson@eshop.com
+              {userInfo?.email}
             </p>
 
             {/* devider */}

@@ -20,11 +20,31 @@ import Account from "./pages/Account.jsx";
 import Login from "./components/customeUI/login/Login.jsx";
 import ForgetPassword from "./components/customeUI/forgetPassword/ForgetPassword.jsx";
 import OTP from "./components/customeUI/otp/OTP.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { userSet } from "./redux/slices/userSlice.js";
+import getUserData from "./helpers/getUserData.js";
 
 function App() {
 
   const user = useSelector(state => state.user.user)
+  const dispatch = useDispatch();
+
+  useEffect( () => { 
+
+    (async function hudai(){
+      const information = await getUserData()
+
+      console.log(information);
+      
+      dispatch(userSet(information.data))
+    }())
+  
+    
+  }, []);
+  
+  console.log(user);
+  
 
   return ( 
       <BrowserRouter>

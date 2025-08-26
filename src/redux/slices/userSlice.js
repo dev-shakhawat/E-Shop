@@ -16,11 +16,14 @@ export const userSlice = createSlice({
         setauthStatus: (state, action) => {
             state.authStatus = action.payload;
         },
+        userSet: (state, action) => {
+            state.user = action.payload;
+        },
         
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {activeProfileTab , setauthStatus} = userSlice.actions
+export const {activeProfileTab , setauthStatus, userSet} = userSlice.actions
 
 export default userSlice.reducer
