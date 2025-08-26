@@ -6,9 +6,11 @@ import { useDispatch } from "react-redux";
 import { setauthStatus } from "../../../redux/slices/userSlice";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");    
   const [notify , setNotify] = useState({isShow: false , status: false , message: ''})
@@ -30,20 +32,25 @@ export default function Login() {
 
     axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`, { email , password })
     .then((res)=>{
-      console.log(res.data);
+      console.log(res);
       
       setLoading(false)
       setNotify({isShow: true , status: true , message: 'Login successfully'})
       setTimeout(() => {
         setNotify({isShow: false , status: false , message: ''}) 
+        navigate('/account')
       }, 1500);
-      dispatch(setauthStatus(""))
     })
     .catch((err)=>{
+      console.log(err);
+      
       setLoading(false)
       setNotify({isShow: true , status: false , message: err.response.data.message || err.message})
       setTimeout(() => {
         setNotify({isShow: false , status: false , message: ''}) 
+        if(err.response.data.redirectID){
+          navigate(`/auth/otp/${err.response.data.redirectID}`)
+        }
       }, 1500);
     })
   };
@@ -53,7 +60,7 @@ export default function Login() {
       {notify.isShow && <Notification success={notify.status} message={notify.message}/>}
       {/* head */}
       <h2 className="text-center font-poppins font-bold text-[56px] leading-[68px] text-primary pt-16 pb-21    ">
-        Register
+        Login
       </h2>
 
       {/* register form */}
@@ -77,7 +84,7 @@ export default function Login() {
 
         {/* forget password */}
         <button
-          onClick={() => dispatch(setauthStatus("forgetPassword"))}
+          onClick={()=> navigate("/auth/reset-password")}
           type="button"
           className="font-montserrat font-normal text-base leading-6 text-primary mt-6    "
         >
@@ -97,7 +104,7 @@ export default function Login() {
             You have not any account?{" "}
           </p>
           <button
-            onClick={() => dispatch(setauthStatus("register"))}
+            onClick={()=> navigate("/auth")}
             type="button"
             className="font-montserrat font-bold text-base leading-6 text-primary    "
           >

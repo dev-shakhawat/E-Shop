@@ -1,8 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 
-import { Provider } from "react-redux";
-import { store } from "../src/redux/store.js";
-
+ 
 // language
 import "../i18n.js";
 
@@ -19,28 +17,48 @@ import Contact from "./pages/Contact.jsx";
 import Layout from "./components/common/Layout.jsx";
 import BlogLayout from "./components/common/BlogLayout.jsx"; 
 import Account from "./pages/Account.jsx";
+import Login from "./components/customeUI/login/Login.jsx";
+import ForgetPassword from "./components/customeUI/forgetPassword/ForgetPassword.jsx";
+import OTP from "./components/customeUI/otp/OTP.jsx";
+import { useSelector } from "react-redux";
 
 function App() {
-  return (
-    <Provider store={store}>
+
+  const user = useSelector(state => state.user.user)
+
+  return ( 
       <BrowserRouter>
         <Routes>
+          {/* auth routes */}
+          {user ? 
+          <Route path="/auth" element={<Account />} />
+           : 
+          <Route path="/auth" >
+            <Route index element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="reset-password" element={<ForgetPassword />} />
+            <Route path="otp/:id" element={<OTP />} />
+          </Route> 
+           }
+
+          {/* Product */}
           <Route path={"/"} element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/allproduct" element={<Allproducts />} />
             <Route path="/product-detail/:id" element={<ProductDetails />} />
             <Route path="/carts" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} /> 
-            <Route path="/account" element={<Account />} />
+            
             <Route path="/contact" element={<Contact />} />
           </Route>
+
+          {/* Blog */}
           <Route path="/blog" element={<BlogLayout />}>
             <Route index element={<Blog />} />
             <Route path="details/:id" element={<BlogDetails />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    </Provider>
   );
 }
 

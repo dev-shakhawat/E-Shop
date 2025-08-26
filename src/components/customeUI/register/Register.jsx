@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 
 // icons
@@ -19,7 +19,7 @@ import SubscribeNotification from "./SubscribeNotification";
 import Notification from "../../common/Notification";
 
 function Register() {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -139,9 +139,9 @@ function Register() {
             Already have an account?{" "}
           </p>
           <button 
-            onClick={()=>{dispatch(setauthStatus("login"))}}
+            onClick={()=> navigate("/auth/login")}
             type="button"
-            className="font-montserrat font-bold text-base leading-6 text-primary    "
+            className="cursor-pointer font-montserrat font-bold text-base leading-6 text-primary    "
           >
             Sign In
           </button>

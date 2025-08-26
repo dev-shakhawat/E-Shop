@@ -127,10 +127,10 @@ function HeaderMiddle() {
               </h3>
             </div>
           </div>
-
+          
           {/* user */}
           <div
-            onClick={() =>  navigate("/account")}
+            onClick={() =>  navigate("/auth")}
             className=" cursor-pointer  flex items-center gap-6  relative after:content-[''] after:absolute md:after:w-[1px] after:h-[32px] after:bg-tertary after:top-1/2 after:-left-4.5 lg:after:-left-[50%] after:-translate-y-[50%]"
           >
             <UserIcon

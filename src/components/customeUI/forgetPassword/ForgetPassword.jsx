@@ -41,7 +41,7 @@ export default function ForgetPassword() {
             <InputField 
               type="text" 
               className={`mt-6`}
-              placeholder={`Enter Password`}
+              placeholder={`Enter new Password`}
             />
     
             {/* submit btn */} 
