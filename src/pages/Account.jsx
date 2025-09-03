@@ -1,17 +1,15 @@
-import React from "react"; 
+import React from "react";
 import ProfileNav from "../components/customeUI/profile/ProfileNav";
-import TrackingBilling from "../components/customeUI/profile/TrackingBilling"
+import TrackingBilling from "../components/customeUI/profile/TrackingBilling";
 import { useSelector } from "react-redux";
 import AccountDetails from "../components/customeUI/profile/AccountDetails";
-import Container from "../components/common/Container";  
+import Container from "../components/common/Container";
+import AddProduct from "../components/customeUI/manageProduct/addProduct/AddProduct";
+import ProductManage from "../components/customeUI/manageProduct/ProductManage";
 
-function Account() { 
-
+function Account() {
   const userInfo = useSelector((state) => state.user.user);
   const activetab = useSelector((state) => state.user.profileActiveTab);
-
-
-
 
   return (
     <div className="pt-16 pb-20 ">
@@ -52,6 +50,7 @@ function Account() {
             {activetab == "Wallet" && <div className="mt-10">Wallet</div>}
             {activetab == "cart" && <div className="mt-10">Cart</div>}
             {activetab == "address" && <div className="mt-10">Address</div>}
+            {activetab == "addProduct" && <ProductManage />}
             {activetab == "accountDetails" && <AccountDetails />}
             {activetab == "logout" && <div className="mt-10">Log Out</div>}
           </div>

@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import InputField from '../register/InputField' 
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { useNavigate, useParams } from 'react-router'
@@ -12,6 +12,7 @@ export default function OTP() {
     const {id} = useParams()
     const [notify , setNotify] = useState({isShow: false , status: false , message: ''})
     const navigate = useNavigate()
+    const [mail , setMail] = useState('')
      
     const handleResendOTP = () => {
       setResendLoad(prev => !prev) 
@@ -49,6 +50,23 @@ export default function OTP() {
       })
     }
 
+    useEffect(() => {
+      (async function fetchmail (){
+        console.log(id);
+        
+        if(!id)return
+        await axios.get(`${import.meta.env.VITE_BASE_URL}/auth/usermail/${id}`)
+        .then((res)=>{
+          setMail(res.data.data);
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+        
+      }())
+      
+    }, [])
+
   return (
         <div className="pb-20">
           {notify.isShow && <Notification  success={notify.status} message={notify.message}  />}
@@ -59,6 +77,8 @@ export default function OTP() {
     
           {/* register form */}
           <form className="py-12 px-9 bg-[#f4f4f4] max-w-[594px] mx-auto rounded-[15px]   ">
+
+          <p className="">Please , Enter the OTP we send to {mail}</p>
  
     
             {/* otp */}

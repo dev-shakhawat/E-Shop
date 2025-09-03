@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from 'react' 
 
 // icons
 import Order from "../../../assets/icons/Order.jsx";
@@ -9,6 +8,7 @@ import Home from "../../../assets/icons/Home.jsx";
 import UserProfile from "../../../assets/icons/UserProfile.jsx";
 import Logout from "../../../assets/icons/Logout.jsx";
 import { useDispatch, useSelector } from 'react-redux';
+import { BsCloudPlus } from "react-icons/bs";
 
 export default function ProfileNav() {
     const activetab = useSelector(state => state.user.profileActiveTab)
@@ -31,6 +31,10 @@ export default function ProfileNav() {
         <li onClick={() => dispatch({type: "user/activeProfileTab" , payload: "address"})}    className={`flex items-center  hover:text-brand duration-300 cursor-pointer  ${activetab == "address" ? "text-brand":"text-primary"}  `}> 
             <Home  />
             <span className=" ml-4 ">Address</span> 
+        </li>
+        <li onClick={() => dispatch({type: "user/activeProfileTab" , payload: "addProduct"})}    className={`flex items-center  hover:text-brand duration-300 cursor-pointer  ${activetab == "addProduct" ? "text-brand":"text-primary"}  `}> 
+            <BsCloudPlus className='w-7 h-7'  />
+            <span className=" ml-4 ">Add Product</span> 
         </li>
         <li onClick={() => dispatch({type: "user/activeProfileTab" , payload: "accountDetails"})} className={`flex items-center  hover:text-brand duration-300 cursor-pointer ${activetab == "accountDetails" ? "text-brand":"text-primary"}   `}> 
             <UserProfile />

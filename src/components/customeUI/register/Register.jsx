@@ -63,9 +63,7 @@ function Register() {
       }, 1500);
       
      })
-  };
-
-  console.log(loading);
+  }; 
   
 
   return (

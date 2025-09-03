@@ -33,25 +33,25 @@ function App() {
   useEffect( () => { 
 
     (async function hudai(){
-      const information = await getUserData()
-
-      console.log(information);
+      const information = await getUserData() 
       
       dispatch(userSet(information.data))
+
     }())
   
     
   }, []);
   
-  console.log(user);
   
-
   return ( 
       <BrowserRouter>
         <Routes>
           {/* auth routes */}
           {user ? 
-          <Route path="/auth" element={<Account />} />
+          <Route path="/auth" element={<Layout />} >
+            <Route index element={<Account />} />
+            <Route path="otp/:id" element={<OTP />} />
+          </Route>
            : 
           <Route path="/auth" >
             <Route index element={<Register />} />
@@ -60,6 +60,9 @@ function App() {
             <Route path="otp/:id" element={<OTP />} />
           </Route> 
            }
+
+           {/* otp */}
+           <Route path="authorize/:id" element={<OTP />} />
 
           {/* Product */}
           <Route path={"/"} element={<Layout />}>
