@@ -50,7 +50,7 @@ function ProductCart({
                     </div>}
 
                 {/*  product image  */}
-                <img src={image ? image : productimg} alt="productimg" className={`w-full object-cover ${mode == 'list' && "w-[200px] h-[200px] object-contain"}  `}/>
+                <img src={image ? image : productimg} alt="productimg" className={`  ${mode == 'list' ? "w-[200px] h-[200px] object-contain " : "w-full h-[200px]  object-cover"}  `}/>
 
                 {/*  cart/love/share   */}
                 <div

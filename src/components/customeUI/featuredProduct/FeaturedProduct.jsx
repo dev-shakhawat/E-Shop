@@ -20,7 +20,7 @@ function PrevArrow({ onClick }) {
   return <SlickPrevArrow onClick={onClick} />;
 }
 
-function FeaturedProduct() {
+function FeaturedProduct({ data }) {
   const sliderSettings = {
     infinite: true,
     speed: 500,
@@ -56,6 +56,7 @@ function FeaturedProduct() {
       },
     ],
   };
+ 
   return (
     <div className={`py-10 md:py-15  lg:py-20 `}>
       <Container>
@@ -68,55 +69,20 @@ function FeaturedProduct() {
         {/*   slider   */}
         <div className="mx-13 mt-2 sm:mt-6 md:mt-8 lg:mt-12 ">
           <Slider {...sliderSettings}>
-            <ProductCart
-              catagory={`phone`}
-              title={`JPhone 13 High Quality Value Buy Best Cam...`}
-              currentprice={999.0}
-              delprice={345}
-              rating={5}
-              totalrating={50}
-              customstyle={`hover:border-tertary mx-1`}
-              customStar={`text-[#fbd550]`}
-            />
-            <ProductCart
-              catagory={`audio`}
-              title={`WH-1000XM4 Wireless Headphones High Qu...`}
-              currentprice={59.0}
-              delprice={118}
-              persent={50}
-              rating={5}
-              totalrating={120}
-              customstyle={`hover:border-tertary mx-1`}
-              customStar={`text-[#fbd550]`}
-            />
-            <ProductCart
-              catagory={`laptop`}
-              title={`S21 Laptop Ultra HD LED Screen Feature 2023 ...`}
-              currentprice={"1,199.00"}
-              rating={5}
-              totalrating={100}
-              customstyle={`hover:border-tertary mx-1`}
-              customStar={`text-[#fbd550]`}
-            />
-            <ProductCart
-              catagory={`camera`}
-              title={`Mini Polaroid Camera for Girls with Flash Li...`}
-              currentprice={79.0}
-              delprice={345}
-              rating={5}
-              totalrating={70}
-              customstyle={`hover:border-tertary mx-1`}
-              customStar={`text-[#fbd550]`}
-            />
-            <ProductCart
-              catagory={`television`}
-              title={`AG OLED65CXPUA 4K Smart OLED TV New ...`}
-              currentprice={"2,799.00"}
-              rating={5}
-              totalrating={20}
-              customstyle={`hover:border-tertary mx-1`}
-              customStar={`text-[#fbd550]`}
-            />
+            { data.length > 0 && data.map((item, index) => { 
+              return <ProductCart
+                catagory={item.category}
+                title={item.title}
+                currentprice={item.price.currentPrice}
+                delprice={item.price.discount  ? item.price.prevPrice : null}
+                persent={item.price.discount}
+                rating={5}
+                totalrating={item.rating}
+                customstyle={`hover:border-tertary mx-1`}
+                customStar={`text-[#fbd550]`}
+                image={item.thumbnail}
+              />
+            })}
           </Slider>
         </div>
       </Container>
