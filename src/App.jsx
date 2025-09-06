@@ -24,10 +24,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { userSet } from "./redux/slices/userSlice.js";
 import getUserData from "./helpers/getUserData.js";
+import Toast from "./components/common/Toast.jsx";
 
 function App() {
 
   const user = useSelector(state => state.user.user)
+  const notify = useSelector(state => state.toast)
+  
   const dispatch = useDispatch();
 
   useEffect( () => { 
@@ -38,13 +41,13 @@ function App() {
       dispatch(userSet(information.data))
 
     }())
-  
     
   }, []);
   
   
   return ( 
       <BrowserRouter>
+        {notify.isShow && <Toast message={notify.message} success={notify.success} />}
         <Routes>
           {/* auth routes */}
           {user ? 

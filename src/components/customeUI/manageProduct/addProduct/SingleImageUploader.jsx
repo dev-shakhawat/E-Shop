@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
 
 export default function SingleImageUpload({setProductInfo , productInfo}) {
-  const [image, setImage] = useState(null);
-  const formData = new FormData();
+  const [image, setImage] = useState(null); 
 
   // File select and add to state
   const handleFileChange = (e) => {
     const file = e.target.files[0]; // recive one file only
     if (file) {
       setImage(file);
+      setProductInfo({...productInfo , thumbnail:file })
     }
   }; 
 
-  useEffect(()=>{
-    formData.append("image", image)
-    setProductInfo({...productInfo , thumbnail:formData })
 
-  },[image])
+  useEffect(() => {
+    if(!productInfo.thumbnail){
+      setImage(null) 
+    } 
+  }, [productInfo]);
+ 
  
   return (
     <form 
       className="w-full mx-auto py-5    "
     >
       <label className="block mb-2 text-sm font-medium text-tertary">
-        Upload Single Image
+        Upload thumbnail
       </label>
 
       <input
