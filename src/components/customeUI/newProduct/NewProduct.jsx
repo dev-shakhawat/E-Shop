@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import Shortby from "../../common/Shortby.jsx";
 import ProductCart from "../../common/ProductCart.jsx";
 
-function NewProduct() {
+function NewProduct({ products }) {
   const shortArray = [
     "All Catagories",
     "Men",
@@ -31,48 +31,7 @@ function NewProduct() {
     "Shoes",
     "Jewelry",
   ];
-
-  const newProducts = [
-    {
-      catagory: "watch",
-      title: "Orange Watch 12 High Quality Health Sensor...",
-      currentprice: 959.99,
-      delprice: 1919.99,
-      persent: 50,
-      totalrating: 120,
-      rating: 5,
-    },
-    {
-      catagory: "tablet",
-      title: "Ultra Tablet Qwerty HD 10765 Series Low Pri...",
-      currentprice: "799.00",
-      totalrating: 100,
-      rating: 5,
-    },
-    {
-      catagory: "audio",
-      title: "QuietComfort 45 Wireless Headphone ...",
-      currentprice: 329.99,
-      totalrating: 120,
-      rating: 5,
-    },
-    {
-      catagory: "laptop",
-      title: "Surface Laptop 4 XPS 13 Plus 64GB i7 Touch ...",
-      currentprice: 2399.99,
-      delprice: "2878.00",
-      persent: 20,
-      totalrating: 120,
-      rating: 5,
-    },
-    {
-      catagory: "camera",
-      title: "CamPro HERO10 Black Sleek Design 2023 4K ...",
-      currentprice: 1499.99,
-      totalrating: 20,
-      rating: 5,
-    },
-  ];
+ 
 
   return (
     <div className={`py-5 sm:py-10 md:py-15 lg:py-20 `}>
@@ -95,18 +54,19 @@ function NewProduct() {
 
         {/*  new products  */}
         <div className="grid grid-cols-1 gap-x-1 gap-y-2 sm:grid-cols-2  lg:grid-cols-4 xl:grid-cols-5 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
-          {newProducts.map((product, index) => (
+          { products.length > 0 &&  products.map((product, index) => (
             <ProductCart
               key={index}
-              persent={product.persent}
+              persent={product?.price?.discount}
               title={product.title}
               totalrating={product.totalrating}
-              currentprice={product.currentprice}
-              delprice={product.delprice}
-              catagory={product.catagory}
+              currentprice={product?.price?.currentPrice}
+              delprice={product.price.discount  ? product.price.prevPrice : null}
+              catagory={product?.category}
               rating={product.rating}
               customstyle={`hover:border-tertary`}
               customStar={`text-[#fbd550]`}
+              image={product.thumbnail}
             />
           ))}
         </div>

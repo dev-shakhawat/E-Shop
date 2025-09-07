@@ -27,6 +27,8 @@ function FeaturedProduct({ data }) {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
+    autoplaySpeed: 2500,
+    cssEase: "linear ",
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [

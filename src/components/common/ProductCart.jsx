@@ -82,7 +82,8 @@ function ProductCart({
                         {/*   rating   */}
                         {ratingval.map((item, index) => <li key={index}><Star customStar={customStar}/></li>)}
                     </ul>
-                    <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>({totalrating})</p>
+                    {totalrating &&
+                    <p className={`font-montserrat text-sm leading-xl text-primary ml-2`}>({totalrating})</p>}
                 </div>
 
                 {/*  price  */}

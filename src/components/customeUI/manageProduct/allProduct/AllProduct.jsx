@@ -24,7 +24,7 @@ export default function AllProduct() {
   } , [])
 
   return (
-    <div className='flex flex-col gap-2 mt-2 duration-200 overflow-y-scroll '>
+    <div className='flex flex-col gap-2 mt-2 duration-200 max-h-135 overflow-y-scroll '>
       
       {allProduct.length > 0  ?
        allProduct.map((item , index) => {

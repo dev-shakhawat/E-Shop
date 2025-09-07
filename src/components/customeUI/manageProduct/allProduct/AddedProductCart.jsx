@@ -40,7 +40,7 @@ export default function AddedProductCart({productInfo , fetchAllProduct}) {
         <div className="flex-1 ml-10">
 
             {/* title */}
-            <h2 className=' font-montserrat font-semibold text-base leading-0 w-100 text-ellipsis   '>{productInfo.title}</h2>
+            <h2 className=' font-montserrat font-semibold text-base leading-5 w-100 text-ellipsis line-clamp-1   '>{productInfo.title}</h2>
             <span className='text-brand text-xs capitalize  '>{productInfo.brand}</span>
             
             {/* description */}

@@ -60,15 +60,6 @@ export default function AllProducts() {
     localStorage.setItem('product', JSON.stringify(product))
     navigate(`/product-detail/${product.category}`)
   }
-
-
-  // add to cart
-  console.log(products);
-  
-
-  
-  
-  
   
   
   return (

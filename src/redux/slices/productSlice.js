@@ -7,6 +7,7 @@ const initialState = {
     carts: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
     subtotalPrice: 0,
     filter: false,
+    categories: [],
 }
 
 
@@ -33,10 +34,13 @@ export const productSlice = createSlice({
         filterMobile: (state, action) => {
             state.filter = action.payload;
         },
+        categorySet: (state, action) => {
+            state.categories = action.payload;
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {CurrentDetailedProduct , checkoutPrice , addToCart , filterMobile } = productSlice.actions
+export const {CurrentDetailedProduct , checkoutPrice , addToCart , filterMobile , categorySet } = productSlice.actions
 
 export default productSlice.reducer

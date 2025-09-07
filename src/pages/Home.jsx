@@ -15,11 +15,15 @@ import axios from 'axios';
 function Home() {
 
     const [featuredProduct , setFeaturedProduct] = useState([])
+    const [newProduct , setNewProduct] = useState([])
+    const [bestSeller , setBestSeller] = useState([])
 
 
     useEffect(() => { 
 
         (async () => {
+
+            // fetch featured product
             axios.get(`${import.meta.env.VITE_BASE_URL}/product/featured`)
             .then((res) => {
                 setFeaturedProduct(res.data.data);
@@ -27,6 +31,29 @@ function Home() {
             .catch((err) => {
                 console.log(err);
             })
+
+
+            // fetch new product
+            axios.get(`${import.meta.env.VITE_BASE_URL}/product/newArrival`)
+            .then((res) => {
+                setNewProduct(res.data.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+
+            // fetch best seller
+            axios.get(`${import.meta.env.VITE_BASE_URL}/product/all`)
+            .then((res) => {
+                setBestSeller(res.data.data.slice(0, 6));
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
+
+
 
         })()
 
@@ -49,7 +76,7 @@ function Home() {
             <SpecialDeal/>
 
             {/*  new products  */}
-            <NewProduct/>
+            <NewProduct products={newProduct}/>
 
 
             {/*   spring sale   */}
@@ -57,7 +84,7 @@ function Home() {
 
 
             {/*  best seller  */}
-            <BestSeller/>
+            <BestSeller products={bestSeller}/>
 
 
             {/*  FAQ section  */}

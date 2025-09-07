@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Container from "../components/common/Container.jsx";
 import Chooser from "../components/customeUI/catagoryChooser/Chooser.jsx";
 import PriceChooser from "../components/customeUI/catagoryChooser/PriceChooser.jsx";
 import AllProducts from '../components/customeUI/allProducts/AllProducts.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterMobile } from '../redux/slices/productSlice.js';
+import axios from 'axios';
 
 function Allproducts() {
 
-    const allcatagories = [{name: "Computers & Tablets"}, {name: "Mobile & Accessories"}, {name: "TV & Home Theater"}, {name: "Audio & Headphones"}, {name: "Cameras & Camcorders"}, {name: "Gaming Equipment"}, {name: "Home Appliances"}]
     const brands = [{
         name: "Apple",
         total: 565,
@@ -46,6 +46,12 @@ function Allproducts() {
         };
     })
 
+    const allcatagories = useSelector(state => state.product.categories)
+ 
+
+    const [urlSearchParams , setUrlSearchParams] = useState({category : "" , brand : "" , minPrice : "" , maxPrice : "" , limit : "" , page : ""});
+
+ 
 
     return (
         <div className={`2xl:mt-17 xl:mt-15 lg:mt-12 md:mt-10 mt-8 2xl:pb-20 xl:pb-16 lg:pb-12 md:pb-10 pb-8  `}>
@@ -56,12 +62,12 @@ function Allproducts() {
                     <div ref={filterRef} className={` ${isFilter ? "fixed md:sticky top-0 left-0 z-1 md:z-0 h-screen md:h-fit overflow-y-scroll w-[70%] sm:w-[50%]   " : "hidden md:block md:sticky top-0 left-0  h-fit 2xl:rounded-[25px] xl:rounded-[20px] lg:rounded-[15px] rounded-[10px]   "}  lg:min-w-[335px]  bg-[#F4F4F4]  2xl:p-12 xl:p-10 lg:p-8 md:p-6 p-4    `}>
 
                         {/*  catagory chooser  */}
-                        <Chooser allcatagories={allcatagories}/>
+                        <Chooser allcatagories={allcatagories} urlSearchParams={urlSearchParams} setUrlSearchParams={setUrlSearchParams} type="category" />
 
                         <hr className={`2xl:my-10 xl:my-9 lg:my-8 md:my-6 my-4   text-tertary`}/>
 
                         {/*  brand chooser  */}
-                        <Chooser allcatagories={brands}/>
+                        <Chooser allcatagories={brands} urlSearchParams={urlSearchParams} setUrlSearchParams={setUrlSearchParams} type="brand" />
 
                         <hr className={`2xl:my-10 xl:my-9 lg:my-8 md:my-6 my-4   text-tertary`}/>
 
