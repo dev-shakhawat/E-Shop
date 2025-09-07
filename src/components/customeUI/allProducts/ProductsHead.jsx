@@ -11,7 +11,7 @@ import { filterMobile } from '../../../redux/slices/productSlice'
 import { CiFilter } from "react-icons/ci";
 
 
-export default function ProductsHead() {
+export default function ProductsHead({totalResults = 0}) {
     const [viewmode , setViewmode] = useState('grid')
     const dispatch = useDispatch()
     const allpagi = useSelector(state => state.pagination.productPagi.totalPage)
@@ -36,7 +36,7 @@ export default function ProductsHead() {
 
     {/* short by tab */}
     <div className="xl:flex justify-between 2xl:mt-6 xl:mt-5 md:mt-4 mt-1    ">
-        <p className='w-[300px] font-montserrat text-base leading-[24px] text-primary '>Showing {paginationCurrent == 1 ? 1 : (paginationCurrent - 1) * 16} - { paginationCurrent * 16 } of {allpagi * 16} results</p>
+        <p className='w-[300px] font-montserrat text-base leading-[24px] text-primary '>Showing {paginationCurrent == 1 ? 1 : (paginationCurrent - 1) * 16} - { paginationCurrent * 16 } of {totalResults} results</p>
 
         <div className="flex lg:justify-between gap-3 flex-wrap mt-3 md:mt-0 ">
 

@@ -8,8 +8,8 @@ import FAQ from "../components/customeUI/faq/FAQ.jsx";
 import BestSeller from "../components/customeUI/bestSeller/BestSeller.jsx";
 import SpringSale from "../components/customeUI/SpringSale/SpringSale.jsx";
 import TechTalk from "../components/customeUI/techTalk/TechTalk.jsx";
-import Brands from "../components/customeUI/brands/Brands.jsx";
-import axios from 'axios';
+import Brands from "../components/customeUI/brands/Brands.jsx"; 
+import getProduct from '../helpers/getAllProduct.js';
 
 
 function Home() {
@@ -24,9 +24,9 @@ function Home() {
         (async () => {
 
             // fetch featured product
-            axios.get(`${import.meta.env.VITE_BASE_URL}/product/featured`)
+            await getProduct('product/featured') 
             .then((res) => {
-                setFeaturedProduct(res.data.data);
+                setFeaturedProduct(res.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -34,9 +34,9 @@ function Home() {
 
 
             // fetch new product
-            axios.get(`${import.meta.env.VITE_BASE_URL}/product/newArrival`)
+            await getProduct('product/newArrival') 
             .then((res) => {
-                setNewProduct(res.data.data);
+                setNewProduct(res.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -44,17 +44,15 @@ function Home() {
 
 
             // fetch best seller
-            axios.get(`${import.meta.env.VITE_BASE_URL}/product/all`)
-            .then((res) => {
-                setBestSeller(res.data.data.slice(0, 6));
+            await getProduct('product/all/filter')
+            .then((res) => {  
+                setBestSeller(res.data.slice(0, 6));
             })
             .catch((err) => {
                 console.log(err);
             })
 
-
-
-
+            
         })()
 
     }, [])

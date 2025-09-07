@@ -4,8 +4,7 @@ import Chooser from "../components/customeUI/catagoryChooser/Chooser.jsx";
 import PriceChooser from "../components/customeUI/catagoryChooser/PriceChooser.jsx";
 import AllProducts from '../components/customeUI/allProducts/AllProducts.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterMobile } from '../redux/slices/productSlice.js';
-import axios from 'axios';
+import { filterMobile } from '../redux/slices/productSlice.js'; 
 
 function Allproducts() {
 
@@ -26,12 +25,11 @@ function Allproducts() {
     })
 
     const allcatagories = useSelector(state => state.product.categories)
-    const brands = useSelector(state => state.product.brands)
+    const brands = useSelector(state => state.product.brands) 
  
-
-    const [urlSearchParams , setUrlSearchParams] = useState({category : "" , brand : "" , minPrice : "" , maxPrice : "" , limit : "" , page : ""});
-
+    const [urlSearchParams , setUrlSearchParams] = useState({category : [] , brand : [] , minPrice : "" , maxPrice : ""  });
  
+    
 
     return (
         <div className={`2xl:mt-17 xl:mt-15 lg:mt-12 md:mt-10 mt-8 2xl:pb-20 xl:pb-16 lg:pb-12 md:pb-10 pb-8  `}>
@@ -52,13 +50,13 @@ function Allproducts() {
                         <hr className={`2xl:my-10 xl:my-9 lg:my-8 md:my-6 my-4   text-tertary`}/>
 
                         {/*  price chooser  */}
-                        <PriceChooser/>
+                        <PriceChooser urlSearchParams={urlSearchParams} setUrlSearchParams={setUrlSearchParams}/>
                     </div>
 
 
                     {/*  all products  */}
                     <div className="w-full">
-                        <AllProducts/>
+                        <AllProducts urlSearchParams={urlSearchParams}/>
                     </div>
                 </div>
             </Container>

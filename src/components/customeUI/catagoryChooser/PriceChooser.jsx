@@ -1,7 +1,7 @@
 import React, {useEffect,  useRef,  useState} from 'react';
 import ArrowDown from "../../../assets/icons/ArrowDown.jsx"; 
 
-function PriceChooser() { 
+function PriceChooser({urlSearchParams , setUrlSearchParams}) { 
     const [isopen, setIsopen] = useState(true); 
     const priceboxRef = useRef(null);
     const [priceboxHeight, setPriceboxHeight] = useState(0); 
@@ -24,10 +24,18 @@ function PriceChooser() {
         if(type == "min"){
             const newMinValue = Math.min(val, maxPrice);
             setMinPrice(newMinValue);
+            setUrlSearchParams(prev => ({
+                ...prev,
+                minPrice: newMinValue
+            }))
         }
         else{
             const newMaxValue = Math.max(val, minPrice);
             setMaxPrice(newMaxValue);
+            setUrlSearchParams(prev => ({
+                ...prev,
+                maxPrice: newMaxValue
+            }))
         }
     }; 
 

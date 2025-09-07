@@ -8,6 +8,8 @@ function Chooser({allcatagories , urlSearchParams , setUrlSearchParams , type}) 
     const catagoryRef = useRef(null);
     const [catagoryHeight, setCatagoryHeight] = useState(0);
     const [checkedCategories, setCheckedCategories] = useState({});
+ 
+    
 
     useEffect(() => {
         if (isopen) {
@@ -18,25 +20,28 @@ function Chooser({allcatagories , urlSearchParams , setUrlSearchParams , type}) 
     }, [isopen]);
 
     const handleCheckboxChange = (categoryId , name) => {
+
+
         setCheckedCategories(prev => ({
             ...prev,
             [categoryId]: !prev[categoryId]
         }));
+        
 
         if(type === 'category'){
             setUrlSearchParams(prev => ({
                 ...prev,
-                category: [...prev.category , name]
+                category:  prev.category.includes(name) ? prev.category.filter(item => item !== name) : [...prev.category , name]
             }))
         }
 
         if(type === 'brand'){
             setUrlSearchParams(prev => ({
                 ...prev,
-                brand: [...prev.brand , name]
+                brand:  prev.brand.includes(name) ? prev.brand.filter(item => item !== name) : [...prev.brand , name]
             }))
         }
-
+        
     };
    
     
@@ -44,7 +49,7 @@ function Chooser({allcatagories , urlSearchParams , setUrlSearchParams , type}) 
         <div>
             {/* Category chooser head */} 
             <div className="flex items-center justify-between cursor-pointer" onClick={() => setIsopen(!isopen)}>
-                <h3 className="font-montserrat font-bold 2xl:text-xl xl:text-base md:text-sm text-xs    leading-[30px] text-primary">Categories</h3>
+                <h3 className="font-montserrat font-bold 2xl:text-xl xl:text-base md:text-sm text-xs  capitalize  leading-[30px] text-primary">{type}</h3>
                 {isopen ? <ArrowDown style={` duration-400 w-[11px] h-[6px] rotate-[180deg] `}/> :
                     <ArrowDown style={`duration-400 w-[11px] h-[6px] rotate-[0deg]`}/>}
             </div>

@@ -87,10 +87,10 @@ function ProductCart({
                 </div>
 
                 {/*  price  */}
-                <div className="flex items-end gap-2 mt-6">
+                <div className=" mt-6">
 
                     {/*  current price  */}
-                    <p className="font-poppins font-semibold text-[14px] sm:text-base md:text-xl lg:text-[24px] leading-[30px]  ">${currentprice}</p>
+                    <p className="font-poppins font-semibold text-[14px] sm:text-base md:text-xl lg:text-[24px] leading-[30px]  ">BDT {currentprice}</p>
 
                     {/*  deleted price  */}
                     {delprice &&

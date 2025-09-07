@@ -4,9 +4,7 @@ import { Link, useNavigate } from 'react-router';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { currentProductPagination, totalProductPagination } from '../../../redux/slices/paginationSlice';
-import { CurrentDetailedProduct } from '../../../redux/slices/productSlice';
-import { notify } from '../../../redux/slices/notificationSlice';
+import { currentProductPagination, totalProductPagination } from '../../../redux/slices/paginationSlice';  
 
 // components
 import Pagination from '../../common/Pagination';
@@ -16,9 +14,10 @@ import Notification from '../../common/Notification';
 
 // function
 import {handelAddToCart} from '../../../helpers/AddtoCart'
+import getProduct from '../../../helpers/getAllProduct'
 
 
-export default function AllProducts() {
+export default function AllProducts({urlSearchParams}) {
 
   const [products , setProducts] = useState([]);
   const mode = useSelector(state => state.viewmode.value);
@@ -28,39 +27,52 @@ export default function AllProducts() {
   const noti = useSelector(state => state.notification.value);
   const navigate = useNavigate();
 
-  
-  
-  
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products?limit=194')
-   .then(res => res.json())
-   .then(data => {
-    dispatch(totalProductPagination(Math.floor(data.total/16)))
-   });
-  }, [])
+  const params = new URLSearchParams();
 
-  useEffect(() => {
-    fetch(`https://dummyjson.com/products?limit=16&skip=${(paginationCurrent - 1) * 16}`)
-    .then(res => res.json())
-    .then(data => {
-     setProducts(data.products);
-    });
-    
-  }, [paginationCurrent])
+  // multiple categories
+  urlSearchParams.category.forEach(cat => params.append("category", cat));
+
+  // multiple brands
+  urlSearchParams.brand.forEach(brand => params.append("brand", brand));
+
+  // min & max price
+  if (urlSearchParams.minPrice) params.append("minPrice", urlSearchParams.minPrice);
+  if (urlSearchParams.maxPrice) params.append("maxPrice", urlSearchParams.maxPrice);
   
   
-  const showPersentage = [2,5,8,11,13,16]
-  const ShowDelPrice = [2,5,8,11,13,16]
+   (async () => {
+    try {
+        await getProduct(`product/all/filter?${params.toString()}`) 
+        .then((res) => { 
 
+          const allData = res.data
+          
+          
+          if(allData.length > 16 ){
+            dispatch(totalProductPagination(Math.floor(allData.length/16)))
+          }
+          
+          setProducts(allData);
+ 
+           
+        })
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+
+
+}, [urlSearchParams]); 
+   
+   
   
   // navigate to product details
-  const handelNavigateToProductDetails = (product) => {
-    dispatch(CurrentDetailedProduct(product))
-    localStorage.setItem('product', JSON.stringify(product))
-    navigate(`/product-detail/${product.category}`)
+  const handelNavigateToProductDetails = (product) => { 
+    navigate(`/product-detail/${product}`)
   }
-  
+   
   
   return (
     <div className='w-full'>
@@ -69,7 +81,7 @@ export default function AllProducts() {
         {noti &&  <Notification success={noti.success} message={noti.message}/>}
 
 
-        <ProductsHead/>
+        <ProductsHead totalResults={products?.length} />
 
         {/* all products */}
             {
@@ -87,7 +99,7 @@ export default function AllProducts() {
               // all products data
               <div className={` ${mode == 'grid' ?  "grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 " : 'grid-cols-1' }  grid mt-12 `}>
                 {products.length > 0 && 
-                  products.map(product => <ProductCart addCart={()=> handelAddToCart(product, dispatch)} onClick={() => handelNavigateToProductDetails(product)} key={product.id} delprice={ShowDelPrice.includes(product.id) && Math.floor(product.price / (1 - product.discountPercentage / 100)) } persent={ showPersentage.includes(product.id) && product.discountPercentage} image={`${product.images[0]}`} customStar={`text-[#fbd550]`} totalrating={product.reviews.length} rating={product.reviews.length} catagory={product.category} currentprice={product.price} title={product.title} customstyle="hover:border-tertary" />)
+                  products.map(product => <ProductCart addCart={()=> handelAddToCart(product, dispatch)} onClick={() => handelNavigateToProductDetails(product._id)} key={product._id} image={product.thumbnail} title={product.title} currentprice={product.price.currentPrice} delprice={product.price.discount ? product.price.prevPrice : null} persent={product.price.discount}  totalrating={product.totalrating} rating={product.rating}   customStar={`text-[#fbd550]`}    customstyle="hover:border-tertary" />)
                 }
               </div>
             }

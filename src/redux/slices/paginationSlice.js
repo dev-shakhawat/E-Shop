@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   productPagi: {
-    currentPage: 3,
-    totalPage: 12,
+    currentPage: 1,
+    totalPage: 1,
   },
   blogPagi: {
     currentPage: 1,
