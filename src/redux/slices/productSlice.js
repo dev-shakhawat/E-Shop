@@ -8,6 +8,7 @@ const initialState = {
     subtotalPrice: 0,
     filter: false,
     categories: [],
+    brands: []
 }
 
 
@@ -37,10 +38,13 @@ export const productSlice = createSlice({
         categorySet: (state, action) => {
             state.categories = action.payload;
         },
+        brandSet: (state, action) => {
+            state.brands = action.payload;
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {CurrentDetailedProduct , checkoutPrice , addToCart , filterMobile , categorySet } = productSlice.actions
+export const {CurrentDetailedProduct , checkoutPrice , addToCart , filterMobile , categorySet , brandSet } = productSlice.actions
 
 export default productSlice.reducer

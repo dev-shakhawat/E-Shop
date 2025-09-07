@@ -9,28 +9,7 @@ import axios from 'axios';
 
 function Allproducts() {
 
-    const brands = [{
-        name: "Apple",
-        total: 565,
-    }, {
-        name: "Samsung",
-        total: 428
-    }, {
-        name: "Asus",
-        total: 323
-    }, {
-        name: "Dell",
-        total: 298
-    }, {
-        name: "Linovo",
-        total: 180
-    }, {
-        name: "HP",
-        total: 98
-    }, {
-        name: "Penasonic",
-        total: 17
-    }]
+ 
     const isFilter = useSelector(state => state.product.filter) 
     const filterRef = useRef(null)
     const dispatch = useDispatch()
@@ -47,6 +26,7 @@ function Allproducts() {
     })
 
     const allcatagories = useSelector(state => state.product.categories)
+    const brands = useSelector(state => state.product.brands)
  
 
     const [urlSearchParams , setUrlSearchParams] = useState({category : "" , brand : "" , minPrice : "" , maxPrice : "" , limit : "" , page : ""});

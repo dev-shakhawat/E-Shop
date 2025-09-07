@@ -6,6 +6,7 @@ import GetAuth from './GetAuth.jsx';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { categorySet } from '../../redux/slices/productSlice.js';
+import { brandSet } from '../../redux/slices/productSlice.js';
 
 
 function Layout() {
@@ -15,12 +16,20 @@ function Layout() {
     useEffect(() => { 
 
         (async () => {
+
+            // get all categories
             await axios.get(`${import.meta.env.VITE_BASE_URL}/category/getallcategory`) 
-            .then((res) => {
-                console.log(res.data.data);
+            .then((res) => { 
                 dispatch(categorySet(res.data.data)); 
                 
             })
+
+            // get all brands
+            await axios.get(`${import.meta.env.VITE_BASE_URL}/brand/getallbrand`) 
+            .then((res) => { 
+                dispatch(brandSet(res.data.data));  
+            })
+            
         })();
 
     }, [])
