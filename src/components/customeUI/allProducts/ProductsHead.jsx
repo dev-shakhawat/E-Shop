@@ -36,7 +36,13 @@ export default function ProductsHead({totalResults = 0}) {
 
     {/* short by tab */}
     <div className="xl:flex justify-between 2xl:mt-6 xl:mt-5 md:mt-4 mt-1    ">
-        <p className='w-[300px] font-montserrat text-base leading-[24px] text-primary '>Showing {paginationCurrent == 1 ? 1 : (paginationCurrent - 1) * 16} - { paginationCurrent * 16 } of {totalResults} results</p>
+        <p className='w-[300px] font-montserrat text-base leading-[24px] text-primary flex items-center gap-1 '>
+            <span>Showing</span> 
+            {totalResults == 1 && <span> 1 of {totalResults}</span>} 
+            {totalResults > 1 && totalResults <= 16 && <span> 1 - {totalResults} of {totalResults}</span>} 
+            {totalResults >  16 && <span> {(paginationCurrent - 1) * 16  } - {totalResults < (paginationCurrent * 16) ? totalResults : (paginationCurrent * 16)} of {totalResults} </span>} 
+            <span>results</span>
+        </p>
 
         <div className="flex lg:justify-between gap-3 flex-wrap mt-3 md:mt-0 ">
 

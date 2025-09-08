@@ -26,6 +26,7 @@ export default function AllProducts({urlSearchParams}) {
   const totalPage = useSelector(state => state.pagination.productPagi.totalPage);
   const noti = useSelector(state => state.notification.value);
   const navigate = useNavigate();
+  const [totalData , setTotalData] = useState(0)
 
 
   useEffect(() => {
@@ -47,15 +48,22 @@ export default function AllProducts({urlSearchParams}) {
         await getProduct(`product/all/filter?${params.toString()}`) 
         .then((res) => { 
 
-          const allData = res.data
+          const allData = res.data 
+          setTotalData(allData.length) 
           
           
           if(allData.length > 16 ){
-            dispatch(totalProductPagination(Math.floor(allData.length/16)))
+            
+            dispatch(totalProductPagination(Math.ceil(allData.length/16)))
+
+            const sliceData = allData.slice((paginationCurrent - 1) * 16 , (paginationCurrent - 1) * 16 + 16)
+            setProducts(sliceData);
+
+          }else{
+            dispatch(totalProductPagination(1))
+            setProducts(allData);
           }
           
-          setProducts(allData);
- 
            
         })
     } catch (err) {
@@ -64,7 +72,7 @@ export default function AllProducts({urlSearchParams}) {
   })();
 
 
-}, [urlSearchParams]); 
+}, [urlSearchParams , paginationCurrent]); 
    
    
   
@@ -81,7 +89,7 @@ export default function AllProducts({urlSearchParams}) {
         {noti &&  <Notification success={noti.success} message={noti.message}/>}
 
 
-        <ProductsHead totalResults={products?.length} />
+        <ProductsHead totalResults={totalData} />
 
         {/* all products */}
             {
