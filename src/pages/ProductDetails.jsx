@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Breadcrumb from '../components/common/Breadcrumb';
 import ProductImage from '../components/customeUI/productDetails/ProductImage';
 import Container from '../components/common/Container';
-import ShortDetails from '../components/customeUI/productDetails/ShortDetails';
+// import ShortDetails from '../components/customeUI/productDetails/ShortDetails';
 import ProductFacility from '../components/customeUI/allProducts/ProductFacility';
 
 
@@ -14,23 +14,41 @@ import CartIcon from '../assets/icons/CartIcon';
 import ProductTabs from '../components/customeUI/productDetails/ProductTabs';
 import ViewAll from '../components/common/ViewAll';
 import ProductCart from '../components/common/ProductCart';
+import { useParams } from 'react-router';
+import getProduct from '../helpers/getAllProduct';
 
 
 
 function ProductDetails() {
 
-    const product = useSelector(state => state.product.detailedProduct)
+  // get id from params
+  const param = useParams()
+  const [product , setProduct] = useState({})
+  console.log(product);
+  
 
-    const [quantity , setQuantity] = useState(product.minimumOrderQuantity || 1)
+ useEffect(() => { 
+    
+    (async () => {
 
-    const handleQuantityUp = () => {
-        setQuantity(prev => prev + 1)
-    }
-    const handleQuantityDown = () => {
-        if(quantity > product.minimumOrderQuantity){
-            setQuantity(prev => prev - 1)
-        }
-    }
+      // fetch featured product
+      await getProduct(`product/singleProduct/${param.id}`) 
+      .then((res) => { 
+        setProduct(res.data);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    })()
+    
+  }, []);
+
+  console.log(product);
+  
+ 
+ 
+ 
 
     const newProducts = [
         {
@@ -78,19 +96,21 @@ function ProductDetails() {
 
             
             {/* Breadcrumb */}
-            <Breadcrumb/>
+            <Breadcrumb lastOne={product.title}/>
 
             {/* detailes */}
             <div className="flex flex-col lg:flex-row      ">
 
                 {/* product image */}
-                <div className="2xl:max-w-[833px] xl:max-w-[600px] max-w-full     "><ProductImage/></div>
+                <div className="2xl:max-w-[833px] xl:max-w-[600px] max-w-full     ">
+                  <ProductImage product={product} />
+                </div>
                 
 
 
                 {/* product detailes */}
                 <div className="lg:ml-[56px] ml-1 mt-10 lg:mt-0 ">
-                    <ShortDetails/>
+                    {/* <ShortDetails/> */}
                 </div>
 
             </div>
@@ -105,9 +125,9 @@ function ProductDetails() {
                    
                    {/* quantity */}
                    <div className="flex items-center 2xl:gap-10 xl:gap-8 lg:gap-6  gap-4 ">
-                      <button onClick={handleQuantityDown} type='button' className='2xl:w-[56px] xl:w-12 lg:w-10 md:w-8 w-6 2xl:h-[56px] xl:h-12 lg:h-10 md:h-8 h-6 hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><AiOutlineMinus /></button>
-                      <p className="2xl:w-[42px] xl:w-10 lg:w-8 md:w-6 w-4 cmnHeadTwo text-primary  ">{quantity}</p>
-                      <button onClick={handleQuantityUp} type='button' className='2xl:w-[56px] xl:w-12 lg:w-10 md:w-8 w-6 2xl:h-[56px] xl:h-12 lg:h-10 md:h-8 h-6 hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><BsPlusLg /></button>
+                      <button  type='button' className='2xl:w-[56px] xl:w-12 lg:w-10 md:w-8 w-6 2xl:h-[56px] xl:h-12 lg:h-10 md:h-8 h-6 hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><AiOutlineMinus /></button>
+                      <p className="2xl:w-[42px] xl:w-10 lg:w-8 md:w-6 w-4 cmnHeadTwo text-primary  ">{`quantity`}</p>
+                      <button  type='button' className='2xl:w-[56px] xl:w-12 lg:w-10 md:w-8 w-6 2xl:h-[56px] xl:h-12 lg:h-10 md:h-8 h-6 hover:bg-[#f4f4f4] rounded-full grid place-items-center cursor-pointer  ' ><BsPlusLg /></button>
                    </div>
 
                    {/* buy-cart */}

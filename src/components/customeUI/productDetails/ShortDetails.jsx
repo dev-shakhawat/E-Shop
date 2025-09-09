@@ -8,7 +8,7 @@ import Star from '../../../assets/icons/Star.jsx'
 export default function ShortDetails({onlyDescription = false}) {
 
     const product = useSelector(state => state.product.detailedProduct)
-    const rating = Array(Math.floor(product.rating)).fill(Math.floor(product.rating))
+    const rating = Array(Math.floor(5)).fill(Math.floor(5))
  
     
 
@@ -45,28 +45,28 @@ export default function ShortDetails({onlyDescription = false}) {
         <ul className="2xl:mt-12 xl:mt-10 lg:mt-8 md:mt-6 mt-4 flex flex-col 2xl:gap-4 xl:gap-3 lg:gap-2 md:gap-1 gap-0  ">
             <li className='flex '>
                 <p className="detlOptionHead text-primary ">Brand</p>
-                <p className="detlOption text-primary  ">{product.brand || "No brand"}</p>
+                <p className="detlOption text-primary  ">{product?.brand || "No brand"}</p>
             </li>
             <li className='flex '>
                 <p className="detlOptionHead text-primary ">Size</p>
-                <p className="detlOption text-primary  ">{`${product.dimensions.width} x ${product.dimensions.depth} x ${product.dimensions.height}`} inches (W x D x H) </p>
+                <p className="detlOption text-primary  ">{`${product?.dimensions?.width} x ${product?.dimensions?.depth} x ${product?.dimensions?.height}`} inches (W x D x H) </p>
             </li>
             <li className='flex '>
                 <p className="detlOptionHead text-primary ">Weight</p>
-                <p className="detlOption text-primary  ">{product.weight} pounds </p>
+                <p className="detlOption text-primary  ">{product?.weight} pounds </p>
             </li>
             <li className='flex '>
                 <p className="detlOptionHead text-primary ">Delevery</p>
-                <p className="detlOption text-primary  ">{product.delivery || "Worldwide"} </p>
+                <p className="detlOption text-primary  ">{product?.delivery || "Worldwide"} </p>
             </li>
             <li className='flex '>
                 <p className="detlOptionHead text-primary ">Return</p>
-                <p className="detlOption text-primary  ">{product.returnPolicy || "No Return"} </p>
+                <p className="detlOption text-primary  ">{product?.returnPolicy || "No Return"} </p>
             </li> 
             <li className='flex '>
                 <p className="detlOptionHead text-primary ">Variant</p>
                 <div className="grid grid-cols-3 gap-1  ">
-                    {product.variants ? product.variants.map((item , index) => {
+                    {product?.variants ? product?.variants.map((item , index) => {
                         return (
                             <p className={`hover:border-brand hover:text-brand  py-4 px-8 rounded-[5px] border border-tertary font-montserrat font-bold text-base leading-6 text-primary   `} key={index}>{item}</p>
                         )

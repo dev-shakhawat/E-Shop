@@ -26,7 +26,7 @@ export default function AllProducts({urlSearchParams}) {
   const totalPage = useSelector(state => state.pagination.productPagi.totalPage);
   const noti = useSelector(state => state.notification.value);
   const navigate = useNavigate();
-  const [totalData , setTotalData] = useState(0)
+  const [totalData , setTotalData] = useState(0) 
 
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function AllProducts({urlSearchParams}) {
               products.length == 0 ? 
               // not found data
               <div className=" h-[100vh] grid place-items-center w-full ">
-                <div className="">
+                <div className="text-center">
                   <h2 className=" font-montserrat font-extrabold text-5xl text-tertary ">Offs, Sorry!</h2>
                   <h4 className=" font-poppins font-semibold text-primary/80  ">It's may be your internet problem or our server problem.</h4>
                   <p className=" font-poppins font-semibold text-primary/80  ">Please try again later. or <Link to={`/contact`} className='text-brand'>Contact Us</Link></p>
@@ -107,7 +107,7 @@ export default function AllProducts({urlSearchParams}) {
               // all products data
               <div className={` ${mode == 'grid' ?  "grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 " : 'grid-cols-1' }  grid mt-12 `}>
                 {products.length > 0 && 
-                  products.map(product => <ProductCart addCart={()=> handelAddToCart(product, dispatch)} onClick={() => handelNavigateToProductDetails(product._id)} key={product._id} image={product.thumbnail} title={product.title} currentprice={product.price.currentPrice} delprice={product.price.discount ? product.price.prevPrice : null} persent={product.price.discount}  totalrating={product.totalrating} rating={product.rating}   customStar={`text-[#fbd550]`}    customstyle="hover:border-tertary" />)
+                  products.map(product => <ProductCart addCart={()=> handelAddToCart(product._id  , dispatch)} onClick={() => handelNavigateToProductDetails(product._id)} key={product._id} catagory={product.category} image={product.thumbnail} title={product.title} currentprice={product.price.currentPrice} delprice={product.price.discount ? product.price.prevPrice : null} persent={product.price.discount}  totalrating={product.totalrating} rating={product.rating}   customStar={`text-[#fbd550]`}    customstyle="hover:border-tertary" />)
                 }
               </div>
             }

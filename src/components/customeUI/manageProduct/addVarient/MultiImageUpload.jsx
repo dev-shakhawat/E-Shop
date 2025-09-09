@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-export default function MultiImageUpload({id , productInfo , setProductInfo}) {
-  const [images, setImages] = useState([]);
-  const formData = new FormData();
+export default function MultiImageUpload({id , setVariantInfo , variantInfo}) {
+  const [images, setImages] = useState([]); 
 
   // File select and add to state
   const handleFileChange = (e) => {
@@ -16,20 +15,10 @@ export default function MultiImageUpload({id , productInfo , setProductInfo}) {
     setImages(updated);
   };
 
-
   useEffect(() => {
-    formData.delete("images"); // remove old and add new
-    images.forEach((img) => {
-      formData.append("images", img);
-    });
+    setVariantInfo({...variantInfo , images: images})
+  }, [images])
 
-    setProductInfo({...productInfo , allVeriant: productInfo.allVeriant.map((item) => item.id === id ? {...item , productImages: formData} : item)})
-
-    return () => {
-      images.forEach((img) => URL.revokeObjectURL(img));
-    };
-  }, [images]);
- 
   
 
  

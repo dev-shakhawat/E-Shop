@@ -8,7 +8,7 @@ import ProductImageViewerModal from "./ProductImageViewerModal";
 
 
 
-export default function ProductImage() {
+export default function ProductImage({product}) {
     
     // all variables
     const [navOne, setNavOne] = useState(null);
@@ -17,13 +17,11 @@ export default function ProductImage() {
     let sliderRefTwo = useRef(null);
 
     // product image variables
-    const [productImages , setProductImages] = useState([])
-    const product = useSelector(state => state.product.detailedProduct)
+    const [productImages , setProductImages] = useState([]) 
     const [isImageModal , setImageModal] = useState(false) 
     const [currentIndex , setCurrentIndex] = useState(0)
     
-    
-    console.log(navOne);
+     
 
   
     useEffect(() => {
@@ -38,11 +36,7 @@ export default function ProductImage() {
     }, [product.images])
     
     
-
     
-    
-
-
   return (
     <div className=" w-full relative">
 

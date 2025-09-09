@@ -23,8 +23,8 @@ import OTP from "./components/customeUI/otp/OTP.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { userSet } from "./redux/slices/userSlice.js";
-import getUserData from "./helpers/getUserData.js";
-import Toast from "./components/common/Toast.jsx";
+import getUserData from "./helpers/getUserData.js"; 
+import Notification from "./components/common/Notification.jsx";
 
 function App() {
 
@@ -47,7 +47,7 @@ function App() {
   
   return ( 
       <BrowserRouter>
-        {notify.isShow && <Toast message={notify.message} success={notify.success} />}
+        {notify.isShow && <Notification message={notify.message} success={notify.success} />}
         <Routes>
           {/* auth routes */}
           {user ? 

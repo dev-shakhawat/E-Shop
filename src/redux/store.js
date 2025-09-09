@@ -3,8 +3,7 @@ import userSlice from "./slices/userSlice.js";
 import languageSlice from "./slices/languageSlice.js";
 import viewmodeSlice from './slices/viewmodeSlice.js';
 import paginationSlice from './slices/paginationSlice.js';
-import productSlice from './slices/productSlice.js';
-import notificationSlice from './slices/notificationSlice.js';
+import productSlice from './slices/productSlice.js'; 
 import toastSlice from './slices/toastSlice.js';
 
 export const store = configureStore({
@@ -13,8 +12,7 @@ export const store = configureStore({
         language: languageSlice,
         viewmode: viewmodeSlice,
         pagination: paginationSlice,
-        product: productSlice,
-        notification: notificationSlice,
+        product: productSlice, 
         toast: toastSlice
     },
 })

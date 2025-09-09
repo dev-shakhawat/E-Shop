@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios';
 
 
 // icons
 import { FiEdit2 } from "react-icons/fi";
 import { CiTrash } from "react-icons/ci";
-import axios from 'axios';
+import { IoAddCircleOutline } from "react-icons/io5";
 
 // redux
 import { useDispatch } from 'react-redux'; 
-import notify from '../../../../redux/slices/notificationSlice';
+import notify from '../../../../redux/slices/toastSlice';
+import ProductVeriantAdd from '../addVarient/ProductVeriantAdd';
 
 
 export default function AddedProductCart({productInfo , fetchAllProduct}) {
 
     const dispatch = useDispatch();
+    const [isVariant , setIsVariant] = useState(false);
+ 
+    
     
     const handleDelete = ()=>{ 
         
@@ -29,9 +34,15 @@ export default function AddedProductCart({productInfo , fetchAllProduct}) {
           }, 1500);
         })
     }
+
+
     
   return (
     <div className='p-2 rounded-md flex items-center justify-between border border-tertary/50 duration-200      '>
+
+      {isVariant && <ProductVeriantAdd id={productInfo._id} isVariant={isVariant} setIsVariant={ setIsVariant } /> }
+
+
         
         {/* image */}
         <img src={productInfo.thumbnail} alt={productInfo.thumbnail} className='w-35 h-20 rounded-md  object-contain  '/>
@@ -51,9 +62,10 @@ export default function AddedProductCart({productInfo , fetchAllProduct}) {
 
         </div>
 
-        <div className="">
+        <div className="flex items-center gap-1">
+            <button onClick={()=>setIsVariant(true)} type="button" className=' cursor-pointer py-1 px-3 bg-tertary/50 hover:bg-brand duration-300 text-primary hover:text-white rounded-md       '   ><IoAddCircleOutline/></button>
             <button type="button" className=' cursor-pointer py-1 px-3 bg-tertary/50 hover:bg-brand duration-300 text-primary hover:text-white rounded-md       '   ><FiEdit2/></button>
-            <button onClick={handleDelete} type="button" className='ml-1 cursor-pointer py-1 px-3 bg-tertary/50 hover:bg-brand duration-300 text-primary hover:text-white rounded-md       '   ><CiTrash/></button>
+            <button onClick={handleDelete} type="button" className='  cursor-pointer py-1 px-3 bg-tertary/50 hover:bg-brand duration-300 text-primary hover:text-white rounded-md       '   ><CiTrash/></button>
         </div>
 
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Container from "../Container.jsx";
-import { Link } from "react-router";
+import { Link } from "react-router"; 
 
 // icons
 import { HiOutlineMenu } from "react-icons/hi";
@@ -74,6 +74,8 @@ function HeaderBottom() {
     setIsdropdown(!isdropdown);
   };
 
+  const categories = useSelector(state => state.product.categories)
+
   return (
     <div className={`bg-brand py-6  `}>
       <Container>
@@ -98,31 +100,21 @@ function HeaderBottom() {
               </Link> 
               {isallcata && (
                 <ul
-                  className={`absolute top-8 left-0 z-[1] bg-white w-[170px] rounded-md border border-tertary flex flex-col gap-1   `}
+                  className={`absolute top-8 left-0 z-[1] bg-white w-[250px] h-100 overflow-y-scroll rounded-md border border-tertary flex flex-col gap-1   `}
                 >
-                  <li
-                    className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
-                  >
-                    <Link to={`#`}>Laptop</Link>
-                  </li>
-                  <li
-                    className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
-                  >
-                    <Link to={`#`}>Mobile</Link>
-                  </li>
-                  <li
-                    className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
-                  >
-                    <Link to={`#`}>Headphone</Link>
-                  </li>
-                  <li
-                    className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
-                  >
-                    <Link to={`#`}>T-shirt</Link>
-                  </li>
+                  {categories.length > 0 && categories.map((item , index) => (
+                    <li
+                    key={item._id}
+                      className={`px-2 py-0.5 lg:py-1.5 text-primary font-normal font-montserrat text-[14px] lg:text-base hover:bg-tertary/50`}
+                    >
+                      <Link to={`#`}>{item.name}</Link>
+                    </li>
+                    
+                  ))} 
                 </ul>
               )}
             </li>
+
             {/* all catagory for product find mobile devise */}
 
 

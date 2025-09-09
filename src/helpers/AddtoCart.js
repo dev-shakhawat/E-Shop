@@ -1,60 +1,59 @@
+import axios from "axios";
 
-export const handelAddToCart = (product, dispatch) => {
-    let cart = [];
-  
-    if (localStorage.getItem('cart')) {
-      cart = JSON.parse(localStorage.getItem('cart'));
-  
-      const isAlreadyInCart = cart.some(item => item.id === product.id);
-  
-      if (isAlreadyInCart) {
-        dispatch({
-          type: 'notification/notify',
-          payload: {
-            success: false,
-            message: 'Product already added to cart',
-          },
-        });
-      } else {
-        cart.push({...product , totalPrice: product.price * product.minimumOrderQuantity , totalquantity: product.minimumOrderQuantity});
-        localStorage.setItem('cart', JSON.stringify(cart));
-        dispatch({
-          type: 'notification/notify',
-          payload: {
-            success: true,
-            message: 'Product added to cart successfully',
-          },
-        });
-        dispatch({
-          type: 'product/addToCart',
-          payload: cart,
-        });
-        setTimeout(() => {
-          dispatch({
-            type: 'product/checkoutPrice',
-          });
-        } , 100)
-      }
-    } else {
-      cart.push({...product , totalPrice: product.price * product.minimumOrderQuantity , totalquantity: product.minimumOrderQuantity});
-      localStorage.setItem('cart', JSON.stringify(cart));
+ 
+export const handelAddToCart = async (productID ,  dispatch ) => { 
+
+  try{
+
+    await axios.post(`${import.meta.env.VITE_BASE_URL}/cart/addtocart` , {productId: productID} , {withCredentials: true})
+    .then((res) => {
+
       dispatch({
         type: 'notification/notify',
         payload: {
-          success: true,
-          message: 'Product added to cart successfully',
+          isShow: true,
+          message: res.data.message,
+          success: res.data.success,
         },
       });
-      dispatch({
-        type: 'product/addToCart',
-        payload: cart,
-      });
+
       setTimeout(() => {
         dispatch({
-          type: 'product/checkoutPrice',
+          type: 'notification/notify',
+          payload: null,
         });
-      } , 100)
-    }
+      }, 1500);
+ 
+      
+    })
+    .catch((error) => { 
+      if(error.response.data){
+        dispatch({
+          type: 'notification/notify',
+          payload: {
+            isShow: true,
+            message: error.response.data.message,
+            success: error.response.data.success,
+          },
+        });
+
+        setTimeout(() => {
+          dispatch({
+            type: 'notification/notify',
+            payload: null,
+          });
+        }, 1500);
+      }
+      
+    })
+
+
+  }catch(error){
+    console.log(error); 
+  }
+  
+  
+ return
   
     setTimeout(() => {
       dispatch({
