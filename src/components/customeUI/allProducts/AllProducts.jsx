@@ -24,7 +24,7 @@ export default function AllProducts({urlSearchParams}) {
   const dispatch = useDispatch();
   const paginationCurrent = useSelector(state => state.pagination.productPagi.currentPage);
   const totalPage = useSelector(state => state.pagination.productPagi.totalPage);
-  const noti = useSelector(state => state.notification.value);
+  const noti = useSelector(state => state.toast);
   const navigate = useNavigate();
   const [totalData , setTotalData] = useState(0) 
 
@@ -86,7 +86,7 @@ export default function AllProducts({urlSearchParams}) {
     <div className='w-full'>
 
         {/* notification  */}
-        {noti &&  <Notification success={noti.success} message={noti.message}/>}
+        {noti.isShow &&  <Notification success={noti.success} message={noti.message}/>}
 
 
         <ProductsHead totalResults={totalData} />

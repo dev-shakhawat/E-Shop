@@ -28,7 +28,7 @@ export default function AllProduct() {
       
       {allProduct.length > 0  ?
        allProduct.map((item , index) => {
-         return <AddedProductCart key={index} productInfo={item} fetchAllProduct={fetchAllProduct}  />
+         return <AddedProductCart key={index}   productInfo={item} fetchAllProduct={fetchAllProduct}  />
        })
        :
        <div className=' h-[50vh] grid place-items-center    '>
@@ -41,3 +41,5 @@ export default function AllProduct() {
     </div>
   )
 }
+
+ 

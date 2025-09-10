@@ -9,7 +9,7 @@ export const handelAddToCart = async (productID ,  dispatch ) => {
     .then((res) => {
 
       dispatch({
-        type: 'notification/notify',
+        type: 'toast/notify',
         payload: {
           isShow: true,
           message: res.data.message,
@@ -19,8 +19,12 @@ export const handelAddToCart = async (productID ,  dispatch ) => {
 
       setTimeout(() => {
         dispatch({
-          type: 'notification/notify',
-          payload: null,
+          type: 'toast/notify',
+          payload: {
+            isShow: false,
+            message: "",
+            success: false,
+          },
         });
       }, 1500);
  
@@ -29,7 +33,7 @@ export const handelAddToCart = async (productID ,  dispatch ) => {
     .catch((error) => { 
       if(error.response.data){
         dispatch({
-          type: 'notification/notify',
+          type: 'toast/notify',
           payload: {
             isShow: true,
             message: error.response.data.message,
@@ -39,8 +43,12 @@ export const handelAddToCart = async (productID ,  dispatch ) => {
 
         setTimeout(() => {
           dispatch({
-            type: 'notification/notify',
-            payload: null,
+            type: 'toast/notify',
+            payload: {
+              isShow: false,
+              message: "",
+              success: false,
+            },
           });
         }, 1500);
       }
@@ -51,15 +59,6 @@ export const handelAddToCart = async (productID ,  dispatch ) => {
   }catch(error){
     console.log(error); 
   }
-  
-  
- return
-  
-    setTimeout(() => {
-      dispatch({
-        type: 'notification/notify',
-        payload: null,
-      });
-    }, 2000);
+   
   };
   

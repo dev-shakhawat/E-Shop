@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import {notify} from '../../../../redux/slices/toastSlice';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
-export default function ProductVeriantAdd({id  , setIsVariant}) {
+export default function ProductVeriantAdd({id  , setIsVariant , fetchAllProduct}) {
     
 
 
@@ -44,6 +44,7 @@ const handleUploadVariant = async () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
     .then((res) => { 
+        fetchAllProduct()
         setIsVariant(prev => !prev)
         setUploading(prev => !prev)
         setVariantInfo({productSize: '' , productQuantity: '' , productPriceWithoutDescount: '' , productDescount: '' , productColor: [] , images: []  })
@@ -61,7 +62,6 @@ const handleUploadVariant = async () => {
             dispatch(notify({isShow: false , message:  "" , success:  false}))
           }, 3500);
       }
-      
     })
 
 
