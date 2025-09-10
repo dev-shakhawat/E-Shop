@@ -12,7 +12,8 @@ import SearchIcon from "../../../assets/icons/SearchIcon.jsx";
 import { useTranslation } from "react-i18next";
 
 function HeaderMiddle() { 
-  const userInfo = useSelector((state) => state.user.value);
+ 
+  const user = useSelector(state => state.user.user)
   const { subtotalPrice } = useSelector((state) => state.product);
   const navigate = useNavigate();
   const [ismobile, setIsmobile] = useState(false);
@@ -122,7 +123,7 @@ function HeaderMiddle() {
               <h3 className=" font-montserrat flex gap-1 font-bold text-[12px] lg:text-base leading-[24px]  ">
                 ${" "}
                 <span>
-                  {subtotalPrice != null ? subtotalPrice.toFixed(2) : "0.0000"}
+                  {user  ? user.subTotal.toFixed(2) : "0.0000"}
                 </span>
               </h3>
             </div>
