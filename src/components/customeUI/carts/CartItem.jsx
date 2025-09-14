@@ -8,11 +8,13 @@ import axios from "axios";
 import getUserData from "../../../helpers/getUserData";
 import { userSet } from "../../../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 
 export default function CartItem({cart , getCarts}) { 
 
     const dispatch = useDispatch(); 
+    const navigate = useNavigate()
     
     
 
@@ -41,11 +43,11 @@ export default function CartItem({cart , getCarts}) {
             console.log(err);
         }
     }
-
+ 
  
     
   return (
-    <div className=' p-1 flex group border    border-tertary rounded-[10px] md:rounded-[15px] lg:rounded-[25px] relative overflow-hidden '>
+    <div onClick={()=> navigate(`/product-detail/${cart?.productID?._id}`)} className=' p-1 flex group border    border-tertary rounded-[10px] md:rounded-[15px] lg:rounded-[25px] relative overflow-hidden '>
 
         {/* cart delete/share */}
         <div className=" flex flex-col xl:gap-7 lg:gap-5 md:gap-3 gap-2 absolute top-1/2 -translate-y-[50%]  -right-30  group-hover:lg:right-3 

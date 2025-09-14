@@ -134,7 +134,7 @@
 .detlOption{
   @apply font-montserrat font-normal 2xl:text-xl lg:text-base md:text-sm text-xs  leading-[30px]
 }
-.thumbnailimage .slick-active.slick-current{
+.thumbnailimage .slick-active.slick-current{ 
   border: 1px solid #FF624C;
   overflow: hidden; 
   border-radius: 10px;
@@ -142,6 +142,11 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+
+.thumbnailimage .slick-slide.slick-active{
+  width: fit-content !important;
+  height: fit-content !important;
 }
 
 /* cart */

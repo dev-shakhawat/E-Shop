@@ -9,7 +9,7 @@ import ToggleMenu from '../../helpers/toggleMenu'
 
 
 
-export default function Selection({ items = [] , setValue , icon = false , className , modalPosition , seledtedTxtStyle  }) {
+export default function Selection({ items = [] , setValue , icon = false , className , modalPosition , seledtedTxtStyle }) {
 
     const toggleRef = useRef(null)
     const [isDropdown, setIsDropdown] = useState(false)
@@ -22,7 +22,7 @@ export default function Selection({ items = [] , setValue , icon = false , class
     }, [])
 
     useEffect(() => {
-        setValue(selectedItem)
+        setValue(selectedItem) 
     }, [selectedItem])
 
   return (

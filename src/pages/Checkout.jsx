@@ -8,26 +8,37 @@ function Checkout() {
     const [activetab , setActiveTab] = useState(1)
     const initialActiveTabRef = useRef(null);
     const [activetabPosition , setActiveTabPosition] = useState({width : 0 , left : 0})
+    const [productInfo , setProductInfo] = useState(null);
 
 
-    useEffect(() => { 
+    useEffect(() => {  
         if (initialActiveTabRef.current) {
             const width = initialActiveTabRef.current.getBoundingClientRect().width; 
             setActiveTabPosition({width: Math.floor(width) , left : Math.floor(initialActiveTabRef.current.offsetLeft)})
         }
     }, []);
+
+    // get buy now product information
+    useEffect(() => { 
+        setProductInfo(JSON.parse(localStorage.getItem('buyNow')))
+    }, [ ])
+ 
+    
     
 
     const handleTab = (e ,tab) => {
         setActiveTab(tab)
         setActiveTabPosition({width : Math.floor(e.target.getBoundingClientRect().width) , left : Math.floor(e.target.offsetLeft)});  
     }
+
+
+
     
 
     return (
         <div className='pb-20'>
             <Container>
-               <Breadcrumb/>
+               <Breadcrumb lastOne={'Checkout'} />
 
                {/* header */}
                <h2 className=" font-poppins font-bold text-[56px] leading-[68px] text-primary text-center    ">Checkout</h2>
@@ -43,8 +54,8 @@ function Checkout() {
                     {/* buttons */}
                     <div className="flex items-center   w-fit gap-20   relative pb-2  ">
                         <button ref={initialActiveTabRef} type="button" onClick={(e) => handleTab(e ,1)} className={`checkoutButtons ${activetab == 1 ? " text-primary   " : "text-tertary   "} `}>Information</button>
-                        <button type="button" onClick={(e) => handleTab(e ,2)} className={`checkoutButtons ${activetab == 2 ?  " text-primary    " : " text-tertary  "} `}>Shipping</button>
-                        <button type="button" onClick={(e) => handleTab(e ,3)} className={`checkoutButtons ${activetab == 3 ?  " text-primary    " : " text-tertary   "} `}>Payment</button>
+                        <button type="button" onClick={(e) => handleTab(e ,2)} className={`checkoutButtons ${activetab == 2 ?  " text-primary    " : " text-tertary  "} `}>Payment</button>
+                        <button type="button" onClick={(e) => handleTab(e ,3)} className={`checkoutButtons ${activetab == 3 ?  " text-primary    " : " text-tertary   "} `}>Shipping</button>
                         
                         {/* underline */}
                         <span style={ {width : `${activetabPosition.width}px` , left : `${activetabPosition.left}px`}} className='py-0.5 bg-brand absolute bottom-0 left-0 duration-300  '></span>
@@ -54,9 +65,9 @@ function Checkout() {
 
 
                   {/* tabs */}
-                  {activetab == 1 && <Information/>}
-                  {activetab == 2 && <div>Shipping</div>}
-                  {activetab == 3 && <div>Payment</div>}
+                  {activetab == 1 && <Information productInfo={productInfo} setActiveTab={setActiveTab}/>}
+                  {activetab == 2 && <div>Payment</div>}
+                  {activetab == 3 && <div>Shipping</div>}
                </div>
 
 

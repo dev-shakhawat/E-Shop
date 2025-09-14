@@ -2,13 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useSelector } from "react-redux";
 import Resizer from "../../../assets/icons/Resizer";
 import ProductImageViewerModal from "./ProductImageViewerModal";
 
 
 
-export default function ProductImage({product}) {
+export default function ProductImage({variant}) {
     
     // all variables
     const [navOne, setNavOne] = useState(null);
@@ -20,8 +19,6 @@ export default function ProductImage({product}) {
     const [productImages , setProductImages] = useState([]) 
     const [isImageModal , setImageModal] = useState(false) 
     const [currentIndex , setCurrentIndex] = useState(0)
-    
-     
 
   
     useEffect(() => {
@@ -30,15 +27,15 @@ export default function ProductImage({product}) {
     }, []);
 
     useEffect(() => {
-        if(product && product.images && product.images.length > 0){
-            setProductImages(Array(3).fill(product.images[0]));
+        if(variant && variant.images.length > 0){
+            setProductImages(variant.images);
         }
-    }, [product.images])
+    }, [variant])
     
     
     
   return (
-    <div className=" w-full relative">
+    <div className="2xl:w-[833px] xl:w-[600px]  ">
 
       {/* image resizer */}
       <Resizer onClick={() => setImageModal(true)}  className="absolute top-5 right-5 z-1 cursor-ew-resize hidden lg:inline-block " /> 
@@ -46,20 +43,20 @@ export default function ProductImage({product}) {
 
       
       {/* slider one / main */}
-      <Slider   afterChange={(newIndex) => { setCurrentIndex(newIndex) }} asNavFor={navTwo} ref={slider => (sliderRefOne = slider)}>
+      <Slider   afterChange={(newIndex) => { setCurrentIndex(newIndex) }} asNavFor={navTwo} ref={slider => (sliderRefOne = slider)} infinite={false}>
         {productImages.length > 0 && productImages.map((image , index) => (
-          <div key={index} className="w-full lg:min-w-[833px] h-[514px] rounded-[25px] outline-0  ">
+          <div key={index} className=" ">
               <img src={image} alt="" className="w-full h-full object-cover rounded-[25px] "/>
           </div>
         ))}
       </Slider>
 
       {/* slider two / thumbnail */}
-      <div style={{width: `${(productImages.length * 94) + (productImages.length - 1 * 24) }px`}} className="mt-8 thumbnailimage ">
-        <Slider asNavFor={navOne} ref={slider => (sliderRefTwo = slider)} slidesToShow={3} swipeToSlide={true} focusOnSelect={true} >
+      <div  className="mt-8 thumbnailimage ">
+        <Slider asNavFor={navOne} ref={slider => (sliderRefTwo = slider)} slidesToShow={3} swipeToSlide={true} focusOnSelect={true} infinite={false} >
           {productImages.length > 0 && productImages.map((image , index) => (
-            <div   key={index} className="lg:max-w-[94px] lg:max-h-[82px] mx-3 cursor-pointer   ">
-                <img src={image} alt="" className="w-full h-full object-cover "/>
+            <div   key={index} className="lg:max-w-[94px] lg:max-h-[82px] p-1   cursor-pointer   ">
+                <img src={image} alt="" className="w-full h-full object-cover rounded-md overflow-hidden "/>
             </div>
           ))}
         </Slider>

@@ -36,8 +36,7 @@ function Cart() {
 
     },[])
 
-    console.log(allcarts);
-    
+ 
     
     return (
         <div>

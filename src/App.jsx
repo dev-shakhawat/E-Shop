@@ -25,6 +25,9 @@ import { useEffect } from "react";
 import { userSet } from "./redux/slices/userSlice.js";
 import getUserData from "./helpers/getUserData.js"; 
 import Notification from "./components/common/Notification.jsx";
+import PaymentSuccess from "./components/customeUI/checkout/success/PaymentSuccess.jsx";
+import PaymentFail from "./components/customeUI/checkout/fail/PaymentFail.jsx";
+import PaymentCancel from "./components/customeUI/checkout/cancel/PaymentCancel.jsx";
 
 function App() {
 
@@ -66,6 +69,9 @@ function App() {
 
            {/* otp */}
            <Route path="authorize/:id" element={<OTP />} />
+           <Route path="payment/success" element={<PaymentSuccess />} />
+           <Route path="payment/fail" element={<PaymentFail />} />
+           <Route path="payment/cancel" element={<PaymentCancel />} />
 
           {/* Product */}
           <Route path={"/"} element={<Layout />}>
