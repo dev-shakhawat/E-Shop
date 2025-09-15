@@ -69,9 +69,9 @@ function App() {
 
            {/* otp */}
            <Route path="authorize/:id" element={<OTP />} />
-           <Route path="payment/success" element={<PaymentSuccess />} />
-           <Route path="payment/fail" element={<PaymentFail />} />
-           <Route path="payment/cancel" element={<PaymentCancel />} />
+           <Route path="payment/success/:id" element={<PaymentSuccess />} />
+           <Route path="payment/fail/:id" element={<PaymentFail />} />
+           <Route path="payment/cancel/:id" element={<PaymentCancel />} />
 
           {/* Product */}
           <Route path={"/"} element={<Layout />}>

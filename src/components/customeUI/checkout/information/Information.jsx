@@ -61,7 +61,7 @@ export default function Information({productInfo , setActiveTab}) {
 
       // api call
       const res = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/shipping/addshipping`,
+        `${import.meta.env.VITE_BASE_URL}/payment/addPayment`,
         { billingAddress , variantInfo } ,{ withCredentials: true}
       );
 
@@ -69,18 +69,6 @@ export default function Information({productInfo , setActiveTab}) {
         window.location.replace(res?.data?.url)
         
         
-
-        // reset form
-        // setBillingAddress({
-        //   firstName: "",
-        //   lastName: "",
-        //   phone: "",
-        //   email: "",
-        //   address: "",
-        //   city: "",
-        //   zipcode: "",
-        //   note: "",
-        // }); 
       }
     } catch (error) {
       console.error("Order error:", error);
