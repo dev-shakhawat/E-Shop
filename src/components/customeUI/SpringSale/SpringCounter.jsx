@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'; 
 import {calculateTimeLeft} from "../../../helpers/calculateTime.js";
+import { Link } from 'react-router';
 
 function SpringCounter() {
 
@@ -60,7 +61,7 @@ function SpringCounter() {
 
 
             {/*  button  */}
-            <button type="button" className='commonButton mt-18   ' >Shop Now</button>
+            <Link to="/allproduct" className='commonButton mt-18 inline-block   ' >Shop Now</Link>
         </div>
     );
 }

@@ -32,7 +32,7 @@ function Facility() {
     },
   ];
   return (
-    <div>
+    <div className="pb-15">
       <Container>
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-y-6 gap-x-[50px]  ">
           {facilities.map((facility, index) => (

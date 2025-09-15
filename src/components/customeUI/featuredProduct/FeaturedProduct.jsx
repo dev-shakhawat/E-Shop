@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 import SlickNextArrow from "../../../assets/icons/SlickNextArrow.jsx";
 import SlickPrevArrow from "../../../assets/icons/SlickPrevArrow.jsx";
 import ViewAll from "../../common/ViewAll.jsx";
+import { Link, useNavigate } from 'react-router'; 
+ 
 
 // next arrow
 function NextArrow({ onClick }) {
@@ -58,6 +60,11 @@ function FeaturedProduct({ data }) {
       },
     ],
   };
+    
+  const navigate = useNavigate()
+  const handelNavigateToProductDetails = (product) => { 
+    navigate(`/product-detail/${product}`)
+  }
  
   return (
     <div className={`py-10 md:py-15  lg:py-20 `}>
@@ -73,6 +80,7 @@ function FeaturedProduct({ data }) {
           <Slider {...sliderSettings}>
             { data.length > 0 && data.map((item, index) => { 
               return <ProductCart
+                onClick={() => handelNavigateToProductDetails(item._id)}
                 catagory={item.category}
                 title={item.title}
                 currentprice={item.price.currentPrice}
